@@ -1,0 +1,121 @@
+---
+interface Props {
+  id: string;
+  mp4: string;
+  webm?: string;
+  poster: string;
+  ariaLabel: string;
+  vtt?: string; // subtítulos opcionales (.vtt)
+  ancho?: number;
+  alto?: number;
+}
+
+const { id, mp4, webm, poster, ariaLabel, vtt, ancho = 720, alto = 1280 } = Astro.props;
+---
+
+<div class="absolute inset-0" data-video-bloque>
+  {/* Las fuentes se asignan solo al entrar en vista (data-mp4 / data-webm) */}
+  <video
+    data-video={id}
+    data-mp4={mp4}
+    data-webm={webm}
+    muted
+    loop
+    playsinline
+    preload="none"
+    poster={poster}
+    width={ancho}
+    height={alto}
+    aria-label={ariaLabel}
+    class="absolute inset-0 w-full h-full object-cover"
+  >
+    {vtt && <track kind="captions" src={vtt} srclang="es" label="Español" default />}
+  </video>
+
+  <button
+    type="button"
+    data-video-toggle
+    data-estado="pausado"
+    aria-label="Reproducir video"
+    class="video-toggle absolute z-10 right-3 bottom-3 w-11 h-11 rounded-full bg-[var(--color-acero)]/85 border border-gray-500 text-white flex items-center justify-center cursor-pointer focus-visible:outline-2 focus-visible:outline-[var(--color-naranja)]"
+  >
+    <svg class="icono-play w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true"><polygon points="7 4 20 12 7 20"></polygon></svg>
+    <svg class="icono-pausa w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+  </button>
+</div>
+
+<style>
+  .video-toggle .icono-pausa {
+    display: none;
+  }
+  .video-toggle[data-estado='reproduciendo'] .icono-play {
+    display: none;
+  }
+  .video-toggle[data-estado='reproduciendo'] .icono-pausa {
+    display: block;
+  }
+  /* Con movimiento reducido no hay autoplay: el botón de reproducir es grande y central */
+  @media (prefers-reduced-motion: reduce) {
+    .video-toggle[data-estado='pausado'] {
+      right: 50%;
+      bottom: 50%;
+      transform: translate(50%, 50%);
+      width: 4.5rem;
+      height: 4.5rem;
+    }
+  }
+</style>
+
+<script>
+  import { registrarVideoPlay } from '../../lib/tracking';
+
+  const reducirMovimiento = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let activo: HTMLVideoElement | null = null;
+
+  const cargar = (v: HTMLVideoElement) => {
+    if (v.dataset.cargado) return;
+    v.dataset.cargado = '1';
+    for (const [tipo, clave] of [['video/webm', 'webm'], ['video/mp4', 'mp4']] as const) {
+      const src = v.dataset[clave];
+      if (src) v.insertAdjacentHTML('afterbegin', `<source src="${src}" type="${tipo}">`);
+    }
+    v.load();
+  };
+
+  const reproducir = (v: HTMLVideoElement) => {
+    if (activo && activo !== v) activo.pause(); // nunca dos videos a la vez
+    cargar(v);
+    activo = v;
+    v.play().then(() => registrarVideoPlay(v.dataset.video!)).catch(() => {});
+  };
+
+  document.querySelectorAll<HTMLElement>('[data-video-bloque]').forEach((bloque) => {
+    const v = bloque.querySelector('video')!;
+    const boton = bloque.querySelector<HTMLButtonElement>('[data-video-toggle]')!;
+    const estado = (reproduciendo: boolean) => {
+      boton.dataset.estado = reproduciendo ? 'reproduciendo' : 'pausado';
+      boton.setAttribute('aria-label', reproduciendo ? 'Pausar video' : 'Reproducir video');
+    };
+    v.addEventListener('play', () => estado(true));
+    v.addEventListener('pause', () => estado(false));
+
+    boton.addEventListener('click', () => {
+      if (v.paused) {
+        delete v.dataset.pausaManual;
+        reproducir(v);
+      } else {
+        v.dataset.pausaManual = '1';
+        v.pause();
+      }
+    });
+
+    if (reducirMovimiento) return;
+    new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting && !v.dataset.pausaManual) reproducir(v);
+        else if (!e.isIntersecting) v.pause();
+      },
+      { threshold: 0.5 }
+    ).observe(bloque);
+  });
+</script>

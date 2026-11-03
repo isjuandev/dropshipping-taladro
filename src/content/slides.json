@@ -2,10 +2,11 @@
   {
     "id": "hero",
     "orden": 10,
-    "tipo": "imagen",
+    "tipo": "video",
     "variante": "hero",
-    "imagen": "slide-hero.webp",
-    "alt": "Manos con guantes y gafas de seguridad guiando un taladro con el cortador de lámina sobre una lámina de zinc sujeta al banco, con la tira de metal enrollándose a un lado",
+    "mp4": "/videos/hero.mp4",
+    "poster": "/videos/hero-poster.webp",
+    "ariaLabel": "Video: manos con guantes guiando un taladro con la Cortadora de Lámina mientras corta lámina metálica",
     "titular": "TU TALADRO AHORA CORTA LÁMINA",
     "posicionTexto": "arriba",
     "cta": {
@@ -51,6 +52,7 @@
       "Corte por cizalla"
     ],
     "posicionTexto": "arriba",
+    "garantia": false,
     "cta": {
       "texto": "Pedir con envío gratis",
       "origen": "beneficios"
@@ -93,6 +95,7 @@
     "alt": "Arriba, una lámina metálica plana sin cortar sobre un banco; abajo, las piezas terminadas con ella: un tramo de canal, una caja pequeña y una figura curva, junto al taladro con el cortador",
     "titular": "DE LÁMINA A PIEZA",
     "posicionTexto": "arriba",
+    "garantia": false,
     "cta": {
       "texto": "Lo quiero para mi taller",
       "origen": "transformacion"
@@ -115,6 +118,12 @@
     "orden": 110,
     "tipo": "bloque",
     "bloque": "seguridad"
+  },
+  {
+    "id": "resenas",
+    "orden": 35,
+    "tipo": "bloque",
+    "bloque": "resenas"
   },
   {
     "id": "clientes",

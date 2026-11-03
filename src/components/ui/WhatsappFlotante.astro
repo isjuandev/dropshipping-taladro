@@ -1,0 +1,35 @@
+---
+import { configTienda, generarEnlaceWhatsApp } from '../../config/tienda';
+
+const enlace = generarEnlaceWhatsApp({
+  mensajePersonalizado: `Hola ${configTienda.nombreTienda}, tengo una duda sobre la Cortadora de Lámina antes de pedir:`,
+});
+---
+
+<a
+  id="whatsapp-flotante"
+  href={enlace}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Escríbenos por WhatsApp"
+  class="fixed z-30 right-4 bottom-24 md:bottom-6 w-12 h-12 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white shadow-xl flex items-center justify-center transition-opacity opacity-0 pointer-events-none"
+>
+  <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"></path>
+  </svg>
+</a>
+
+<script>
+  // Se oculta mientras el hero o el formulario están en pantalla para no tapar los precios ni los campos
+  const boton = document.getElementById('whatsapp-flotante');
+  const zonas = ['hero', 'pedido'].flatMap((id) => document.getElementById(id) ?? []);
+  if (boton) {
+    const enPantalla = new Set<Element>();
+    const observador = new IntersectionObserver((entradas) => {
+      entradas.forEach((e) => (e.isIntersecting ? enPantalla.add(e.target) : enPantalla.delete(e.target)));
+      boton.classList.toggle('opacity-0', enPantalla.size > 0);
+      boton.classList.toggle('pointer-events-none', enPantalla.size > 0);
+    });
+    zonas.forEach((zona) => observador.observe(zona));
+  }
+</script>

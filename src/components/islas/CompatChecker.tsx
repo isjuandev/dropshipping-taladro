@@ -6,14 +6,7 @@ export default function CompatChecker() {
   const [mandrilCompatible, setMandrilCompatible] = useState<string | null>(null);
   const [grosorCompatible, setGrosorCompatible] = useState<string | null>(null);
 
-  const defaults = configTienda.producto.compatCheckerDefaults;
-  const grosorTexto = configTienda.producto.especificaciones.grosorMaximo !== 'POR CONFIRMAR'
-    ? configTienda.producto.especificaciones.grosorMaximo
-    : `menos de ${defaults.grosorMaxMm} mm (lámina delgada)`;
-
-  const mandrilTexto = configTienda.producto.especificaciones.compatibilidad !== 'POR CONFIRMAR'
-    ? configTienda.producto.especificaciones.compatibilidad
-    : `mandril estándar de ${defaults.mandrilMinMm} a ${defaults.mandrilMaxMm} mm`;
+  const { taladro: taladroTexto, grosor: grosorTexto } = configTienda.producto.compatChecker;
 
   const respondidoTodo = mandrilCompatible !== null && grosorCompatible !== null;
   const esCompatible = mandrilCompatible === 'si' && grosorCompatible === 'si';
@@ -44,12 +37,12 @@ export default function CompatChecker() {
         {/* Pregunta 1 */}
         <div class="space-y-2">
           <label class="block text-sm font-semibold text-gray-200">
-            1. ¿Tu taladro tiene {mandrilTexto}?
+            1. ¿Tu taladro es {taladroTexto}?
           </label>
           <div class="grid grid-cols-3 gap-2">
             {[
-              { id: 'si', label: 'Sí, tiene' },
-              { id: 'no', label: 'No tiene' },
+              { id: 'si', label: 'Sí, lo es' },
+              { id: 'no', label: 'No, es otro' },
               { id: 'duda', label: 'No estoy seguro' },
             ].map((opt) => (
               <button
@@ -71,7 +64,7 @@ export default function CompatChecker() {
         {/* Pregunta 2 */}
         <div class="space-y-2">
           <label class="block text-sm font-semibold text-gray-200">
-            2. ¿La lámina que vas a cortar mide {grosorTexto}?
+            2. ¿La lámina que vas a cortar es plana y mide {grosorTexto}?
           </label>
           <div class="grid grid-cols-3 gap-2">
             {[

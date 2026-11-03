@@ -1,5 +1,6 @@
 ---
 import BotonCta from './BotonCta.astro';
+import VideoAuto from './VideoAuto.astro';
 
 interface Props {
   id: string;
@@ -30,24 +31,8 @@ const videoJsonLd = videoObject && {
 
 <section id={id} class="bg-[var(--color-acero)] text-white">
   <div class="mx-auto w-full max-w-[560px]">
-    <div class="relative w-full aspect-[9/16] overflow-hidden bg-black" data-video-bloque>
-      {/* Las fuentes se asignan solo al entrar en vista (data-mp4 / data-webm) */}
-      <video
-        data-video={id}
-        data-mp4={mp4}
-        data-webm={webm}
-        muted
-        loop
-        playsinline
-        preload="none"
-        poster={poster}
-        width="720"
-        height="1280"
-        aria-label={ariaLabel}
-        class="absolute inset-0 w-full h-full object-cover"
-      >
-        {vtt && <track kind="captions" src={vtt} srclang="es" label="Español" default />}
-      </video>
+    <div class="relative w-full aspect-[9/16] overflow-hidden bg-black">
+      <VideoAuto id={id} mp4={mp4} webm={webm} poster={poster} ariaLabel={ariaLabel} vtt={vtt} />
 
       <div
         class="absolute inset-x-0 top-0 h-[40%] pointer-events-none"
@@ -58,17 +43,6 @@ const videoJsonLd = videoObject && {
       <h2 class="absolute inset-x-0 top-6 px-5 font-['Barlow_Condensed'] font-extrabold uppercase text-[44px] leading-[0.95] sm:text-[48px] tracking-tight text-white">
         {titular}
       </h2>
-
-      <button
-        type="button"
-        data-video-toggle
-        data-estado="pausado"
-        aria-label="Reproducir video"
-        class="video-toggle absolute right-3 bottom-3 w-11 h-11 rounded-full bg-[var(--color-acero)]/85 border border-gray-500 text-white flex items-center justify-center cursor-pointer focus-visible:outline-2 focus-visible:outline-[var(--color-naranja)]"
-      >
-        <svg class="icono-play w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true"><polygon points="7 4 20 12 7 20"></polygon></svg>
-        <svg class="icono-pausa w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
-      </button>
     </div>
   </div>
 
@@ -76,79 +50,3 @@ const videoJsonLd = videoObject && {
 
   {videoJsonLd && <script type="application/ld+json" set:html={JSON.stringify(videoJsonLd)} />}
 </section>
-
-<style>
-  .video-toggle .icono-pausa {
-    display: none;
-  }
-  .video-toggle[data-estado='reproduciendo'] .icono-play {
-    display: none;
-  }
-  .video-toggle[data-estado='reproduciendo'] .icono-pausa {
-    display: block;
-  }
-  /* Con movimiento reducido no hay autoplay: el botón de reproducir es grande y central */
-  @media (prefers-reduced-motion: reduce) {
-    .video-toggle[data-estado='pausado'] {
-      right: 50%;
-      bottom: 50%;
-      transform: translate(50%, 50%);
-      width: 4.5rem;
-      height: 4.5rem;
-    }
-  }
-</style>
-
-<script>
-  import { registrarVideoPlay } from '../../lib/tracking';
-
-  const reducirMovimiento = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let activo: HTMLVideoElement | null = null;
-
-  const cargar = (v: HTMLVideoElement) => {
-    if (v.dataset.cargado) return;
-    v.dataset.cargado = '1';
-    for (const [tipo, clave] of [['video/webm', 'webm'], ['video/mp4', 'mp4']] as const) {
-      const src = v.dataset[clave];
-      if (src) v.insertAdjacentHTML('afterbegin', `<source src="${src}" type="${tipo}">`);
-    }
-    v.load();
-  };
-
-  const reproducir = (v: HTMLVideoElement) => {
-    if (activo && activo !== v) activo.pause(); // nunca dos videos a la vez
-    cargar(v);
-    activo = v;
-    v.play().then(() => registrarVideoPlay(v.dataset.video!)).catch(() => {});
-  };
-
-  document.querySelectorAll<HTMLElement>('[data-video-bloque]').forEach((bloque) => {
-    const v = bloque.querySelector('video')!;
-    const boton = bloque.querySelector<HTMLButtonElement>('[data-video-toggle]')!;
-    const estado = (reproduciendo: boolean) => {
-      boton.dataset.estado = reproduciendo ? 'reproduciendo' : 'pausado';
-      boton.setAttribute('aria-label', reproduciendo ? 'Pausar video' : 'Reproducir video');
-    };
-    v.addEventListener('play', () => estado(true));
-    v.addEventListener('pause', () => estado(false));
-
-    boton.addEventListener('click', () => {
-      if (v.paused) {
-        delete v.dataset.pausaManual;
-        reproducir(v);
-      } else {
-        v.dataset.pausaManual = '1';
-        v.pause();
-      }
-    });
-
-    if (reducirMovimiento) return;
-    new IntersectionObserver(
-      ([e]) => {
-        if (e.isIntersecting && !v.dataset.pausaManual) reproducir(v);
-        else if (!e.isIntersecting) v.pause();
-      },
-      { threshold: 0.5 }
-    ).observe(bloque);
-  });
-</script>

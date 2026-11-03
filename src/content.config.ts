@@ -7,10 +7,19 @@ const testimonios = defineCollection({
     id: z.string(),
     nombre: z.string(),
     ciudad: z.string(),
-    oficio: z.string(),
+    oficio: z.string().optional(),
     texto: z.string(),
     estrellas: z.number().min(1).max(5),
-    foto: z.string().optional(),
+    // Foto o video real que el cliente envió con su reseña.
+    // Los archivos viven en /public/clientes y se sirven tal cual (sin optimizar).
+    media: z
+      .object({
+        tipo: z.enum(['foto', 'video']),
+        src: z.string(), // /clientes/foto-xxxx.webp o /clientes/video-xxxx.mp4
+        poster: z.string().optional(), // obligatorio cuando tipo = video
+        alt: z.string(),
+      })
+      .optional(),
     verificado: z.boolean().default(true),
   }),
 });
@@ -40,10 +49,11 @@ const slides = defineCollection({
       requiere: z.enum(['temporadaRegalo', 'ugc']).optional(),
       // tipo 'bloque': sección con diseño propio
       bloque: z
-        .enum(['marquee', 'comoFunciona', 'usos', 'incluye', 'comparativa', 'seguridad', 'ugc', 'packs'])
+        .enum(['marquee', 'comoFunciona', 'usos', 'incluye', 'comparativa', 'seguridad', 'resenas', 'ugc', 'packs'])
         .optional(),
-      // tipo 'imagen'
+      // 'hero' es un video; 'normal' y 'oferta' son imágenes
       variante: z.enum(['normal', 'hero', 'oferta']).default('normal'),
+      // tipo 'imagen'
       imagen: z.string().optional(), // archivo dentro de src/assets/img
       alt: z.string().optional(),
       posicionTexto: z.enum(['arriba', 'abajo']).default('arriba'),
@@ -61,6 +71,7 @@ const slides = defineCollection({
       titular: z.string().optional(),
       subtitulo: z.string().optional(),
       cta: cta.optional(),
+      garantia: z.literal(false).optional(), // oculta la línea bajo el CTA
     })
     .superRefine((d, ctx) => {
       const falta = (campo: string) => ctx.addIssue({ code: 'custom', message: `slides/${d.id}: falta ${campo}` });

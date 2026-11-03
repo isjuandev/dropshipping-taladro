@@ -1,0 +1,32 @@
+---
+import GaleriaClientes from '../islas/GaleriaClientes';
+import type { MedioCliente } from '../../lib/clientes';
+
+interface Props {
+  medios: MedioCliente[];
+}
+
+const { medios } = Astro.props;
+const fotos = medios.filter((m) => m.tipo === 'foto').length;
+const videos = medios.filter((m) => m.tipo === 'video').length;
+---
+
+<section id="clientes" class="bg-[var(--color-acero)] text-white px-4 py-8 border-t border-gray-800">
+  {/* check:texto no cuenta la galería de clientes en el presupuesto de palabras */}
+  <template data-texto="ignorar-inicio"></template>
+  <div class="mx-auto w-full max-w-[560px] md:max-w-3xl">
+    <p class="m-0 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--color-naranja)]">
+      Prueba real · {fotos} fotos y {videos} videos
+    </p>
+    <h2 class="mt-1 mb-1 font-['Barlow_Condensed'] font-extrabold uppercase text-[32px] leading-[1] text-white">
+      Fotos y videos reales
+    </h2>
+    <p class="m-0 text-[15px] leading-relaxed text-gray-300">
+      Lo que mandaron los clientes con su reseña: el paquete en la puerta, el kit desempacado y el
+      taladro cortando lámina. Tal cual salió del celular, sin retoques ni montajes.
+    </p>
+
+    <GaleriaClientes client:visible medios={medios} />
+  </div>
+  <template data-texto="ignorar-fin"></template>
+</section>

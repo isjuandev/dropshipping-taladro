@@ -12,6 +12,7 @@ interface Props {
   description?: string;
   ogImage?: string;
   noindex?: boolean;
+  preloadImagen?: string; // imagen LCP que no está en el HTML como <img> (póster del hero)
 }
 
 const {
@@ -19,6 +20,7 @@ const {
   description = 'Convierte tu taladro en cortadora de lámina de zinc, aluminio y hojalata con acople hexagonal y varilla de apoyo. Pago contraentrega y envío gratis a toda Colombia.',
   ogImage = '/og-image.jpg',
   noindex = false,
+  preloadImagen,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://viraly.shop');
@@ -74,7 +76,8 @@ const orgJsonLd = {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    
+    {preloadImagen && <link rel="preload" as="image" href={preloadImagen} fetchpriority="high" />}
+
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />

@@ -10,22 +10,30 @@ import QuePuedesHacer from '../components/secciones/QuePuedesHacer.astro';
 import Comparativa from '../components/secciones/Comparativa.astro';
 import Seguridad from '../components/secciones/Seguridad.astro';
 import Packs from '../components/secciones/Packs.astro';
+import Resenas from '../components/secciones/Resenas.astro';
+import Clientes from '../components/secciones/Clientes.astro';
 import Pedido from '../components/secciones/Pedido.astro';
 import Faq from '../components/secciones/Faq.astro';
 import Footer from '../components/secciones/Footer.astro';
 import ImageSlide from '../components/ui/ImageSlide.astro';
 import VideoBlock from '../components/ui/VideoBlock.astro';
 import Marquee from '../components/ui/Marquee.astro';
-import UgcCarousel from '../components/islas/UgcCarousel';
+import WhatsappFlotante from '../components/ui/WhatsappFlotante.astro';
 import StickyBar from '../components/islas/StickyBar';
 import { configTienda, formatCOP } from '../config/tienda';
 import { imagenPorArchivo } from '../lib/imagenes';
+import { mediosDeTestimonios } from '../lib/clientes';
 import heroProducto from '../assets/img/hero-producto.webp';
+
+// Fotos y videos reales que los clientes enviaron con su reseña
+const mediosClientes = mediosDeTestimonios(
+  (await getCollection('testimonios')).map((t) => t.data)
+);
 
 // Orden y encendido de los bloques: src/content/slides.json
 const condiciones: Record<string, boolean> = {
   temporadaRegalo: configTienda.temporadaRegalo.activo,
-  ugc: configTienda.ugc.length > 0,
+  ugc: mediosClientes.length > 0,
 };
 const bloques = (await getCollection('slides'))
   .map((b) => b.data)
@@ -33,9 +41,10 @@ const bloques = (await getCollection('slides'))
   .sort((a, b) => a.orden - b.orden);
 
 const producto = configTienda.producto;
+const posterHero = bloques.find((b) => b.variante === 'hero')?.poster;
 ---
 
-<Base ogImage={heroProducto.src}>
+<Base ogImage={heroProducto.src} preloadImagen={posterHero}>
   {/* Barra de anuncio y header mínimo */}
   <BarraAnuncio />
   <Header />
@@ -43,6 +52,9 @@ const producto = configTienda.producto;
   <main class="flex-1">
     {bloques.map((b) => {
       if (b.tipo === 'video') {
+        if (b.variante === 'hero') {
+          return <Hero mp4={b.mp4!} poster={b.poster!} ariaLabel={b.ariaLabel ?? b.titular!} titular={b.titular!} />;
+        }
         return (
           <VideoBlock
             id={b.id}
@@ -60,9 +72,6 @@ const producto = configTienda.producto;
 
       if (b.tipo === 'imagen') {
         const imagen = imagenPorArchivo(b.imagen!);
-        if (b.variante === 'hero') {
-          return <Hero imagen={imagen} alt={b.alt!} titular={b.titular!} />;
-        }
         if (b.variante === 'oferta') {
           return (
             <ImageSlide
@@ -76,10 +85,10 @@ const producto = configTienda.producto;
               garantia={false}
             >
               <div slot="superpuesto" class="absolute inset-x-0 top-6 px-5 text-white">
-                <div class="font-['JetBrains_Mono'] font-extrabold text-[52px] leading-none nums-tabular">
+                <div class="font-mono font-extrabold text-[52px] leading-none nums-tabular">
                   {formatCOP(producto.precio)}
                 </div>
-                <div class="mt-1 text-xl text-gray-200 line-through font-['JetBrains_Mono'] nums-tabular">
+                <div class="mt-1 text-xl text-gray-200 line-through font-mono nums-tabular">
                   {formatCOP(producto.precioAnterior)}
                 </div>
                 <p class="mt-2 text-lg font-bold uppercase tracking-wide font-['Barlow_Condensed']">
@@ -100,6 +109,7 @@ const producto = configTienda.producto;
             posicionTexto={b.posicionTexto}
             textoEnImagen={b.textoEnImagen}
             cta={b.cta}
+            garantia={b.garantia}
           />
         );
       }
@@ -117,8 +127,10 @@ const producto = configTienda.producto;
           return <Comparativa />;
         case 'seguridad':
           return <Seguridad />;
+        case 'resenas':
+          return <Resenas />;
         case 'ugc':
-          return <UgcCarousel client:visible items={configTienda.ugc} />;
+          return <Clientes medios={mediosClientes} />;
         case 'packs':
           return <Packs />;
         default:
@@ -135,4 +147,5 @@ const producto = configTienda.producto;
 
   {/* Barra fija inferior en móvil */}
   <StickyBar client:idle thumbnailUrl={heroProducto.src} />
+  <WhatsappFlotante />
 </Base>

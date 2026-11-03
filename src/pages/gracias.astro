@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import BarraAnuncio from '../components/secciones/BarraAnuncio.astro';
 import Header from '../components/secciones/Header.astro';
 import Footer from '../components/secciones/Footer.astro';
-import { configTienda } from '../config/tienda';
+import { configTienda, generarEnlaceWhatsApp } from '../config/tienda';
 ---
 
 <Base
@@ -44,7 +44,7 @@ import { configTienda } from '../config/tienda';
           <div class="text-xs text-gray-400 uppercase font-semibold">
             Número de pedido:
           </div>
-          <div id="codigo-pedido" class="text-lg md:text-xl font-bold text-[var(--color-chispa)] font-['JetBrains_Mono'] tracking-wide">
+          <div id="codigo-pedido" class="text-lg md:text-xl font-bold text-[var(--color-chispa)] font-mono tracking-wide">
             Cargando...
           </div>
           <button
@@ -73,7 +73,7 @@ import { configTienda } from '../config/tienda';
           </div>
           <div class="flex justify-between items-center py-1">
             <span class="text-gray-400">Total a pagar al recibir:</span>
-            <span id="resumen-total" class="font-bold text-lg text-white font-['JetBrains_Mono'] nums-tabular">
+            <span id="resumen-total" class="font-bold text-lg text-white font-mono nums-tabular">
               $0 COP
             </span>
           </div>
@@ -156,6 +156,16 @@ import { configTienda } from '../config/tienda';
           </div>
         </div>
 
+        <a
+          id="btn-confirmar-whatsapp"
+          href={generarEnlaceWhatsApp()}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center justify-center w-full h-12 rounded-[10px] bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-lg uppercase font-['Barlow_Condensed'] tracking-wider no-underline transition-colors"
+        >
+          Confirmar por WhatsApp
+        </a>
+
         {/* Recordatorio de seguridad para el primer uso */}
         <div class="p-3.5 rounded-xl bg-[var(--color-acero)] border border-gray-700 text-xs text-gray-300 flex items-center gap-2.5">
           <svg class="w-4 h-4 text-[var(--color-naranja)] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -186,7 +196,7 @@ import { configTienda } from '../config/tienda';
 
   {/* Script en cliente para leer resumen, botón copiar y disparar tracking */}
   <script>
-    import { formatCOP } from '../config/tienda';
+    import { configTienda, formatCOP, generarEnlaceWhatsApp } from '../config/tienda';
     import { dispararEventoLead } from '../lib/tracking';
 
     function initGracias() {
@@ -231,6 +241,14 @@ import { configTienda } from '../config/tienda';
 
       const destinoEl = document.getElementById('resumen-destino');
       if (destinoEl && destino) destinoEl.textContent = destino;
+
+      // Enlace de WhatsApp con el número de pedido
+      const whatsappEl = document.getElementById('btn-confirmar-whatsapp') as HTMLAnchorElement | null;
+      if (whatsappEl && pedidoId) {
+        whatsappEl.href = generarEnlaceWhatsApp({
+          mensajePersonalizado: `Hola ${configTienda.nombreTienda}, quiero confirmar mi pedido ${pedidoId}.`,
+        });
+      }
 
       // Botón copiar ID
       const btnCopiar = document.getElementById('btn-copiar-id');

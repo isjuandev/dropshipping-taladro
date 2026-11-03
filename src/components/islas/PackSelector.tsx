@@ -65,10 +65,10 @@ export default function PackSelector() {
 
               <div class="mt-3 pt-3 border-t border-gray-700/60 flex items-baseline justify-between">
                 <div>
-                  <div class="text-xs text-[var(--color-gris)] line-through font-['JetBrains_Mono'] nums-tabular">
+                  <div class="text-xs text-[var(--color-gris)] line-through font-mono nums-tabular">
                     Antes {formatCOP(pack.precioAnterior)}
                   </div>
-                  <div class="text-2xl font-extrabold text-white font-['JetBrains_Mono'] nums-tabular">
+                  <div class="text-2xl font-extrabold text-white font-mono nums-tabular">
                     {formatCOP(pack.precio)}
                   </div>
                 </div>
@@ -78,7 +78,7 @@ export default function PackSelector() {
                     Ahorras {formatCOP(pack.ahorro)}
                   </span>
                   {pack.unidades > 1 && (
-                    <div class="text-[11px] text-gray-400 mt-1 font-['JetBrains_Mono']">
+                    <div class="text-[11px] text-gray-400 mt-1 font-mono">
                       {formatCOP(pack.precioUnitario)} c/u
                     </div>
                   )}

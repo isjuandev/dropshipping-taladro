@@ -1,56 +1,195 @@
 [
   {
-    "id": "testimonio-1",
-    "nombre": "Carlos Mario Henao",
-    "ciudad": "Medellín, Antioquia",
-    "oficio": "Maestro de obra",
-    "texto": "Lo usé para cortar unas tejas de zinc en una remodelación en Bello. Montar el acople en el mandril toma diez segundos y la varilla ayuda a mantener el rumbo sin que la lámina vibre. Mucho más descanso para la mano que las tijeras de hojalatero viejas.",
+    "id": "resena-1",
+    "nombre": "Carlos Gómez",
+    "ciudad": "Rionegro, Antioquia",
+    "texto": "Se acopló de una al taladro inalámbrico que tengo en el taller y corta la teja de zinc sin hacerle fuerza.",
     "estrellas": 5,
-    "verificado": true
+    "media": {
+      "tipo": "foto",
+      "src": "/clientes/foto-banco-taller.webp",
+      "alt": "Taladro inalámbrico con la cortadora de lámina acoplada sobre un banco de trabajo con virutas, junto a la caja del accesorio"
+    }
   },
   {
-    "id": "testimonio-2",
-    "nombre": "Wilson Rodríguez",
-    "ciudad": "Bogotá D.C.",
-    "oficio": "Instalador de canales y techos",
-    "texto": "Tenía mis dudas con el corte de bajantes galvanizados, pero probé primero en un retazo como recomiendan y agarró el tiro de una. El corte avanza parejo y no deja esa rebaba retorcida que dejan las tijeras manuales. Buen accesorio para cargar en el morral.",
+    "id": "resena-2",
+    "nombre": "Jhon Jairo Ospina",
+    "ciudad": "Buga, Valle del Cauca",
+    "texto": "La verdad estaba dudoso de pedirlo por internet, pero el muchacho de la transportadora me dejó revisar el paquete al pagar contraentrega y llegó en perfecto estado. Ya lo estrené cortando unas láminas de aluminio calibre delgado para un techo del patio y el corte queda parejito, sin dejar esas rebabas filosas que dejan las tijeras manuales. Me ahorró fácil medio día de trabajo y el cansancio en la muñeca.",
     "estrellas": 5,
-    "verificado": true
+    "media": {
+      "tipo": "video",
+      "src": "/clientes/video-corte.mp4",
+      "poster": "/clientes/video-corte-poster.webp",
+      "alt": "Video de un cliente mostrando el taladro con la cortadora y una lámina delgada de aluminio"
+    }
   },
   {
-    "id": "testimonio-3",
-    "nombre": "Andrés Felipe Caicedo",
-    "ciudad": "Cali, Valle del Cauca",
-    "oficio": "Ornamentador independiente",
-    "texto": "Para lámina delgada en el taller me ha ahorrado bastante tiempo. Lo mejor es que no bota chispas como la pulidora con disco de corte, así que trabajo más tranquilo en espacios cerrados. Recuerden siempre usar los guantes de carnaza y gafas.",
-    "estrellas": 5,
-    "verificado": true
+    "id": "resena-3",
+    "nombre": "Mauricio Castellanos",
+    "ciudad": "Sogamoso, Boyacá",
+    "texto": "Muy buen material, se siente pesado y firme el acero; llegó en tres días hasta acá al pueblo.",
+    "estrellas": 4,
+    "media": {
+      "tipo": "foto",
+      "src": "/clientes/foto-caja-llegada.webp",
+      "alt": "Cortadora de lámina dentro de su caja de cartón abierta, con el manual y la llave de ajuste"
+    }
   },
   {
-    "id": "testimonio-4",
-    "nombre": "Álvaro Gómez",
-    "ciudad": "Bucaramanga, Santander",
-    "oficio": "Aficionado al bricolaje",
-    "texto": "Compré el pack de 2 para dejar uno en la finca y otro en mi casa. Arreglé el techo del patio sin tener que pagarle a nadie. Pedí contraentrega, llegó a los 3 días por Servientrega y pagué en efectivo al recibir. Excelente compra.",
+    "id": "resena-4",
+    "nombre": "Hernán Darío Loaiza",
+    "ciudad": "Dosquebradas, Risaralda",
+    "texto": "Trabajo en ornamentación y latonería liviana y necesitaba algo práctico para cortes rectos rápidos sin sacar la pulidora a cada rato. El adaptador se instala en menos de un minuto con la llavecita que trae incluida y el mango sujeta muy bien. La atención por WhatsApp fue excelente porque me explicaron cómo ajustarlo a mi taladro antes de enviarlo.",
     "estrellas": 5,
-    "verificado": true
+    "media": {
+      "tipo": "foto",
+      "src": "/clientes/foto-kit-completo.webp",
+      "alt": "Todas las piezas del kit sobre la cama: cortadora envuelta en plástico, dos llaves, resorte y varilla de apoyo"
+    }
   },
   {
-    "id": "testimonio-5",
-    "nombre": "Jorge E. Martínez",
-    "ciudad": "Barranquilla, Atlántico",
-    "oficio": "Instalador de ductos",
-    "texto": "En ductería de aire acondicionado corta las láminas galvanizadas delgadas sin problema. La varilla de apoyo estabiliza el corte cuando uno va avanzando. Satisfecho con la relación precio-calidad.",
-    "estrellas": 5,
-    "verificado": true
+    "id": "resena-5",
+    "nombre": "Édgar Quintero",
+    "ciudad": "Ocaña, Norte de Santander",
+    "texto": "Corta suavecito la lámina galvanizada, cien por ciento recomendado para el taller.",
+    "estrellas": 5
   },
   {
-    "id": "testimonio-6",
-    "nombre": "Hernán Darío Zapata",
-    "ciudad": "Pereira, Risaralda",
-    "oficio": "Mantenimiento del hogar",
-    "texto": "Me lo regaló mi hijo para arreglar unas cosas de la casa. Muy práctico porque no tuve que comprar otra máquina ni herramientas costosas; usé el mismo taladro inalámbrico que ya tenía en el cajón.",
+    "id": "resena-6",
+    "nombre": "Fabián Morales",
+    "ciudad": "Fusagasugá, Cundinamarca",
+    "texto": "Lo compré para arreglar unas canaletas de la finca y me sorprendió la fuerza que tiene con un taladro normalito de 12V. La caja llegó bien sellada y con todas las piezas completas, incluidos los resortes y las llaves de ajuste. Le doy 4 estrellas solo porque la transportadora se demoró un día más por lluvias, pero el aparato funciona impecable.",
+    "estrellas": 4,
+    "media": {
+      "tipo": "foto",
+      "src": "/clientes/foto-piezas-y-resortes.webp",
+      "alt": "Piezas del kit desempacadas sobre una cobija: cortadora, llave allen, llave plana, resorte y varilla"
+    }
+  },
+  {
+    "id": "resena-7",
+    "nombre": "Robinson Murillo",
+    "ciudad": "Apartadó, Antioquia",
+    "texto": "Excelente herramienta, ya no me ampollo las manos usando tijera de aviación.",
+    "estrellas": 5
+  },
+  {
+    "id": "resena-8",
+    "nombre": "Marta Lucía Pineda",
+    "ciudad": "La Dorada, Caldas",
+    "texto": "Se lo pedí de cumpleaños a mi esposo que mantiene haciendo arreglos en la casa y quedó dichoso con el regalo. Desde que llegó el paquete se puso a probarlo con unos retazos de cobre y lámina blanca y corta como si fuera cartón. Muy cumplidos con el envío gratis y la atención al cliente súper amable cuando confirmaron los datos.",
     "estrellas": 5,
-    "verificado": true
+    "media": {
+      "tipo": "video",
+      "src": "/clientes/video-unboxing.mp4",
+      "poster": "/clientes/video-unboxing-poster.webp",
+      "alt": "Video del unboxing: la caja de la cortadora de lámina, el manual de instrucciones y las piezas sobre la mesa"
+    }
+  },
+  {
+    "id": "resena-9",
+    "nombre": "Wilmar Patiño",
+    "ciudad": "Pitalito, Huila",
+    "texto": "Llegó rapidísimo hasta el sur del Huila y el empaque vino bien protegido con plástico burbuja.",
+    "estrellas": 5
+  },
+  {
+    "id": "resena-10",
+    "nombre": "Álvaro Montoya",
+    "ciudad": "Tuluá, Valle del Cauca",
+    "texto": "Es un accesorio muy bien pensado porque mantiene las manos lejos de la cuchilla mientras uno va guiando el taladro. Lo he usado toda la semana cortando lámina de hierro delgada y los rodamientos siguen intactos, no se recalienta ni se traba si uno lleva el ritmo parejo. Por el precio que tiene, rinde muchísimo más de lo que esperaba.",
+    "estrellas": 4,
+    "media": {
+      "tipo": "foto",
+      "src": "/clientes/foto-cortadora-en-mano.webp",
+      "alt": "Mano sosteniendo la cortadora de lámina con las ruedas de corte y el resorte de protección"
+    }
+  },
+  {
+    "id": "resena-11",
+    "nombre": "Jorge Eliécer Vargas",
+    "ciudad": "Chiquinquirá, Boyacá",
+    "texto": "Fácil de armar, trae todo el kit de llaves y el corte en aluminio queda limpio a la primera.",
+    "estrellas": 5
+  },
+  {
+    "id": "resena-12",
+    "nombre": "Didier Restrepo",
+    "ciudad": "Caucasia, Antioquia",
+    "texto": "Tenía que montar un cerramiento en lámina metálica y con la tijera manual nos estábamos demorando una eternidad. Pedí este cortador con pago en casa, llegó a los dos días y de una lo pusimos a trabajar en la obra. El material de los discos de corte se ve de acero fino, no ha perdido nada de filo después de varios metros cortados.",
+    "estrellas": 5,
+    "media": {
+      "tipo": "foto",
+      "src": "/clientes/foto-taladro-acoplado.webp",
+      "alt": "Taladro inalámbrico de 21V con la cortadora de lámina acoplada sobre una mesa, listo para cortar"
+    }
+  },
+  {
+    "id": "resena-13",
+    "nombre": "Nelson Cabrera",
+    "ciudad": "Ipiales, Nariño",
+    "texto": "Cumple tal cual lo que muestran en el video, muy buena calidad de los engranajes.",
+    "estrellas": 5
+  },
+  {
+    "id": "resena-14",
+    "nombre": "Gustavo Adolfo León",
+    "ciudad": "El Espinal, Tolima",
+    "texto": "Me gustó mucho que no bota chispas como la pulidora, entonces uno trabaja más tranquilo y seguro dentro de la casa. La instalación en el mandril del taladro es cuestión de apretar y poner el soporte con el resorte para que no se mueva. Muy buena compra y el paquete llegó sin un solo golpe.",
+    "estrellas": 4
+  },
+  {
+    "id": "resena-15",
+    "nombre": "Ramiro Díaz",
+    "ciudad": "Aguachica, Cesar",
+    "texto": "Súper rápido el despacho, pedí el martes y el jueves al mediodía ya lo tenía en la puerta.",
+    "estrellas": 5
+  },
+  {
+    "id": "resena-16",
+    "nombre": "Héctor Julio Camacho",
+    "ciudad": "Socorro, Santander",
+    "texto": "Como maestro de obra uno siempre desconfía de los accesorios universales, pero este me calló la boca por lo robusto que viene. Se adapta perfecto tanto al taladro de cable como al inalámbrico y no dobla los bordes de la chapa al pasar. Además, me escribieron para confirmar la dirección antes de despachar y todo salió muy serio.",
+    "estrellas": 5,
+    "media": {
+      "tipo": "foto",
+      "src": "/clientes/foto-acople-mandril.webp",
+      "alt": "Cortadora de lámina montada en el mandril de un taladro amarillo, sostenida con la mano"
+    }
+  },
+  {
+    "id": "resena-17",
+    "nombre": "Andrés Felipe Cárdenas",
+    "ciudad": "Calarcá, Quindío",
+    "texto": "Compacto, cabe en cualquier rincón de la caja de herramientas y saca de apuros en segundos.",
+    "estrellas": 5
+  },
+  {
+    "id": "resena-18",
+    "nombre": "Efraín Mendoza",
+    "ciudad": "Sabanalarga, Atlántico",
+    "texto": "Necesitaba hacer unos cortes en teja metálica y lámina de acero delgada para el taller y funcionó al pelo desde el primer intento. Uno nota enseguida que el cuerpo metálico es macizo y no de esos plásticos endebles que se parten a la primera fuerza. Pagué en efectivo al recibir y me dieron mi factura con garantía sin problema.",
+    "estrellas": 5
+  },
+  {
+    "id": "resena-19",
+    "nombre": "William Hurtado",
+    "ciudad": "Garzón, Huila",
+    "texto": "Muy práctico de instalar, en dos minutos ya estaba cortando lámina sin hacer esfuerzo.",
+    "estrellas": 4,
+    "media": {
+      "tipo": "video",
+      "src": "/clientes/video-montaje.mp4",
+      "poster": "/clientes/video-montaje-poster.webp",
+      "alt": "Video de un cliente mostrando cómo quedó montada la cortadora de lámina en su taladro"
+    }
+  },
+  {
+    "id": "resena-20",
+    "nombre": "Óscar Iván Mejía",
+    "ciudad": "Cereté, Córdoba",
+    "texto": "Excelente servicio desde que hice el pedido hasta que me lo entregaron en la mano. Ya lo probé con aluminio, cobre y lámina galvanizada de calibre delgado, y en todos el corte es continuo y sin atascos. Da mucha seguridad comprar así porque uno verifica su caja bien sellada y recibe una herramienta que de verdad sirve para el trabajo diario.",
+    "estrellas": 5
   }
 ]
