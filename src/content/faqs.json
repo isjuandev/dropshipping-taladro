@@ -1,0 +1,44 @@
+[
+  {
+    "id": "faq-1",
+    "pregunta": "¿El taladro viene incluido?",
+    "respuesta": "No, el taladro no está incluido. Cortadora de Lámina es un accesorio diseñado para acoplarse directamente en el mandril del taladro que ya tienes en casa o en tu taller, transformándolo en cortadora de lámina sin que tengas que comprar otra máquina."
+  },
+  {
+    "id": "faq-2",
+    "pregunta": "¿Con qué taladros funciona?",
+    "respuesta": "Funciona con cualquier taladro convencional o inalámbrico que tenga un mandril estándar compatible con vástago hexagonal (generalmente mandriles de 10 a 13 mm). Se monta y aprieta exactamente igual que una broca común.",
+    "activo": false
+  },
+  {
+    "id": "faq-3",
+    "pregunta": "¿Qué grosor y qué materiales corta?",
+    "respuesta": "Está diseñado para láminas delgadas de zinc, aluminio, hojalata y lámina galvanizada (según el grosor máximo indicado en las especificaciones del lote). No está diseñado para láminas gruesas de acero pesado ni perfiles estructurales. Si tienes dudas sobre un material específico, escríbenos antes de realizar tu pedido."
+  },
+  {
+    "id": "faq-4",
+    "pregunta": "¿Puedo hacer cortes curvos?",
+    "respuesta": "Sí, permite realizar cortes curvos suaves guiando el taladro a velocidad controlada. Te recomendamos hacer una prueba previa en un retazo de lámina para acostumbrarte al avance de la herramienta antes del corte definitivo.",
+    "activo": false
+  },
+  {
+    "id": "faq-8",
+    "pregunta": "¿Cómo se usa?",
+    "respuesta": "Acoplas el cortador al mandril del taladro, apoyas la varilla para darle estabilidad y guías el corte sobre la lámina. Practica primero en un retazo y avanza con calma."
+  },
+  {
+    "id": "faq-5",
+    "pregunta": "¿Qué precauciones debo tener?",
+    "respuesta": "La seguridad es lo primero: utiliza siempre gafas protectoras y guantes de trabajo resistentes. Asegura firmemente la lámina al banco de trabajo con prensas o sargentos antes de iniciar el corte y mantén tus manos y dedos alejados de las ruedas de cizalla en todo momento. Al principio conviene practicar en un retazo y avanzar con calma: así el corte queda más limpio. No fuerces la herramienta."
+  },
+  {
+    "id": "faq-6",
+    "pregunta": "¿Cómo pago y cuándo llega?",
+    "respuesta": "El pago es 100 % contraentrega: pagas en efectivo cuando la transportadora llegue a tu dirección. El despacho se realiza en 1 a 2 días hábiles y la entrega tarda habitualmente entre 3 y 5 días hábiles según la ciudad o municipio de Colombia."
+  },
+  {
+    "id": "faq-7",
+    "pregunta": "¿Qué garantía tiene?",
+    "respuesta": "Cuentas con 30 días de garantía por defectos de fábrica y derecho de retracto conforme a la Ley 1480 de 2011 (Estatuto del Consumidor en Colombia). Además, confirmamos cada pedido contigo por teléfono o mensajería antes de despachar."
+  }
+]

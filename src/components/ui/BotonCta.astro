@@ -1,0 +1,29 @@
+---
+interface Props {
+  texto: string;
+  origen: string; // id del bloque: se envía en cta_click
+  garantia?: string | false;
+}
+
+const { texto, origen, garantia = 'Pagas al recibir · Envío gratis' } = Astro.props;
+---
+
+<div class="px-4 pt-4 pb-7 bg-[var(--color-acero)] text-center">
+  <button
+    type="button"
+    data-cta={origen}
+    class="w-full max-w-md h-14 bg-[var(--color-naranja)] hover:bg-[var(--color-naranja-hover)] active:translate-y-0.5 text-[var(--color-tinta)] font-bold text-xl rounded-[10px] uppercase font-['Barlow_Condensed'] tracking-wider shadow-lg hover:shadow-orange-500/25 transition-all inline-flex items-center justify-center gap-2 cursor-pointer"
+  >
+    <span>{texto}</span>
+    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+      <line x1="5" y1="12" x2="19" y2="12"></line>
+      <polyline points="12 5 19 12 12 19"></polyline>
+    </svg>
+  </button>
+  {garantia && <p class="mt-2 text-[13px] text-gray-300">{garantia}</p>}
+</div>
+
+<script>
+  import { iniciarCtaDelegado } from '../../lib/cta';
+  iniciarCtaDelegado();
+</script>

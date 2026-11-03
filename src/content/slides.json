@@ -1,0 +1,160 @@
+[
+  {
+    "id": "hero",
+    "orden": 10,
+    "tipo": "imagen",
+    "variante": "hero",
+    "imagen": "slide-hero.webp",
+    "alt": "Manos con guantes y gafas de seguridad guiando un taladro con el cortador de lámina sobre una lámina de zinc sujeta al banco, con la tira de metal enrollándose a un lado",
+    "titular": "TU TALADRO AHORA CORTA LÁMINA",
+    "posicionTexto": "arriba",
+    "cta": {
+      "texto": "Pedir ahora — pagas al recibir",
+      "origen": "hero"
+    }
+  },
+  {
+    "id": "confianza",
+    "orden": 20,
+    "tipo": "bloque",
+    "bloque": "marquee"
+  },
+  {
+    "id": "video-demo",
+    "orden": 30,
+    "tipo": "video",
+    "mp4": "/video/video-demo.mp4",
+    "poster": "/video/video-demo-poster.webp",
+    "ariaLabel": "Video: Cortadora de Lámina cortando una lámina en línea recta y luego en curva",
+    "titular": "MÍRALO CORTAR",
+    "cta": {
+      "texto": "Quiero el mío",
+      "origen": "video-demo"
+    },
+    "videoObject": {
+      "nombre": "Cortadora de Lámina cortando lámina con un taladro",
+      "descripcion": "El cortador avanza en línea recta sobre una lámina de zinc y luego hace una curva mientras la tira de metal se enrolla.",
+      "fecha": "2026-11-02",
+      "duracion": "PT10S"
+    }
+  },
+  {
+    "id": "beneficios",
+    "orden": 40,
+    "tipo": "imagen",
+    "imagen": "slide-beneficios.webp",
+    "alt": "Primer plano de las ruedas de cizalla del cortador avanzando por el borde de una lámina de aluminio, con el corte limpio detrás",
+    "titular": "MENOS ESFUERZO. CORTES MÁS RECTOS.",
+    "chips": [
+      "Acople hexagonal",
+      "Varilla de apoyo",
+      "Corte por cizalla"
+    ],
+    "posicionTexto": "arriba",
+    "cta": {
+      "texto": "Pedir con envío gratis",
+      "origen": "beneficios"
+    }
+  },
+  {
+    "id": "como-funciona",
+    "orden": 50,
+    "tipo": "bloque",
+    "bloque": "comoFunciona",
+    "cta": {
+      "texto": "Sí, lo quiero",
+      "origen": "como-funciona"
+    }
+  },
+  {
+    "id": "usos",
+    "orden": 60,
+    "tipo": "bloque",
+    "bloque": "usos"
+  },
+  {
+    "id": "video-usos",
+    "orden": 70,
+    "tipo": "video",
+    "mp4": "/video/video-usos.mp4",
+    "poster": "/video/video-usos-poster.webp",
+    "ariaLabel": "Video: Cortadora de Lámina cortando teja de zinc, canal y ducto",
+    "titular": "TECHOS, CANALES, DUCTOS Y MÁS",
+    "cta": {
+      "texto": "Lo pido ya",
+      "origen": "video-usos"
+    }
+  },
+  {
+    "id": "transformacion",
+    "orden": 80,
+    "tipo": "imagen",
+    "imagen": "slide-transformacion.webp",
+    "alt": "Arriba, una lámina metálica plana sin cortar sobre un banco; abajo, las piezas terminadas con ella: un tramo de canal, una caja pequeña y una figura curva, junto al taladro con el cortador",
+    "titular": "DE LÁMINA A PIEZA",
+    "posicionTexto": "arriba",
+    "cta": {
+      "texto": "Lo quiero para mi taller",
+      "origen": "transformacion"
+    }
+  },
+  {
+    "id": "incluye",
+    "orden": 90,
+    "tipo": "bloque",
+    "bloque": "incluye"
+  },
+  {
+    "id": "comparativa",
+    "orden": 100,
+    "tipo": "bloque",
+    "bloque": "comparativa"
+  },
+  {
+    "id": "seguridad",
+    "orden": 110,
+    "tipo": "bloque",
+    "bloque": "seguridad"
+  },
+  {
+    "id": "clientes",
+    "orden": 120,
+    "tipo": "bloque",
+    "bloque": "ugc",
+    "requiere": "ugc"
+  },
+  {
+    "id": "regalo",
+    "orden": 130,
+    "tipo": "imagen",
+    "requiere": "temporadaRegalo",
+    "imagen": "regalo-navidad.webp",
+    "alt": "Cortadora de Lámina en presentación de regalo sobre un banco de taller casero con luz cálida",
+    "titular": "EL REGALO PARA EL QUE ARREGLA TODO",
+    "posicionTexto": "arriba",
+    "cta": {
+      "texto": "Regalar cortadora",
+      "origen": "regalo"
+    }
+  },
+  {
+    "id": "packs",
+    "orden": 140,
+    "tipo": "bloque",
+    "bloque": "packs"
+  },
+  {
+    "id": "oferta",
+    "orden": 150,
+    "tipo": "imagen",
+    "variante": "oferta",
+    "imagen": "slide-oferta.webp",
+    "alt": "El cortador de lámina con sus ruedas y la varilla de apoyo sobre una superficie de acero oscuro, junto a un taladro, con un leve brillo naranja de contraluz",
+    "titular": "OFERTA DE LANZAMIENTO",
+    "posicionTexto": "arriba",
+    "cta": {
+      "texto": "Pedir ahora",
+      "origen": "oferta"
+    }
+  }
+]

@@ -1,0 +1,87 @@
+---
+import Base from '../layouts/Base.astro';
+import BarraAnuncio from '../components/secciones/BarraAnuncio.astro';
+import Header from '../components/secciones/Header.astro';
+import Footer from '../components/secciones/Footer.astro';
+import { configTienda } from '../config/tienda';
+---
+
+<Base
+  title={`Política de Privacidad y Tratamiento de Datos | ${configTienda.nombreTienda}`}
+  description="Política de tratamiento de datos personales conforme a la Ley 1581 de 2012 de Colombia."
+>
+  <BarraAnuncio />
+  <Header />
+
+  <main class="flex-1 bg-[var(--color-acero)] text-white py-12 px-4 md:px-8">
+    <article class="max-w-3xl mx-auto bg-[var(--color-hierro)] border border-gray-700/80 rounded-[14px] p-6 md:p-10 shadow-xl space-y-6 text-sm text-gray-300 leading-relaxed">
+      
+      <div class="border-b border-gray-700 pb-4">
+        <span class="text-xs uppercase font-bold text-[var(--color-naranja)] font-['Barlow_Condensed'] tracking-widest">
+          HABEAS DATA · LEY 1581 DE 2012
+        </span>
+        <h1 class="text-3xl md:text-4xl font-extrabold uppercase font-['Barlow_Condensed'] text-white mt-1">
+          Política de Tratamiento de Datos Personales
+        </h1>
+        <p class="text-xs text-gray-400 mt-1">
+          Responsable: {configTienda.razonSocial} · NIT: {configTienda.nit}
+        </p>
+      </div>
+
+      <section class="space-y-3">
+        <h2 class="text-xl font-bold uppercase font-['Barlow_Condensed'] text-white">
+          1. Marco Legal y Alcance
+        </h2>
+        <p>
+          En cumplimiento de la <strong>Ley Estatutaria 1581 de 2012</strong> y su Decreto Reglamentario 1377 de 2013, <strong>{configTienda.razonSocial}</strong>, con domicilio en Colombia, en calidad de Responsable del Tratamiento de Datos, pone en conocimiento de los usuarios de este sitio web la presente Política para la recolección, almacenamiento, uso y gestión de la información personal.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-xl font-bold uppercase font-['Barlow_Condensed'] text-white">
+          2. Finalidad de los Datos Recolectados
+        </h2>
+        <p>
+          Los datos solicitados a través del formulario contraentrega (nombre y apellido, número de celular, departamento, ciudad, dirección de entrega e indicaciones) son utilizados de manera estricta y exclusiva para las siguientes finalidades:
+        </p>
+        <ul class="list-disc pl-5 space-y-1.5 text-gray-300">
+          <li>Contactarte vía telefónica o mensaje de WhatsApp para confirmar los datos y verificar la disponibilidad de entrega antes de despachar.</li>
+          <li>Generar la guía de transporte con las empresas de mensajería aliadas para la entrega física del accesorio Cortadora de Lámina en tu domicilio.</li>
+          <li>Atender dudas, reclamos de garantía, retractos o soporte técnico posventa.</li>
+          <li>Prevenir fraudes, pedidos duplicados y accesos automatizados de spam.</li>
+        </ul>
+        <p>
+          <strong>{configTienda.nombreTienda} no realiza cobros automáticos, no solicita números de tarjetas ni comercializa tus datos personales con terceros para fines ajenos a la entrega de tu pedido.</strong>
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-xl font-bold uppercase font-['Barlow_Condensed'] text-white">
+          3. Derechos del Titular de los Datos
+        </h2>
+        <p>
+          De conformidad con el artículo 8 de la Ley 1581 de 2012, como titular de la información tienes derecho a:
+        </p>
+        <ul class="list-disc pl-5 space-y-1 text-gray-300">
+          <li>Conocer, actualizar y rectificar tus datos personales recolectados.</li>
+          <li>Solicitar prueba de la autorización otorgada.</li>
+          <li>Ser informado respecto del uso que se le ha dado a tus datos.</li>
+          <li>Presentar quejas ante la Superintendencia de Industria y Comercio (SIC) por infracciones a la ley.</li>
+          <li>Revocar la autorización y/o solicitar la supresión del dato cuando no medie un deber legal o contractual de permanecer en la base de datos.</li>
+        </ul>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-xl font-bold uppercase font-['Barlow_Condensed'] text-white">
+          4. Canales de Atención para Ejercer tus Derechos
+        </h2>
+        <p>
+          Puedes ejercer tus derechos de Hábeas Data en cualquier momento enviando una comunicación al correo electrónico <strong>privacidad@{configTienda.nombreTienda.toLowerCase()}.com</strong> o a través de nuestra línea de atención por WhatsApp +{configTienda.whatsappSoporte}.
+        </p>
+      </section>
+
+    </article>
+  </main>
+
+  <Footer />
+</Base>

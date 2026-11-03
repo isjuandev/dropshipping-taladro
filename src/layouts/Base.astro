@@ -1,0 +1,147 @@
+---
+import '@fontsource/barlow-condensed/700.css';
+import '@fontsource/barlow-condensed/800.css';
+import '@fontsource-variable/inter';
+import '@fontsource-variable/jetbrains-mono';
+import '../styles/global.css';
+
+import { configTienda } from '../config/tienda';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  noindex?: boolean;
+}
+
+const {
+  title = `Cortadora de Lámina para taladro con acople hexagonal | ${configTienda.nombreTienda}`,
+  description = 'Convierte tu taladro en cortadora de lámina de zinc, aluminio y hojalata con acople hexagonal y varilla de apoyo. Pago contraentrega y envío gratis a toda Colombia.',
+  ogImage = '/og-image.jpg',
+  noindex = false,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://viraly.shop');
+const fullOgImageUrl = new URL(ogImage, Astro.site || 'https://viraly.shop').href;
+
+// JSON-LD para Producto y Organización
+const productJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: configTienda.producto.nombreCompleto,
+  image: [fullOgImageUrl],
+  description: description,
+  sku: configTienda.producto.sku,
+  brand: {
+    '@type': 'Brand',
+    name: configTienda.nombreTienda,
+  },
+  offers: {
+    '@type': 'Offer',
+    url: canonicalURL.href,
+    priceCurrency: configTienda.moneda,
+    price: configTienda.producto.precio,
+    priceValidUntil: '2027-12-31',
+    itemCondition: 'https://schema.org/NewCondition',
+    availability: 'https://schema.org/InStock',
+    seller: {
+      '@type': 'Organization',
+      name: configTienda.nombreTienda,
+    },
+  },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: configTienda.producto.calificacion,
+    reviewCount: configTienda.producto.totalResenas,
+    bestRating: '5',
+    worstRating: '1',
+  },
+};
+
+const orgJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: configTienda.nombreTienda,
+  legalName: configTienda.razonSocial,
+  taxID: configTienda.nit,
+  url: Astro.site || 'https://viraly.shop',
+};
+---
+
+<!doctype html>
+<html lang="es-CO" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    {!noindex && <meta name="robots" content="index, follow" />}
+
+    {/* Open Graph / Facebook */}
+    <meta property="og:type" content="product" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={fullOgImageUrl} />
+    <meta property="og:locale" content="es_CO" />
+    <meta property="og:site_name" content={configTienda.nombreTienda} />
+
+    {/* Twitter */}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={fullOgImageUrl} />
+
+    {/* GTM si está configurado */}
+    {configTienda.gtmId && (
+      <script is:inline define:vars={{ gtmId: configTienda.gtmId }}>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer',gtmId);
+      </script>
+    )}
+
+    {/* Meta Pixel si está configurado */}
+    {configTienda.pixelId && (
+      <script is:inline define:vars={{ pixelId: configTienda.pixelId }}>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', pixelId);
+        fbq('track', 'PageView');
+      </script>
+    )}
+
+    {/* JSON-LD Product & Organization */}
+    <script type="application/ld+json" set:html={JSON.stringify(productJsonLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(orgJsonLd)} />
+  </head>
+
+  <body class="bg-[var(--color-acero)] text-[var(--color-tinta)] min-h-screen flex flex-col antialiased">
+    {configTienda.gtmId && (
+      <noscript>
+        <iframe
+          src={`https://www.googletagmanager.com/ns.html?id=${configTienda.gtmId}`}
+          height="0"
+          width="0"
+          style="display:none;visibility:hidden"
+        ></iframe>
+      </noscript>
+    )}
+
+    <slot />
+  </body>
+</html>

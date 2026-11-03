@@ -1,0 +1,261 @@
+---
+import Base from '../layouts/Base.astro';
+import BarraAnuncio from '../components/secciones/BarraAnuncio.astro';
+import Header from '../components/secciones/Header.astro';
+import Footer from '../components/secciones/Footer.astro';
+import { configTienda } from '../config/tienda';
+---
+
+<Base
+  title={`¡Pedido Recibido! | ${configTienda.nombreTienda}`}
+  description="Confirmación de tu pedido contraentrega de Cortadora de Lámina."
+  noindex={true}
+>
+  <BarraAnuncio />
+  <Header />
+
+  <main class="flex-1 bg-[var(--color-acero)] text-white py-12 px-4 md:px-8 textura-metal">
+    <div class="max-w-2xl mx-auto space-y-6">
+      
+      {/* Tarjeta de Confirmación Principal */}
+      <div class="rounded-[16px] bg-[var(--color-hierro)] border border-gray-700/80 p-6 md:p-8 shadow-2xl text-center relative overflow-hidden">
+        
+        {/* Ícono de Éxito */}
+        <div class="w-16 h-16 rounded-full bg-[var(--color-exito)] text-white flex items-center justify-center mx-auto mb-4 shadow-lg shadow-emerald-900/40">
+          <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+            <polyline points="20 6 9 17 4 12" />
+          </svg>
+        </div>
+
+        <span class="inline-block px-3 py-1 rounded-full bg-emerald-950/60 border border-[var(--color-exito)] text-[var(--color-exito)] text-xs font-bold uppercase tracking-widest font-['Barlow_Condensed'] mb-2">
+          PEDIDO REGISTRADO CON ÉXITO
+        </span>
+
+        <h1 id="titulo-cliente" class="text-3xl md:text-5xl font-black uppercase font-['Barlow_Condensed'] tracking-tight text-white mt-1">
+          ¡Pedido recibido!
+        </h1>
+
+        <p class="text-sm text-gray-300 mt-2 max-w-md mx-auto">
+          Gracias por confiar en {configTienda.nombreTienda}. Hemos recibido tus datos y estamos preparando la confirmación de tu entrega.
+        </p>
+
+        {/* Número de Pedido Copiable */}
+        <div class="mt-6 p-4 rounded-xl bg-[var(--color-acero)] border border-gray-700 inline-flex flex-col sm:flex-row items-center justify-center gap-3 w-full">
+          <div class="text-xs text-gray-400 uppercase font-semibold">
+            Número de pedido:
+          </div>
+          <div id="codigo-pedido" class="text-lg md:text-xl font-bold text-[var(--color-chispa)] font-['JetBrains_Mono'] tracking-wide">
+            Cargando...
+          </div>
+          <button
+            type="button"
+            id="btn-copiar-id"
+            class="px-3 py-1.5 rounded-lg bg-gray-700 hover:bg-gray-600 text-xs text-white font-medium flex items-center gap-1.5 cursor-pointer transition-colors"
+          >
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+            </svg>
+            <span id="texto-copiar">Copiar</span>
+          </button>
+        </div>
+
+        {/* Resumen del Pedido */}
+        <div class="mt-6 p-5 rounded-xl bg-[var(--color-acero)]/80 border border-gray-700 text-left text-xs md:text-sm space-y-2.5">
+          <div class="font-bold uppercase tracking-wider text-gray-400 font-['Barlow_Condensed'] text-xs border-b border-gray-700 pb-2">
+            Detalles de tu despacho:
+          </div>
+          <div class="flex justify-between items-center py-1">
+            <span class="text-gray-400">Producto y opción:</span>
+            <span id="resumen-pack" class="font-semibold text-white text-right">
+              Cortadora de Lámina
+            </span>
+          </div>
+          <div class="flex justify-between items-center py-1">
+            <span class="text-gray-400">Total a pagar al recibir:</span>
+            <span id="resumen-total" class="font-bold text-lg text-white font-['JetBrains_Mono'] nums-tabular">
+              $0 COP
+            </span>
+          </div>
+          <div class="flex justify-between items-start py-1">
+            <span class="text-gray-400">Destino de entrega:</span>
+            <span id="resumen-destino" class="font-medium text-white text-right max-w-xs">
+              Colombia
+            </span>
+          </div>
+          <div class="flex justify-between items-center py-1 pt-2 border-t border-gray-700/60">
+            <span class="text-gray-400">Método de pago:</span>
+            <span class="text-[var(--color-chispa)] font-semibold">Efectivo contraentrega</span>
+          </div>
+        </div>
+
+      </div>
+
+      {/* Qué Sigue: 3 Pasos */}
+      <div class="rounded-[16px] bg-[var(--color-hierro)] border border-gray-700/80 p-6 md:p-8 shadow-xl space-y-4">
+        <h2 class="text-2xl font-bold uppercase font-['Barlow_Condensed'] tracking-wide text-white">
+          ¿Qué sigue a continuación?
+        </h2>
+
+        <div class="space-y-4 pt-1">
+          <div class="flex items-start gap-3">
+            <div class="w-7 h-7 rounded-full bg-[var(--color-naranja)] text-[var(--color-tinta)] font-bold text-xs flex items-center justify-center shrink-0 mt-0.5 font-['Barlow_Condensed']">
+              1
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-white font-['Barlow_Condensed'] uppercase tracking-wide">
+                Te contactamos para confirmar
+              </h3>
+              <p class="text-xs text-gray-300 mt-0.5">
+                Uno de nuestros asesores te escribirá por WhatsApp o te llamará para verificar tu dirección y confirmar los detalles del paquete.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <div class="w-7 h-7 rounded-full bg-[var(--color-naranja)] text-[var(--color-tinta)] font-bold text-xs flex items-center justify-center shrink-0 mt-0.5 font-['Barlow_Condensed']">
+              2
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-white font-['Barlow_Condensed'] uppercase tracking-wide">
+                Despachamos en {configTienda.tiempoDespacho}
+              </h3>
+              <p class="text-xs text-gray-300 mt-0.5">
+                Entregamos tu paquete a la transportadora asignada y te compartimos el número de guía para que puedas rastrearlo en línea.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <div class="w-7 h-7 rounded-full bg-[var(--color-naranja)] text-[var(--color-tinta)] font-bold text-xs flex items-center justify-center shrink-0 mt-0.5 font-['Barlow_Condensed']">
+              3
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-white font-['Barlow_Condensed'] uppercase tracking-wide">
+                Pagas al recibir en tu puerta
+              </h3>
+              <p class="text-xs text-gray-300 mt-0.5">
+                Tiempo habitual de entrega de {configTienda.tiempoEntrega}. Pagas el valor exacto en efectivo al transportador sin recargos sorpresa.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* ALERTA: Ten a mano tu celular */}
+        <div class="p-4 rounded-xl bg-amber-950/40 border border-amber-600/60 flex items-start gap-3 mt-4">
+          <svg class="w-5 h-5 text-amber-400 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg>
+          <div class="text-xs text-amber-200 leading-relaxed">
+            <strong class="font-bold text-amber-100 uppercase font-['Barlow_Condensed'] tracking-wide block">
+              Ten a mano tu celular:
+            </strong>
+            Si no logramos contactarte para confirmar el pedido, no podremos despachar tu paquete. Mantente atento a tus mensajes o llamadas hoy.
+          </div>
+        </div>
+
+        {/* Recordatorio de seguridad para el primer uso */}
+        <div class="p-3.5 rounded-xl bg-[var(--color-acero)] border border-gray-700 text-xs text-gray-300 flex items-center gap-2.5">
+          <svg class="w-4 h-4 text-[var(--color-naranja)] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="16" x2="12" y2="12" />
+            <line x1="12" y1="8" x2="12.01" y2="8" />
+          </svg>
+          <span>
+            <strong>Recordatorio para el primer uso:</strong> Ten listos tus guantes y gafas de protección, asegura la lámina con prensas y haz un corte de prueba en un retazo.
+          </span>
+        </div>
+
+      </div>
+
+      <div class="text-center pt-2">
+        <a
+          href="/"
+          class="inline-block text-xs text-gray-400 hover:text-[var(--color-naranja)] transition-colors underline"
+        >
+          Volver a la página principal
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <Footer />
+
+  {/* Script en cliente para leer resumen, botón copiar y disparar tracking */}
+  <script>
+    import { formatCOP } from '../config/tienda';
+    import { dispararEventoLead } from '../lib/tracking';
+
+    function initGracias() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const paramId = urlParams.get('id') || '';
+
+      let pedidoId = paramId;
+      let packNombre = 'Pack 2 unidades';
+      let total = 169900;
+      let clienteNombre = '';
+      let destino = '';
+
+      try {
+        const stored = localStorage.getItem('ultimo_pedido_resumen');
+        if (stored) {
+          const parsed = JSON.parse(stored);
+          if (parsed.pedidoId) pedidoId = parsed.pedidoId;
+          if (parsed.pack) packNombre = parsed.pack;
+          if (parsed.total) total = Number(parsed.total);
+          if (parsed.clienteNombre) clienteNombre = parsed.clienteNombre;
+          if (parsed.direccion && parsed.ciudad) {
+            destino = `${parsed.direccion}, ${parsed.ciudad} (${parsed.departamento || ''})`;
+          }
+        }
+      } catch (e) {}
+
+      // Actualizar UI
+      const codigoEl = document.getElementById('codigo-pedido');
+      if (codigoEl) codigoEl.textContent = pedidoId || 'PED-PENDIENTE';
+
+      const tituloEl = document.getElementById('titulo-cliente');
+      if (tituloEl && clienteNombre) {
+        const primerNombre = clienteNombre.split(' ')[0];
+        tituloEl.textContent = `¡Pedido recibido, ${primerNombre}!`;
+      }
+
+      const packEl = document.getElementById('resumen-pack');
+      if (packEl) packEl.textContent = `Cortadora de Lámina · ${packNombre}`;
+
+      const totalEl = document.getElementById('resumen-total');
+      if (totalEl) totalEl.textContent = formatCOP(total);
+
+      const destinoEl = document.getElementById('resumen-destino');
+      if (destinoEl && destino) destinoEl.textContent = destino;
+
+      // Botón copiar ID
+      const btnCopiar = document.getElementById('btn-copiar-id');
+      const textoCopiar = document.getElementById('texto-copiar');
+      if (btnCopiar && textoCopiar) {
+        btnCopiar.addEventListener('click', () => {
+          navigator.clipboard.writeText(pedidoId).then(() => {
+            textoCopiar.textContent = '¡Copiado!';
+            setTimeout(() => {
+              textoCopiar.textContent = 'Copiar';
+            }, 2000);
+          });
+        });
+      }
+
+      // Tracking Lead una sola vez por pedidoId
+      if (pedidoId) {
+        dispararEventoLead(pedidoId, total, packNombre);
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initGracias);
+    } else {
+      initGracias();
+    }
+  </script>
+</Base>

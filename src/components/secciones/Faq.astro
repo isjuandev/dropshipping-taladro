@@ -1,0 +1,62 @@
+---
+import { getCollection } from 'astro:content';
+
+// Máximo 6 preguntas visibles; apaga una con "activo": false en faqs.json
+const faqs = (await getCollection('faqs')).filter((f) => f.data.activo).slice(0, 6);
+
+// Esquema JSON-LD FAQPage para SEO estructurado
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.data.pregunta,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.data.respuesta,
+    },
+  })),
+};
+---
+
+<section id="faq" class="bg-[var(--color-concreto)] text-[var(--color-tinta)] py-12 px-4 md:px-8">
+  <div class="max-w-4xl mx-auto">
+    
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <span class="text-xs font-bold uppercase tracking-widest text-[var(--color-naranja)] font-['Barlow_Condensed']">
+        PREGUNTAS FRECUENTES
+      </span>
+      <h2 class="text-4xl md:text-5xl font-black uppercase font-['Barlow_Condensed'] tracking-tight mt-1 text-[var(--color-tinta)]">
+        RESOLVEMOS TUS DUDAS
+      </h2>
+      <p class="text-base text-gray-700 mt-2">
+        Todo lo que necesitas saber antes de confirmar tu pedido contraentrega:
+      </p>
+    </div>
+
+    {/* Acordeón accesible con <details> nativo sin JS */}
+    <div class="space-y-3">
+      {faqs.map((item) => (
+        <details
+          class="group bg-white rounded-[12px] border border-gray-300/80 shadow-sm transition-all overflow-hidden [&[open]]:border-[var(--color-naranja)]"
+        >
+          <summary class="flex items-center justify-between p-5 cursor-pointer select-none font-bold text-base md:text-lg font-['Barlow_Condensed'] uppercase tracking-wide text-[var(--color-tinta)] hover:text-[var(--color-naranja)] transition-colors list-none">
+            <span class="pr-4">{item.data.pregunta}</span>
+            <span class="w-6 h-6 rounded-full bg-gray-100 group-hover:bg-orange-100 flex items-center justify-center text-gray-600 group-hover:text-[var(--color-naranja)] transition-transform group-open:rotate-180 shrink-0">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </span>
+          </summary>
+          <div class="px-5 pb-5 text-sm text-gray-600 leading-relaxed border-t border-gray-100 pt-3">
+            {item.data.respuesta}
+          </div>
+        </details>
+      ))}
+    </div>
+
+  </div>
+
+  {/* Inyección de JSON-LD para motores de búsqueda */}
+  <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+</section>

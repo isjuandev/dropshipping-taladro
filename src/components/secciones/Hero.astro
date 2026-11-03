@@ -1,0 +1,64 @@
+---
+import { configTienda, formatCOP } from '../../config/tienda';
+import ImageSlide from '../ui/ImageSlide.astro';
+import OrderSelector from '../islas/OrderSelector';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  imagen: ImageMetadata;
+  alt: string;
+  titular: string;
+}
+
+const { imagen, alt, titular } = Astro.props;
+const producto = configTienda.producto;
+
+const lineas = [
+  { pregunta: '¿Las tijeras te cansan?', respuesta: 'Tu taladro hace la fuerza.' },
+  { pregunta: '¿Cortes torcidos?', respuesta: 'La varilla de apoyo te guía.' },
+  { pregunta: '¿Otra máquina?', respuesta: 'Usa el taladro que ya tienes.' },
+];
+---
+
+<ImageSlide id="hero" imagen={imagen} alt={alt} titular={titular} h1 eager posicionTexto="arriba">
+  <div class="px-4 pt-5 pb-8 space-y-4">
+    <div class="flex items-center gap-2">
+      <div
+        class="flex items-center text-[var(--color-chispa)]"
+        role="img"
+        aria-label={`${producto.calificacion} estrellas de 5, ${producto.totalResenas} clientes`}
+      >
+        {[1, 2, 3, 4, 5].map(() => (
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+          </svg>
+        ))}
+      </div>
+      <span class="text-sm font-bold text-white font-['JetBrains_Mono']" aria-hidden="true">
+        {String(producto.calificacion).replace('.', ',')} ({producto.totalResenas})
+      </span>
+    </div>
+
+    <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+      <span class="text-4xl font-extrabold text-white font-['JetBrains_Mono'] nums-tabular">
+        {formatCOP(producto.precio)}
+      </span>
+      <span class="text-base text-[var(--color-gris)] line-through font-['JetBrains_Mono'] nums-tabular">
+        {formatCOP(producto.precioAnterior)}
+      </span>
+      <span class="px-2 py-0.5 rounded bg-[var(--color-exito)]/20 text-[var(--color-exito)] text-xs font-bold uppercase">
+        Ahorras {formatCOP(producto.ahorro)}
+      </span>
+    </div>
+
+    <ul class="space-y-1.5 text-base text-gray-100 list-none m-0 p-0">
+      {lineas.map((l) => (
+        <li>
+          <strong class="text-[var(--color-chispa)] font-semibold">{l.pregunta}</strong> {l.respuesta}
+        </li>
+      ))}
+    </ul>
+
+    <OrderSelector client:visible />
+  </div>
+</ImageSlide>

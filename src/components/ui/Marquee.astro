@@ -1,0 +1,80 @@
+---
+// Cinta de confianza en CSS puro: sin JS, insignias propias (sin logos de terceros)
+const iconos: Record<string, string> = {
+  pago: '<rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/>',
+  envio:
+    '<rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>',
+  despacho: '<path d="M21 8l-9-5-9 5v8l9 5 9-5V8z"/><path d="M3.3 7L12 12l8.7-5M12 22V12"/>',
+  garantia: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/>',
+  seguro: '<rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>',
+};
+
+const insignias = [
+  { texto: 'Pago contraentrega', icono: 'pago' },
+  { texto: 'Envío gratis a toda Colombia', icono: 'envio' },
+  { texto: 'Despacho en 1 a 2 días', icono: 'despacho' },
+  { texto: 'Garantía', icono: 'garantia' },
+  { texto: 'Compra segura', icono: 'seguro' },
+];
+---
+
+<section
+  class="marquee bg-[var(--color-hierro)] border-y border-gray-800 overflow-hidden py-3"
+  aria-label="Garantías de compra"
+>
+  <div class="marquee-track flex w-max">
+    {[false, true].map((copia) => (
+      <ul class="marquee-lista flex shrink-0 items-center gap-8 pr-8 list-none m-0 p-0" aria-hidden={copia ? 'true' : undefined}>
+        {insignias.map((i) => (
+          <li class="flex items-center gap-2 whitespace-nowrap text-[15px] font-bold uppercase tracking-wide text-white font-['Barlow_Condensed']">
+            <svg
+              class="w-5 h-5 text-[var(--color-naranja)] shrink-0"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.25"
+              aria-hidden="true"
+              set:html={iconos[i.icono]}
+            />
+            {i.texto}
+          </li>
+        ))}
+      </ul>
+    ))}
+  </div>
+</section>
+
+<style>
+  .marquee-track {
+    animation: marquee-desplazar 30s linear infinite;
+  }
+  /* Se detiene al pasar el cursor, al tocar con el dedo o al enfocar */
+  .marquee:hover .marquee-track,
+  .marquee:active .marquee-track,
+  .marquee:focus-within .marquee-track {
+    animation-play-state: paused;
+  }
+  @keyframes marquee-desplazar {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+      animation: none;
+      width: auto;
+      justify-content: center;
+    }
+    .marquee-lista {
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0 1rem;
+    }
+    .marquee-lista[aria-hidden='true'] {
+      display: none;
+    }
+  }
+</style>

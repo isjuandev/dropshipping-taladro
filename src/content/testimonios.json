@@ -1,0 +1,56 @@
+[
+  {
+    "id": "testimonio-1",
+    "nombre": "Carlos Mario Henao",
+    "ciudad": "Medellín, Antioquia",
+    "oficio": "Maestro de obra",
+    "texto": "Lo usé para cortar unas tejas de zinc en una remodelación en Bello. Montar el acople en el mandril toma diez segundos y la varilla ayuda a mantener el rumbo sin que la lámina vibre. Mucho más descanso para la mano que las tijeras de hojalatero viejas.",
+    "estrellas": 5,
+    "verificado": true
+  },
+  {
+    "id": "testimonio-2",
+    "nombre": "Wilson Rodríguez",
+    "ciudad": "Bogotá D.C.",
+    "oficio": "Instalador de canales y techos",
+    "texto": "Tenía mis dudas con el corte de bajantes galvanizados, pero probé primero en un retazo como recomiendan y agarró el tiro de una. El corte avanza parejo y no deja esa rebaba retorcida que dejan las tijeras manuales. Buen accesorio para cargar en el morral.",
+    "estrellas": 5,
+    "verificado": true
+  },
+  {
+    "id": "testimonio-3",
+    "nombre": "Andrés Felipe Caicedo",
+    "ciudad": "Cali, Valle del Cauca",
+    "oficio": "Ornamentador independiente",
+    "texto": "Para lámina delgada en el taller me ha ahorrado bastante tiempo. Lo mejor es que no bota chispas como la pulidora con disco de corte, así que trabajo más tranquilo en espacios cerrados. Recuerden siempre usar los guantes de carnaza y gafas.",
+    "estrellas": 5,
+    "verificado": true
+  },
+  {
+    "id": "testimonio-4",
+    "nombre": "Álvaro Gómez",
+    "ciudad": "Bucaramanga, Santander",
+    "oficio": "Aficionado al bricolaje",
+    "texto": "Compré el pack de 2 para dejar uno en la finca y otro en mi casa. Arreglé el techo del patio sin tener que pagarle a nadie. Pedí contraentrega, llegó a los 3 días por Servientrega y pagué en efectivo al recibir. Excelente compra.",
+    "estrellas": 5,
+    "verificado": true
+  },
+  {
+    "id": "testimonio-5",
+    "nombre": "Jorge E. Martínez",
+    "ciudad": "Barranquilla, Atlántico",
+    "oficio": "Instalador de ductos",
+    "texto": "En ductería de aire acondicionado corta las láminas galvanizadas delgadas sin problema. La varilla de apoyo estabiliza el corte cuando uno va avanzando. Satisfecho con la relación precio-calidad.",
+    "estrellas": 5,
+    "verificado": true
+  },
+  {
+    "id": "testimonio-6",
+    "nombre": "Hernán Darío Zapata",
+    "ciudad": "Pereira, Risaralda",
+    "oficio": "Mantenimiento del hogar",
+    "texto": "Me lo regaló mi hijo para arreglar unas cosas de la casa. Muy práctico porque no tuve que comprar otra máquina ni herramientas costosas; usé el mismo taladro inalámbrico que ya tenía en el cajón.",
+    "estrellas": 5,
+    "verificado": true
+  }
+]

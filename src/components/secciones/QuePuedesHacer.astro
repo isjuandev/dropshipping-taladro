@@ -1,0 +1,46 @@
+---
+import { Picture } from 'astro:assets';
+import usoTecho from '../../assets/img/uso-techo.webp';
+import usoCanal from '../../assets/img/uso-canal.webp';
+import usoDucto from '../../assets/img/uso-ducto.webp';
+import usoManualidad from '../../assets/img/uso-manualidad.webp';
+
+const usos = [
+  { etiqueta: 'Tejas onduladas', imagen: usoTecho, alt: 'Corte de teja de zinc ondulada en un patio residencial colombiano' },
+  { etiqueta: 'Canales pluviales', imagen: usoCanal, alt: 'Ajuste de longitud en un canal metálico pluvial en una terraza' },
+  { etiqueta: 'Ductos metálicos', imagen: usoDucto, alt: 'Instalador con protección cortando lámina galvanizada para un ducto de ventilación' },
+  { etiqueta: 'Figuras curvas', imagen: usoManualidad, alt: 'Corte de una figura curva en lámina de aluminio para herrería ligera y bricolaje' },
+];
+---
+
+<section id="usos" class="bg-[var(--color-acero)] text-white pt-1">
+  <div class="mx-auto w-full max-w-[560px]">
+    <h2 class="sr-only">Qué puedes cortar</h2>
+    <ul class="grid grid-cols-2 gap-1 list-none m-0 p-0">
+      {usos.map((uso) => (
+        <li class="relative aspect-[4/3] overflow-hidden bg-[var(--color-hierro)]">
+          <Picture
+            src={uso.imagen}
+            alt={uso.alt}
+            formats={['avif', 'webp']}
+        fallbackFormat="webp"
+            widths={[480, 768]}
+            sizes="(min-width: 560px) 280px, 50vw"
+            loading="lazy"
+            decoding="async"
+            class="absolute inset-0 w-full h-full object-cover"
+          />
+          <div
+            class="absolute inset-x-0 bottom-0 h-[60%] pointer-events-none"
+            style="background:linear-gradient(to top, color-mix(in srgb, var(--color-acero) 75%, transparent) 0%, transparent 100%)"
+            aria-hidden="true"
+          >
+          </div>
+          <span class="absolute left-3 right-3 bottom-2.5 font-['Barlow_Condensed'] font-extrabold uppercase text-[22px] leading-[1] text-white">
+            {uso.etiqueta}
+          </span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

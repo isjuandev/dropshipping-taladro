@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /gracias
+
+Sitemap: https://viraly.shop/sitemap-index.xml

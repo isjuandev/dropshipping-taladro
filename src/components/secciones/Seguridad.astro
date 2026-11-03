@@ -1,0 +1,61 @@
+---
+import { Picture } from 'astro:assets';
+import seguridadEpp from '../../assets/img/seguridad-epp.webp';
+
+const reglas = [
+  {
+    etiqueta: 'Gafas',
+    icono: '<circle cx="6" cy="14" r="4"/><circle cx="18" cy="14" r="4"/><path d="M10 14h4M2 14l1-6M22 14l-1-6"/>',
+  },
+  {
+    etiqueta: 'Guantes',
+    icono:
+      '<path d="M18 11V6a2 2 0 0 0-4 0v1M14 10V4a2 2 0 0 0-4 0v6M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/>',
+  },
+  {
+    etiqueta: 'Lámina asegurada',
+    icono: '<rect x="3" y="8" width="18" height="8" rx="1"/><path d="M7 8V4h3v4M14 16v4h3v-4"/>',
+  },
+  {
+    etiqueta: 'Sin forzar',
+    icono: '<circle cx="12" cy="12" r="9"/><path d="M8 12h8M13 9l3 3-3 3"/>',
+  },
+];
+---
+
+<section id="seguridad" class="bg-[var(--color-acero)] text-white px-4 py-8">
+  <div class="mx-auto w-full max-w-[560px] md:max-w-3xl rounded-[16px] border-2 border-[var(--color-alerta)] bg-[var(--color-hierro)] overflow-hidden md:grid md:grid-cols-2">
+    <Picture
+      src={seguridadEpp}
+      alt="Equipo de protección: gafas de seguridad, guantes de trabajo y prensas de sujeción"
+      formats={['avif', 'webp']}
+        fallbackFormat="webp"
+      widths={[480, 768]}
+      sizes="(min-width: 768px) 384px, (min-width: 560px) 560px, 100vw"
+      loading="lazy"
+      decoding="async"
+      class="w-full h-full object-cover aspect-[4/3]"
+    />
+    <div class="p-5">
+      <h2 class="sr-only">Seguridad primero</h2>
+      <ul class="grid grid-cols-2 gap-x-3 gap-y-5 list-none m-0 p-0 h-full content-center">
+        {reglas.map((r) => (
+          <li class="flex flex-col items-center gap-2 text-center">
+            <svg
+              class="w-10 h-10 text-[var(--color-naranja)]"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+              set:html={r.icono}
+            />
+            <span class="text-base font-bold uppercase tracking-wide leading-tight font-['Barlow_Condensed']">{r.etiqueta}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>

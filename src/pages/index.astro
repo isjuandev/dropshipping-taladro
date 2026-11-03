@@ -1,0 +1,138 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import BarraAnuncio from '../components/secciones/BarraAnuncio.astro';
+import Header from '../components/secciones/Header.astro';
+import Hero from '../components/secciones/Hero.astro';
+import ComoFunciona from '../components/secciones/ComoFunciona.astro';
+import QueIncluye from '../components/secciones/QueIncluye.astro';
+import QuePuedesHacer from '../components/secciones/QuePuedesHacer.astro';
+import Comparativa from '../components/secciones/Comparativa.astro';
+import Seguridad from '../components/secciones/Seguridad.astro';
+import Packs from '../components/secciones/Packs.astro';
+import Pedido from '../components/secciones/Pedido.astro';
+import Faq from '../components/secciones/Faq.astro';
+import Footer from '../components/secciones/Footer.astro';
+import ImageSlide from '../components/ui/ImageSlide.astro';
+import VideoBlock from '../components/ui/VideoBlock.astro';
+import Marquee from '../components/ui/Marquee.astro';
+import UgcCarousel from '../components/islas/UgcCarousel';
+import StickyBar from '../components/islas/StickyBar';
+import { configTienda, formatCOP } from '../config/tienda';
+import { imagenPorArchivo } from '../lib/imagenes';
+import heroProducto from '../assets/img/hero-producto.webp';
+
+// Orden y encendido de los bloques: src/content/slides.json
+const condiciones: Record<string, boolean> = {
+  temporadaRegalo: configTienda.temporadaRegalo.activo,
+  ugc: configTienda.ugc.length > 0,
+};
+const bloques = (await getCollection('slides'))
+  .map((b) => b.data)
+  .filter((b) => b.activo && (!b.requiere || condiciones[b.requiere]))
+  .sort((a, b) => a.orden - b.orden);
+
+const producto = configTienda.producto;
+---
+
+<Base ogImage={heroProducto.src}>
+  {/* Barra de anuncio y header mínimo */}
+  <BarraAnuncio />
+  <Header />
+
+  <main class="flex-1">
+    {bloques.map((b) => {
+      if (b.tipo === 'video') {
+        return (
+          <VideoBlock
+            id={b.id}
+            mp4={b.mp4!}
+            webm={b.webm}
+            poster={b.poster!}
+            titular={b.titular!}
+            ariaLabel={b.ariaLabel ?? b.titular!}
+            cta={b.cta!}
+            vtt={b.vtt}
+            videoObject={b.videoObject}
+          />
+        );
+      }
+
+      if (b.tipo === 'imagen') {
+        const imagen = imagenPorArchivo(b.imagen!);
+        if (b.variante === 'hero') {
+          return <Hero imagen={imagen} alt={b.alt!} titular={b.titular!} />;
+        }
+        if (b.variante === 'oferta') {
+          return (
+            <ImageSlide
+              id={b.id}
+              imagen={imagen}
+              alt={b.alt!}
+              titular={b.titular!}
+              posicionTexto={b.posicionTexto}
+              tituloVisible={false}
+              cta={b.cta}
+              garantia={false}
+            >
+              <div slot="superpuesto" class="absolute inset-x-0 top-6 px-5 text-white">
+                <div class="font-['JetBrains_Mono'] font-extrabold text-[52px] leading-none nums-tabular">
+                  {formatCOP(producto.precio)}
+                </div>
+                <div class="mt-1 text-xl text-gray-200 line-through font-['JetBrains_Mono'] nums-tabular">
+                  {formatCOP(producto.precioAnterior)}
+                </div>
+                <p class="mt-2 text-lg font-bold uppercase tracking-wide font-['Barlow_Condensed']">
+                  Pagas al recibir · Envío gratis
+                </p>
+              </div>
+            </ImageSlide>
+          );
+        }
+        return (
+          <ImageSlide
+            id={b.id}
+            imagen={imagen}
+            alt={b.alt!}
+            titular={b.titular!}
+            subtitulo={b.subtitulo}
+            chips={b.chips}
+            posicionTexto={b.posicionTexto}
+            textoEnImagen={b.textoEnImagen}
+            cta={b.cta}
+          />
+        );
+      }
+
+      switch (b.bloque) {
+        case 'marquee':
+          return <Marquee />;
+        case 'comoFunciona':
+          return <ComoFunciona cta={b.cta} />;
+        case 'usos':
+          return <QuePuedesHacer />;
+        case 'incluye':
+          return <QueIncluye />;
+        case 'comparativa':
+          return <Comparativa />;
+        case 'seguridad':
+          return <Seguridad />;
+        case 'ugc':
+          return <UgcCarousel client:visible items={configTienda.ugc} />;
+        case 'packs':
+          return <Packs />;
+        default:
+          return null;
+      }
+    })}
+
+    {/* Formulario contraentrega (#pedido) y FAQ: van siempre al final */}
+    <Pedido />
+    <Faq />
+  </main>
+
+  <Footer />
+
+  {/* Barra fija inferior en móvil */}
+  <StickyBar client:idle thumbnailUrl={heroProducto.src} />
+</Base>

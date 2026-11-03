@@ -1,0 +1,71 @@
+---
+import { Picture } from 'astro:assets';
+import { configTienda } from '../../config/tienda';
+import Especificaciones from './Especificaciones.astro';
+import kitIncluye from '../../assets/img/kit-incluye.webp';
+
+// Posición (en %) de cada etiqueta sobre la foto; ajústala al reemplazar kit-incluye.webp por la real
+const piezas = [
+  { etiqueta: 'Cortador', x: 30, y: 24 },
+  { etiqueta: 'Ruedas', x: 68, y: 50 },
+  { etiqueta: 'Varilla', x: 40, y: 78 },
+];
+if (configTienda.producto.incluyeRepuesto) piezas.push({ etiqueta: 'Ruedas de repuesto', x: 72, y: 82 });
+---
+
+<section id="incluye" class="bg-[var(--color-acero)] text-white">
+  <div class="mx-auto w-full max-w-[560px]">
+    <h2 class="sr-only">Qué incluye tu compra</h2>
+
+    <div class="relative aspect-square overflow-hidden bg-[var(--color-hierro)]">
+      <Picture
+        src={kitIncluye}
+        alt="Vista cenital del kit: cortador con acople hexagonal, ruedas de cizalla y varilla de apoyo"
+        formats={['avif', 'webp']}
+        fallbackFormat="webp"
+        widths={[480, 768, 1024]}
+        sizes="(min-width: 560px) 560px, 100vw"
+        loading="lazy"
+        decoding="async"
+        class="absolute inset-0 w-full h-full object-cover"
+      />
+      <ol class="list-none m-0 p-0">
+        {piezas.map((pieza, i) => (
+          <li
+            class="absolute -translate-x-1/2 -translate-y-1/2 flex items-center gap-1.5 pr-3 pl-1 py-1 rounded-full bg-[var(--color-acero)]/90 border border-gray-500 whitespace-nowrap"
+            style={`left:${pieza.x}%;top:${pieza.y}%`}
+          >
+            <span
+              class="w-6 h-6 rounded-full bg-[var(--color-naranja)] text-[var(--color-tinta)] font-black text-sm flex items-center justify-center font-['Barlow_Condensed']"
+              aria-hidden="true"
+            >
+              {i + 1}
+            </span>
+            <span class="text-sm font-bold uppercase tracking-wide font-['Barlow_Condensed']">{pieza.etiqueta}</span>
+          </li>
+        ))}
+      </ol>
+    </div>
+
+    <p class="flex items-center justify-center gap-2 px-4 pt-4 text-lg font-extrabold uppercase tracking-wide text-[var(--color-chispa)] font-['Barlow_Condensed']">
+      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+        <line x1="12" y1="9" x2="12" y2="13"></line>
+        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+      </svg>
+      Taladro no incluido
+    </p>
+
+    <details id="especificaciones" class="group mx-4 mt-4 mb-8 rounded-[12px] border border-gray-700 bg-[var(--color-hierro)]/50">
+      <summary class="flex items-center justify-between gap-3 min-h-12 px-4 cursor-pointer select-none list-none font-bold uppercase tracking-wide text-base font-['Barlow_Condensed'] text-white hover:text-[var(--color-naranja)]">
+        <span>Ver especificaciones y compatibilidad</span>
+        <svg class="w-5 h-5 shrink-0 transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </summary>
+      <div class="px-3 pb-4">
+        <Especificaciones />
+      </div>
+    </details>
+  </div>
+</section>

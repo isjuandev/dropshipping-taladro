@@ -1,0 +1,97 @@
+---
+import { configTienda } from '../../config/tienda';
+---
+
+<footer class="bg-[var(--color-acero)] text-gray-400 py-12 px-4 md:px-8 border-t border-gray-800 text-xs">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 border-b border-gray-800">
+      
+      {/* Columna 1: Marca y Razón Social */}
+      <div class="md:col-span-5 space-y-3">
+        <div class="flex items-center gap-2 text-white">
+          <div class="w-7 h-7 rounded-lg bg-[var(--color-naranja)] flex items-center justify-center text-[var(--color-tinta)] font-bold text-sm">
+            <svg class="w-4 h-4 text-[var(--color-tinta)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polygon points="6 2 18 2 18 6 6 6 6 2" />
+              <polygon points="3 6 21 6 21 16 3 16 3 6" />
+              <line x1="12" y1="16" x2="12" y2="22" />
+              <line x1="8" y1="22" x2="16" y2="22" />
+            </svg>
+          </div>
+          <span class="text-xl font-bold uppercase font-['Barlow_Condensed'] tracking-wider text-white">
+            {configTienda.nombreTienda}
+          </span>
+        </div>
+
+        <p class="text-gray-400 leading-relaxed text-xs max-w-sm">
+          Tienda online especializada en herramientas y accesorios prácticos para taller, hogar y obra en Colombia. Pedidos 100 % contraentrega con transportadoras certificadas.
+        </p>
+
+        <div class="pt-1 text-gray-400 space-y-1">
+          <div><strong class="text-gray-300">Razón Social:</strong> {configTienda.razonSocial}</div>
+          <div><strong class="text-gray-300">NIT:</strong> {configTienda.nit}</div>
+          <div><strong class="text-gray-300">Ubicación:</strong> Colombia</div>
+        </div>
+      </div>
+
+      {/* Columna 2: Enlaces Legales */}
+      <div class="md:col-span-4 space-y-2">
+        <h3 class="text-sm font-bold uppercase tracking-wider text-white font-['Barlow_Condensed'] mb-3">
+          Políticas y Legal
+        </h3>
+        <ul class="space-y-2">
+          <li>
+            <a href="/envios" class="hover:text-[var(--color-naranja)] transition-colors">
+              Política de Envíos y Tiempos de Entrega
+            </a>
+          </li>
+          <li>
+            <a href="/cambios-y-devoluciones" class="hover:text-[var(--color-naranja)] transition-colors">
+              Cambios, Devoluciones y Retracto (Ley 1480)
+            </a>
+          </li>
+          <li>
+            <a href="/garantia" class="hover:text-[var(--color-naranja)] transition-colors">
+              Términos de Garantía por Defectos
+            </a>
+          </li>
+          <li>
+            <a href="/privacidad" class="hover:text-[var(--color-naranja)] transition-colors">
+              Política de Privacidad y Tratamiento de Datos (Ley 1581)
+            </a>
+          </li>
+          <li>
+            <a href="/terminos" class="hover:text-[var(--color-naranja)] transition-colors">
+              Términos y Condiciones de Uso
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      {/* Columna 3: Medios de Despacho y Seguridad */}
+      <div class="md:col-span-3 space-y-3">
+        <h3 class="text-sm font-bold uppercase tracking-wider text-white font-['Barlow_Condensed'] mb-3">
+          Despacho y Pago Seguro
+        </h3>
+        <p class="text-gray-400 leading-relaxed">
+          Pagas en efectivo únicamente cuando el domiciliario de Servientrega, Envía, Coordinadora o Interrapidísimo entrega el paquete en tus manos.
+        </p>
+        <div class="p-2.5 rounded-lg bg-[var(--color-hierro)] border border-gray-700 text-[11px] text-gray-300">
+          <span class="text-[var(--color-chispa)] font-semibold">Sin pagos anticipados.</span> Inspeccionas el paquete al recibir.
+        </div>
+      </div>
+
+    </div>
+
+    {/* Copyright */}
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-gray-400 text-xs">
+      <div>
+        © {new Date().getFullYear()} {configTienda.nombreTienda}. Todos los derechos reservados.
+      </div>
+      <div class="flex items-center gap-4">
+        <span>Despachos a todo el territorio nacional</span>
+        <span>·</span>
+        <span>Hecho para el taller colombiano</span>
+      </div>
+    </div>
+  </div>
+</footer>

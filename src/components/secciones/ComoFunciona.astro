@@ -1,0 +1,53 @@
+---
+import { Picture } from 'astro:assets';
+import BotonCta from '../ui/BotonCta.astro';
+import paso1Acopla from '../../assets/img/paso-1-acopla.webp';
+import paso2Apoya from '../../assets/img/paso-2-apoya.webp';
+import paso3Corta from '../../assets/img/paso-3-corta.webp';
+
+interface Props {
+  cta?: { texto: string; origen: string };
+}
+
+const { cta } = Astro.props;
+
+const pasos = [
+  { numero: 1, palabra: 'Acopla', imagen: paso1Acopla, alt: 'Inserción del acople hexagonal en el mandril del taladro' },
+  { numero: 2, palabra: 'Apoya', imagen: paso2Apoya, alt: 'Varilla de apoyo colocada sobre el borde de la lámina' },
+  { numero: 3, palabra: 'Corta', imagen: paso3Corta, alt: 'Corte recto guiado sobre la lámina con la tira metálica enrollándose a un costado' },
+];
+---
+
+<section id="como-funciona" class="bg-[var(--color-acero)] text-white">
+  <div class="mx-auto w-full max-w-[560px]">
+    <h2 class="sr-only">Cómo funciona en tres pasos</h2>
+    <ol class="list-none m-0 p-0">
+      {pasos.map((paso) => (
+        <li class="relative aspect-square overflow-hidden bg-[var(--color-hierro)]">
+          <Picture
+            src={paso.imagen}
+            alt={paso.alt}
+            formats={['avif', 'webp']}
+        fallbackFormat="webp"
+            widths={[480, 768, 1024]}
+            sizes="(min-width: 560px) 560px, 100vw"
+            loading="lazy"
+            decoding="async"
+            class="absolute inset-0 w-full h-full object-cover"
+          />
+          <div
+            class="absolute inset-x-0 bottom-0 h-[55%] pointer-events-none"
+            style="background:linear-gradient(to top, color-mix(in srgb, var(--color-acero) 75%, transparent) 0%, transparent 100%)"
+            aria-hidden="true"
+          >
+          </div>
+          <div class="absolute inset-x-0 bottom-0 px-5 pb-4 flex items-end gap-3 font-['Barlow_Condensed'] font-extrabold uppercase leading-[0.8]">
+            <span class="text-[96px] text-[var(--color-naranja)]" aria-hidden="true">{paso.numero}</span>
+            <span class="text-[48px] text-white pb-1">{paso.palabra}</span>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+  {cta && <BotonCta texto={cta.texto} origen={cta.origen} />}
+</section>

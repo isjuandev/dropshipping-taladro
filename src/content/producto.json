@@ -1,0 +1,114 @@
+[
+  {
+    "id": "hexacut-pro",
+    "nombre": "Cortadora de Lámina",
+    "sku": "HEXACUT-PRO",
+    "precio": 99900,
+    "precioAnterior": 200000,
+    "ahorro": 100100,
+    "rating": 4.9,
+    "numResenas": 148,
+    "video": "/videos/hero.mp4",
+    "imagenes": [
+      "hero-producto.webp",
+      "hero-uso.webp",
+      "kit-incluye.webp",
+      "resultado-piezas.webp"
+    ],
+    "incluye": [
+      {
+        "numero": 1,
+        "pieza": "Cortador de lámina con acople hexagonal",
+        "descripcion": "Cuerpo metálico resistente diseñado para encajar en el mandril de tu taladro."
+      },
+      {
+        "numero": 2,
+        "pieza": "Dos ruedas de corte por cizalla",
+        "descripcion": "Mecanismo rotativo que avanza sobre la lámina sin generar chispas ni discos abrasivos."
+      },
+      {
+        "numero": 3,
+        "pieza": "Varilla de apoyo y guía",
+        "descripcion": "Brazo estabilizador para apoyar contra la lámina y lograr cortes más rectos y firmes."
+      }
+    ],
+    "usos": [
+      {
+        "titulo": "Tejas y láminas de zinc",
+        "descripcion": "Corta a la medida tejas de zinc onduladas o lisas para techos y cobertizos sin doblar los bordes con tijera.",
+        "imagen": "uso-techo"
+      },
+      {
+        "titulo": "Canales y bajantes",
+        "descripcion": "Ajusta la longitud de canaletas de agua lluvia y remates de hojalata con rapidez directamente en la obra.",
+        "imagen": "uso-canal"
+      },
+      {
+        "titulo": "Ductos y cajas metálicas",
+        "descripcion": "Realiza recortes limpios en lámina galvanizada delgada para ductería de ventilación y cerramientos.",
+        "imagen": "uso-ducto"
+      },
+      {
+        "titulo": "Proyectos y manualidades",
+        "descripcion": "Dale forma a láminas de aluminio y hojalata para tus trabajos de herrería ligera, maquetas o arreglos del hogar.",
+        "imagen": "uso-manualidad"
+      }
+    ],
+    "comparativa": [
+      {
+        "criterio": "Esfuerzo físico necesario",
+        "hexacut": "Mínimo: la fuerza la hace el motor de tu taladro",
+        "hexacutOk": true,
+        "tijera": "Alto: fatiga y dolor en la mano tras pocos cortes",
+        "tijeraOk": false,
+        "pulidora": "Medio: vibración constante y riesgo de rebote",
+        "pulidoraOk": false
+      },
+      {
+        "criterio": "Rectitud y limpieza del corte",
+        "hexacut": "Guía firme con varilla de apoyo para líneas rectas",
+        "hexacutOk": true,
+        "tijera": "Bordes torcidos, ondulados y con rebaba filosa",
+        "tijeraOk": false,
+        "pulidora": "Requiere pulso experto y quema el borde metálico",
+        "pulidoraOk": false
+      },
+      {
+        "criterio": "Posibilidad de cortes curvos",
+        "hexacut": "Permite curvas suaves guiando el taladro con calma",
+        "hexacutOk": true,
+        "tijera": "Muy difícil sin deformar la pieza",
+        "tijeraOk": false,
+        "pulidora": "No recomendado: peligro de rotura de disco",
+        "pulidoraOk": false
+      },
+      {
+        "criterio": "Chispas y disco abrasivo",
+        "hexacut": "Sin chispas: corta por cizalla en frío",
+        "hexacutOk": true,
+        "tijera": "Sin chispas, pero lento",
+        "tijeraOk": true,
+        "pulidora": "Lluvia de chispas peligrosas y desgaste de discos",
+        "pulidoraOk": false
+      },
+      {
+        "criterio": "Costo de inversión",
+        "hexacut": "Económico: solo compras el accesorio",
+        "hexacutOk": true,
+        "tijera": "Bajo, pero con alto costo de tiempo y fatiga",
+        "tijeraOk": false,
+        "pulidora": "Alto: comprar máquina adicional y consumibles",
+        "pulidoraOk": false
+      },
+      {
+        "criterio": "Aprovecha tu taladro actual",
+        "hexacut": "Sí: se monta en segundos en cualquier taladro",
+        "hexacutOk": true,
+        "tijera": "No aplica: herramienta manual independiente",
+        "tijeraOk": false,
+        "pulidora": "No: requiere una máquina aparte pesada",
+        "pulidoraOk": false
+      }
+    ]
+  }
+]

@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+@theme {
+  --color-acero: #1E2226;
+  --color-hierro: #2B2F33;
+  --color-concreto: #ECEAE6;
+  --color-blanco: #FFFFFF;
+  --color-tinta: #121417;
+  --color-naranja: #FF6A13;
+  --color-naranja-hover: #E85C0B;
+  --color-chispa: #FFB800;
+  --color-gris: #6B7076;
+  --color-exito: #16A34A;
+  --color-alerta: #DC2626;
+
+  --font-titular: "Barlow Condensed", sans-serif;
+  --font-cuerpo: "Inter Variable", "Inter", sans-serif;
+  --font-mono: "JetBrains Mono Variable", "JetBrains Mono", monospace;
+
+  --radius-corte: 12px;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-cuerpo);
+  color: var(--color-tinta);
+  background-color: var(--color-acero);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Textura sutil de metal cepillado al 4% */
+.textura-metal {
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.04) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.04) 50%,
+    rgba(255, 255, 255, 0.04) 75%,
+    transparent 75%,
+    transparent 100%
+  );
+  background-size: 8px 8px;
+}
+
+/* Corte diagonal a 3 grados para separadores de sección */
+.corte-diagonal-superior {
+  clip-path: polygon(0 0, 100% 2.5vw, 100% 100%, 0 100%);
+}
+
+.corte-diagonal-inferior {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2.5vw), 0 100%);
+}
+
+/* Animación de línea de corte naranja */
+@keyframes corteLaser {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.linea-corte-activa {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: corteLaser 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Microinteracción fade-up de 12px por sección con soporte de scroll y fallback */
+@keyframes revelarSeccion {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animar-revelado {
+  animation: revelarSeccion 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@supports (animation-timeline: view()) {
+  .animar-revelado-scroll {
+    animation: revelarSeccion linear both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 25%;
+  }
+}
+
+/* Respeto estricto a accesibilidad y reducción de movimiento */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Estilos de inputs para evitar zoom en iOS y asegurar contraste */
+input, select, textarea {
+  font-size: 16px !important;
+}
+
+/* Tabular nums para números monetarios y especificaciones */
+.nums-tabular {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* Fila desplazable sin barra visible */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

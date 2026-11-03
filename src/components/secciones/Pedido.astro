@@ -1,0 +1,10 @@
+---
+import OrderForm from '../islas/OrderForm';
+---
+
+<section id="pedido" class="bg-[var(--color-acero)] text-white py-16 px-4 md:px-8 border-t border-gray-800 textura-metal relative scroll-mt-6">
+  <div class="max-w-4xl mx-auto">
+    {/* Formulario reactivo de captura y envío a NexoBite SaaS */}
+    <OrderForm client:visible />
+  </div>
+</section>

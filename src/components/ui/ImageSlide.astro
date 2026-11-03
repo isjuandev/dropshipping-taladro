@@ -1,0 +1,99 @@
+---
+import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import BotonCta from './BotonCta.astro';
+
+interface Props {
+  id: string;
+  imagen: ImageMetadata;
+  alt: string;
+  titular: string;
+  subtitulo?: string;
+  chips?: string[];
+  posicionTexto?: 'arriba' | 'abajo';
+  textoEnImagen?: boolean; // la imagen ya trae su texto: no se superpone nada
+  cta?: { texto: string; origen: string };
+  garantia?: string | false;
+  eager?: boolean; // solo el hero (LCP)
+  h1?: boolean;
+  tituloVisible?: boolean; // false: el H2 queda solo para lectores de pantalla (lo muestra un slot)
+}
+
+const {
+  id,
+  imagen,
+  alt,
+  titular,
+  subtitulo,
+  chips = [],
+  posicionTexto = 'arriba',
+  textoEnImagen = false,
+  cta,
+  garantia,
+  eager = false,
+  h1 = false,
+  tituloVisible = true,
+} = Astro.props;
+
+const Titulo = h1 ? 'h1' : 'h2';
+const arriba = posicionTexto === 'arriba';
+const superponer = !textoEnImagen && tituloVisible;
+const acero75 = 'color-mix(in srgb, var(--color-acero) 75%, transparent)';
+const degradado = `linear-gradient(to ${arriba ? 'bottom' : 'top'}, ${acero75} 0%, transparent 100%)`;
+---
+
+<section id={id} class="bg-[var(--color-acero)] text-white">
+  <div class="mx-auto w-full max-w-[560px]">
+    <div class="relative w-full aspect-[2/3] overflow-hidden bg-[var(--color-hierro)]">
+      <Picture
+        src={imagen}
+        alt={alt}
+        formats={['avif', 'webp']}
+        fallbackFormat="webp"
+        widths={[480, 768, 1024]}
+        sizes="(min-width: 560px) 560px, 100vw"
+        loading={eager ? 'eager' : 'lazy'}
+        fetchpriority={eager ? 'high' : 'auto'}
+        decoding={eager ? 'sync' : 'async'}
+        class="absolute inset-0 w-full h-full object-cover"
+      />
+
+      {!textoEnImagen && (
+        <div
+          class:list={['absolute inset-x-0 h-[60%] pointer-events-none', arriba ? 'top-0' : 'bottom-0']}
+          style={`background:${degradado}`}
+          aria-hidden="true"
+        ></div>
+      )}
+
+      {superponer && (
+        <>
+          <div class:list={['absolute inset-x-0 px-5', arriba ? 'top-6' : 'bottom-6']}>
+            <Titulo class="font-['Barlow_Condensed'] font-extrabold uppercase text-[44px] leading-[0.95] sm:text-[48px] tracking-tight text-white">
+              {titular}
+            </Titulo>
+            {subtitulo && <p class="mt-2 text-base text-gray-100">{subtitulo}</p>}
+          </div>
+        </>
+      )}
+
+      {chips.length > 0 && (
+        <ul class="absolute inset-x-0 bottom-5 px-4 flex flex-wrap justify-center gap-2 list-none m-0">
+          {chips.map((chip) => (
+            <li class="px-3 py-1.5 rounded-full bg-[var(--color-acero)]/85 border border-gray-600 text-white text-sm font-bold uppercase tracking-wide font-['Barlow_Condensed']">
+              {chip}
+            </li>
+          ))}
+        </ul>
+      )}
+
+      <slot name="superpuesto" />
+    </div>
+
+    {!superponer && <Titulo class="sr-only">{titular}</Titulo>}
+
+    <slot />
+  </div>
+
+  {cta && <BotonCta texto={cta.texto} origen={cta.origen} garantia={garantia} />}
+</section>

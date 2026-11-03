@@ -1,0 +1,87 @@
+---
+import Base from '../layouts/Base.astro';
+import BarraAnuncio from '../components/secciones/BarraAnuncio.astro';
+import Header from '../components/secciones/Header.astro';
+import Footer from '../components/secciones/Footer.astro';
+import { configTienda } from '../config/tienda';
+---
+
+<Base
+  title={`Política de Envíos y Tiempos de Entrega | ${configTienda.nombreTienda}`}
+  description="Conoce los tiempos de despacho, entrega y cobertura para envíos contraentrega en Colombia."
+>
+  <BarraAnuncio />
+  <Header />
+
+  <main class="flex-1 bg-[var(--color-acero)] text-white py-12 px-4 md:px-8">
+    <article class="max-w-3xl mx-auto bg-[var(--color-hierro)] border border-gray-700/80 rounded-[14px] p-6 md:p-10 shadow-xl space-y-6 text-sm text-gray-300 leading-relaxed">
+      
+      <div class="border-b border-gray-700 pb-4">
+        <span class="text-xs uppercase font-bold text-[var(--color-naranja)] font-['Barlow_Condensed'] tracking-widest">
+          LOGÍSTICA Y COBERTURA EN COLOMBIA
+        </span>
+        <h1 class="text-3xl md:text-4xl font-extrabold uppercase font-['Barlow_Condensed'] text-white mt-1">
+          Política de Envíos y Tiempos de Entrega
+        </h1>
+        <p class="text-xs text-gray-400 mt-1">
+          Última actualización: Noviembre 2026 · {configTienda.razonSocial}
+        </p>
+      </div>
+
+      <section class="space-y-3">
+        <h2 class="text-xl font-bold uppercase font-['Barlow_Condensed'] text-white">
+          1. Cobertura Nacional
+        </h2>
+        <p>
+          En <strong>{configTienda.nombreTienda}</strong> realizamos envíos a todos los 32 departamentos de Colombia y el Distrito Capital de Bogotá, llegando a municipios y cabeceras municipales a través de nuestras alianzas con transportadoras certificadas (Servientrega, Envía, Coordinadora, Interrapidísimo).
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-xl font-bold uppercase font-['Barlow_Condensed'] text-white">
+          2. Modalidad de Pago Contraentrega
+        </h2>
+        <p>
+          Todos los envíos de Cortadora de Lámina cuentan con la opción de <strong>pago contraentrega en efectivo</strong>. No te solicitaremos números de tarjeta de crédito ni transferencias bancarias anticipadas para despachar tu producto. Pagas el valor exacto de tu pedido en el momento en que el domiciliario te entrega el paquete físico.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-xl font-bold uppercase font-['Barlow_Condensed'] text-white">
+          3. Tiempos de Despacho y Entrega
+        </h2>
+        <ul class="list-disc pl-5 space-y-1.5 text-gray-300">
+          <li><strong>Despacho:</strong> De {configTienda.tiempoDespacho} tras la confirmación telefónica o por WhatsApp de los datos del pedido.</li>
+          <li><strong>Ciudades principales (Bogotá, Medellín, Cali, Barranquilla, Bucaramanga, Pereira, Manizales):</strong> De 2 a 3 días hábiles.</li>
+          <li><strong>Otras ciudades y municipios intermedios:</strong> De 3 a 5 días hábiles.</li>
+          <li><strong>Zonas de difícil acceso o trayectos especiales:</strong> De 5 a 8 días hábiles según la frecuencia de ruta de la transportadora.</li>
+        </ul>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-xl font-bold uppercase font-['Barlow_Condensed'] text-white">
+          4. Costo del Envío
+        </h2>
+        <p>
+          El envío es <strong>100 % GRATUITO</strong> a nivel nacional en las compras de Cortadora de Lámina (tanto en 1 unidad como en el pack de 2 unidades). No existen cargos ocultos de flete.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-xl font-bold uppercase font-['Barlow_Condensed'] text-white">
+          5. Protocolo de Confirmación Obligatoria
+        </h2>
+        <p>
+          Para evitar despachos erróneos o direcciones inexistentes, nuestro equipo se contacta con cada cliente vía llamada o WhatsApp antes de generar la guía de transporte. Si tras 3 intentos en un lapso de 48 horas no es posible establecer contacto, el pedido quedará en estado pausado.
+        </p>
+      </section>
+
+      <div class="pt-4 border-t border-gray-700 text-xs text-gray-400">
+        ¿Tienes dudas sobre la cobertura de tu municipio? Escríbenos a nuestra línea de atención: WhatsApp +{configTienda.whatsappSoporte}.
+      </div>
+
+    </article>
+  </main>
+
+  <Footer />
+</Base>

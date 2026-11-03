@@ -1,0 +1,117 @@
+---
+import { getEntry } from 'astro:content';
+
+const productoEntry = await getEntry('producto', 'hexacut-pro');
+const filasDatos = productoEntry?.data.comparativa || [];
+
+// Filas cortas tomadas de la comparativa de producto.json (índice de la fila → etiqueta visible)
+const filas = [
+  { etiqueta: 'Sin esfuerzo', indice: 0 },
+  { etiqueta: 'Corte recto', indice: 1 },
+  { etiqueta: 'Sin chispas', indice: 3 },
+  { etiqueta: 'Taladro propio', indice: 5 },
+].flatMap((f) => {
+  const d = filasDatos[f.indice];
+  return d ? [{ etiqueta: f.etiqueta, tijera: d.tijeraOk, pulidora: d.pulidoraOk, hexacut: d.hexacutOk }] : [];
+});
+
+const columnas = [
+  {
+    clave: 'tijera' as const,
+    nombre: 'Tijera manual',
+    icono: '<circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/>',
+  },
+  {
+    clave: 'pulidora' as const,
+    nombre: 'Pulidora con disco',
+    icono: '<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2"/><path d="M12 1v3M12 20v3M1 12h3M20 12h3"/>',
+  },
+  {
+    clave: 'hexacut' as const,
+    nombre: 'Cortadora de Lámina',
+    icono: '<polygon points="12 2 21 7 21 17 12 22 3 17 3 7"/><circle cx="12" cy="12" r="3"/>',
+  },
+];
+---
+
+<section id="comparativa" class="bg-[var(--color-acero)] text-white px-3 py-8">
+  <div class="mx-auto w-full max-w-[560px]">
+    <h2 class="sr-only">Comparativa: tijera manual, pulidora con disco y Cortadora de Lámina</h2>
+    <table class="w-full table-fixed border-separate border-spacing-0 text-center">
+      <colgroup>
+        <col class="w-[25%]" />
+        <col />
+        <col />
+        <col />
+      </colgroup>
+      <thead>
+        <tr>
+          <td></td>
+          {columnas.map((c) => (
+            <th
+              scope="col"
+              class:list={[
+                "px-1 pt-3 pb-2 align-bottom font-bold uppercase tracking-wide text-[13px] leading-tight font-['Barlow_Condensed']",
+                c.clave === 'hexacut'
+                  ? 'bg-[var(--color-naranja)]/15 border-x-2 border-t-2 border-[var(--color-naranja)] rounded-t-[12px] text-[var(--color-chispa)]'
+                  : 'text-gray-300',
+              ]}
+            >
+              <svg
+                class="w-9 h-9 mx-auto mb-1"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.75"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+                set:html={c.icono}
+              />
+              {c.nombre}
+            </th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {filas.map((fila, i) => (
+          <tr>
+            <th
+              scope="row"
+              class="py-3 pr-2 text-left text-[13px] font-bold uppercase tracking-wide leading-tight text-gray-200 border-t border-gray-700 font-['Barlow_Condensed']"
+            >
+              {fila.etiqueta}
+            </th>
+            {columnas.map((c) => (
+              <td
+                class:list={[
+                  'py-3 border-t border-gray-700',
+                  c.clave === 'hexacut' &&
+                    'bg-[var(--color-naranja)]/15 border-x-2 border-x-[var(--color-naranja)]',
+                  c.clave === 'hexacut' && i === filas.length - 1 && 'border-b-2 border-b-[var(--color-naranja)] rounded-b-[12px]',
+                ]}
+              >
+                {fila[c.clave] ? (
+                  <span class="inline-flex w-7 h-7 rounded-full bg-[var(--color-exito)] text-white items-center justify-center">
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span class="sr-only">Sí</span>
+                  </span>
+                ) : (
+                  <span class="inline-flex w-7 h-7 rounded-full bg-[var(--color-alerta)] text-white items-center justify-center">
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true">
+                      <line x1="18" y1="6" x2="6" y2="18"></line>
+                      <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                    <span class="sr-only">No</span>
+                  </span>
+                )}
+              </td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</section>

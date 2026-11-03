@@ -1,0 +1,30 @@
+---
+import { configTienda } from '../../config/tienda';
+---
+
+<aside
+  class="bg-[var(--color-naranja)] text-[var(--color-tinta)] py-2 px-4 text-center text-xs md:text-sm font-bold uppercase tracking-wider font-['Barlow_Condensed'] border-b border-orange-600/30 select-none"
+  aria-label="Aviso de envíos y pagos"
+>
+  <div class="max-w-7xl mx-auto flex items-center justify-center gap-2 md:gap-4 flex-wrap">
+    <span class="flex items-center gap-1.5">
+      <svg class="w-4 h-4 shrink-0 text-[var(--color-tinta)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <rect x="1" y="3" width="15" height="13" />
+        <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+        <circle cx="5.5" cy="18.5" r="2.5" />
+        <circle cx="18.5" cy="18.5" r="2.5" />
+      </svg>
+      Envío gratis a toda Colombia
+    </span>
+    <span class="opacity-40 hidden sm:inline">·</span>
+    <span class="flex items-center gap-1.5">
+      <svg class="w-4 h-4 shrink-0 text-[var(--color-tinta)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <rect x="2" y="5" width="20" height="14" rx="2" />
+        <line x1="2" y1="10" x2="22" y2="10" />
+      </svg>
+      Pagas al recibir
+    </span>
+    <span class="opacity-40 hidden sm:inline">·</span>
+    <span>Despacho en {configTienda.tiempoDespacho}</span>
+  </div>
+</aside>

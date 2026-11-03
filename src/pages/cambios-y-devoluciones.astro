@@ -1,0 +1,72 @@
+---
+import Base from '../layouts/Base.astro';
+import BarraAnuncio from '../components/secciones/BarraAnuncio.astro';
+import Header from '../components/secciones/Header.astro';
+import Footer from '../components/secciones/Footer.astro';
+import { configTienda } from '../config/tienda';
+---
+
+<Base
+  title={`Cambios, Devoluciones y Retracto | ${configTienda.nombreTienda}`}
+  description="Derecho de retracto conforme a la Ley 1480 de 2011 y procedimiento de cambios en Colombia."
+>
+  <BarraAnuncio />
+  <Header />
+
+  <main class="flex-1 bg-[var(--color-acero)] text-white py-12 px-4 md:px-8">
+    <article class="max-w-3xl mx-auto bg-[var(--color-hierro)] border border-gray-700/80 rounded-[14px] p-6 md:p-10 shadow-xl space-y-6 text-sm text-gray-300 leading-relaxed">
+      
+      <div class="border-b border-gray-700 pb-4">
+        <span class="text-xs uppercase font-bold text-[var(--color-naranja)] font-['Barlow_Condensed'] tracking-widest">
+          ESTATUTO DEL CONSUMIDOR (LEY 1480 DE 2011)
+        </span>
+        <h1 class="text-3xl md:text-4xl font-extrabold uppercase font-['Barlow_Condensed'] text-white mt-1">
+          Cambios, Devoluciones y Derecho de Retracto
+        </h1>
+        <p class="text-xs text-gray-400 mt-1">
+          {configTienda.razonSocial} · NIT {configTienda.nit}
+        </p>
+      </div>
+
+      <section class="space-y-3">
+        <h2 class="text-xl font-bold uppercase font-['Barlow_Condensed'] text-white">
+          1. Derecho de Retracto (Artículo 47, Ley 1480 de 2011)
+        </h2>
+        <p>
+          En las compras a distancia realizadas a través de medios electrónicos, el consumidor tiene derecho a retractarse de la compra dentro de los <strong>cinco (5) días hábiles siguientes</strong> a la entrega del producto.
+        </p>
+        <p>
+          Para ejercer este derecho, el accesorio Cortadora de Lámina debe ser devuelto en las mismas condiciones en que fue recibido: sin uso abusivo, en su empaque original, con todas sus piezas (cuerpo con acople, ruedas de cizalla, varilla de apoyo y repuestos si aplicara). Los costos de transporte y demás que conlleve la devolución del bien serán cubiertos conforme a la normativa legal vigente.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-xl font-bold uppercase font-['Barlow_Condensed'] text-white">
+          2. Procedimiento para Solicitar Retracto o Devolución
+        </h2>
+        <ol class="list-decimal pl-5 space-y-1.5 text-gray-300">
+          <li>Comunícate con nuestro canal de atención por WhatsApp (+{configTienda.whatsappSoporte}) indicando tu número de pedido (ej. <code>PED-2026...</code>) y nombre completo.</li>
+          <li>Adjunta fotografías claras del accesorio y su empaque original.</li>
+          <li>Nuestro equipo te suministrará la dirección de reciba y la guía para la recolección o entrega en punto de la transportadora.</li>
+          <li>Una vez recibido e inspeccionado el producto en nuestras instalaciones (máximo 3 días hábiles tras la recepción), se procederá con el reembolso del dinero acordado a tu cuenta bancaria o Nequi/Daviplata dentro de los plazos legales (máximo 30 días calendario conforme al artículo 47).</li>
+        </ol>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-xl font-bold uppercase font-['Barlow_Condensed'] text-white">
+          3. Cambios por Producto Defectuoso o Incompleto
+        </h2>
+        <p>
+          Si al recibir el paquete notas que alguna pieza llegó incompleta o con defectos evidentes de fabricación, te enviaremos una unidad de reemplazo sin costo adicional. Solo debes reportarlo dentro de las primeras 48 horas tras la entrega del transportador.
+        </p>
+      </section>
+
+      <div class="pt-4 border-t border-gray-700 text-xs text-gray-400">
+        Para gestionar cualquier solicitud, escríbenos a: <strong>soporte@{configTienda.nombreTienda.toLowerCase()}.com</strong> o a nuestro WhatsApp oficial.
+      </div>
+
+    </article>
+  </main>
+
+  <Footer />
+</Base>

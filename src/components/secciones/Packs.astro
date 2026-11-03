@@ -1,0 +1,13 @@
+---
+import PackSelector from '../islas/PackSelector';
+---
+
+<section id="packs" class="bg-[var(--color-acero)] text-white px-4 py-8 border-t border-gray-800">
+  {/* check:texto no cuenta los packs en el presupuesto de palabras */}
+  <template data-texto="ignorar-inicio"></template>
+  <div class="max-w-3xl mx-auto">
+    <h2 class="sr-only">Opciones de compra</h2>
+    <PackSelector client:visible />
+  </div>
+  <template data-texto="ignorar-fin"></template>
+</section>

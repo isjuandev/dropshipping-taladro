@@ -1,0 +1,66 @@
+---
+import Base from '../layouts/Base.astro';
+import BarraAnuncio from '../components/secciones/BarraAnuncio.astro';
+import Header from '../components/secciones/Header.astro';
+import Footer from '../components/secciones/Footer.astro';
+import { configTienda } from '../config/tienda';
+---
+
+<Base
+  title={`Garantía del Producto | ${configTienda.nombreTienda}`}
+  description="Términos y condiciones de la garantía de 30 días de Cortadora de Lámina."
+>
+  <BarraAnuncio />
+  <Header />
+
+  <main class="flex-1 bg-[var(--color-acero)] text-white py-12 px-4 md:px-8">
+    <article class="max-w-3xl mx-auto bg-[var(--color-hierro)] border border-gray-700/80 rounded-[14px] p-6 md:p-10 shadow-xl space-y-6 text-sm text-gray-300 leading-relaxed">
+      
+      <div class="border-b border-gray-700 pb-4">
+        <span class="text-xs uppercase font-bold text-[var(--color-naranja)] font-['Barlow_Condensed'] tracking-widest">
+          COBERTURA Y RESPALDO
+        </span>
+        <h1 class="text-3xl md:text-4xl font-extrabold uppercase font-['Barlow_Condensed'] text-white mt-1">
+          Términos de Garantía Legal
+        </h1>
+        <p class="text-xs text-gray-400 mt-1">
+          {configTienda.garantia} · {configTienda.razonSocial}
+        </p>
+      </div>
+
+      <section class="space-y-3">
+        <h2 class="text-xl font-bold uppercase font-['Barlow_Condensed'] text-white">
+          1. Alcance de la Garantía
+        </h2>
+        <p>
+          El accesorio <strong>Cortadora de Lámina</strong> cuenta con una garantía de <strong>treinta (30) días calendario</strong> contados a partir de la fecha de entrega por parte de la transportadora. Esta garantía cubre exclusivamente defectos de fabricación, fallas en los materiales metálicos de ensamblaje o desajustes mecánicos no atribuibles al uso incorrecto.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-xl font-bold uppercase font-['Barlow_Condensed'] text-white">
+          2. Situaciones que NO Cubre la Garantía
+        </h2>
+        <ul class="list-disc pl-5 space-y-1.5 text-gray-300">
+          <li><strong>Sobrecarga o corte de materiales indebidos:</strong> Intentar cortar perfiles de hierro estructural, barras sólidas, varillas corrugadas, láminas de acero de espesores superiores a las especificaciones recomendadas o materiales no metálicos como concreto o madera.</li>
+          <li><strong>Daños por impacto o caídas:</strong> Golpes contundentes, caídas desde alturas o abolladuras causadas por descuido en el taller.</li>
+          <li><strong>Modificaciones mecánicas:</strong> Alteraciones, desarme no autorizado, modificaciones en el vástago hexagonal o uso con herramientas no compatibles.</li>
+          <li><strong>Desgaste natural de piezas de corte:</strong> Las ruedas de cizalla sufren desgaste progresivo inherente al uso con metales; este desgaste paulatino no constituye un defecto de fábrica.</li>
+          <li><strong>Falta de mantenimiento básico:</strong> Óxido o corrosión severa provocada por almacenamiento en condiciones extremas de humedad o intemperie sin secado posterior.</li>
+        </ul>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-xl font-bold uppercase font-['Barlow_Condensed'] text-white">
+          3. Proceso de Reclamación
+        </h2>
+        <p>
+          Si consideras que tu accesorio presenta una falla cubierta por garantía, contáctanos dentro del plazo de 30 días a nuestro canal de soporte suministrando el número de pedido y un video corto que evidencie la falla. Evaluaremos el caso y, si procede, se realizará el reemplazo del componente defectuoso o la entrega de una nueva unidad.
+        </p>
+      </section>
+
+    </article>
+  </main>
+
+  <Footer />
+</Base>

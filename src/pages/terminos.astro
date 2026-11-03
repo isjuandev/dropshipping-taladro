@@ -1,0 +1,83 @@
+---
+import Base from '../layouts/Base.astro';
+import BarraAnuncio from '../components/secciones/BarraAnuncio.astro';
+import Header from '../components/secciones/Header.astro';
+import Footer from '../components/secciones/Footer.astro';
+import { configTienda } from '../config/tienda';
+---
+
+<Base
+  title={`Términos y Condiciones de Uso | ${configTienda.nombreTienda}`}
+  description="Términos y condiciones para la compra y uso del accesorio Cortadora de Lámina en Colombia."
+>
+  <BarraAnuncio />
+  <Header />
+
+  <main class="flex-1 bg-[var(--color-acero)] text-white py-12 px-4 md:px-8">
+    <article class="max-w-3xl mx-auto bg-[var(--color-hierro)] border border-gray-700/80 rounded-[14px] p-6 md:p-10 shadow-xl space-y-6 text-sm text-gray-300 leading-relaxed">
+      
+      <div class="border-b border-gray-700 pb-4">
+        <span class="text-xs uppercase font-bold text-[var(--color-naranja)] font-['Barlow_Condensed'] tracking-widest">
+          ACUERDO COMERCIAL Y CONDICIONES
+        </span>
+        <h1 class="text-3xl md:text-4xl font-extrabold uppercase font-['Barlow_Condensed'] text-white mt-1">
+          Términos y Condiciones de Uso
+        </h1>
+        <p class="text-xs text-gray-400 mt-1">
+          {configTienda.razonSocial} · NIT {configTienda.nit}
+        </p>
+      </div>
+
+      <section class="space-y-3">
+        <h2 class="text-xl font-bold uppercase font-['Barlow_Condensed'] text-white">
+          1. Aceptación de los Términos
+        </h2>
+        <p>
+          Al navegar en este sitio web y enviar el formulario de pedido contraentrega para el producto <strong>Cortadora de Lámina</strong>, el usuario acepta de manera expresa los presentes Términos y Condiciones, así como nuestras Políticas de Envíos, Garantía y Tratamiento de Datos Personales.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-xl font-bold uppercase font-['Barlow_Condensed'] text-white">
+          2. Descripción del Producto y Límites
+        </h2>
+        <p>
+          Cortadora de Lámina es un accesorio mecánico de cizalla diseñado para acoplarse en el mandril de taladros eléctricos o inalámbricos compatibles. <strong>El taladro no forma parte del producto suministrado</strong>. El usuario debe disponer de un taladro adecuado con mandril compatible para su utilización.
+        </p>
+        <p>
+          El producto está concebido para cortar láminas metálicas delgadas (zinc, aluminio, hojalata, lámina galvanizada) dentro de los límites de espesor indicados. No es una herramienta de corte para metales pesados, vigas, varillas ni uso siderúrgico industrial continuo.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-xl font-bold uppercase font-['Barlow_Condensed'] text-white">
+          3. Responsabilidad y Medidas de Seguridad
+        </h2>
+        <p>
+          La manipulación de herramientas de corte metálico implica riesgos inherentes si no se siguen las debidas precauciones. El comprador asume la responsabilidad de:
+        </p>
+        <ul class="list-disc pl-5 space-y-1 text-gray-300">
+          <li>Utilizar siempre elementos de protección personal (gafas protectoras contra esquirlas y guantes de trabajo reforzados).</li>
+          <li>Fijar la lámina con prensas seguras al banco de trabajo antes de iniciar cualquier corte.</li>
+          <li>Mantener las manos y extremidades alejadas del punto de contacto entre las ruedas de cizalla.</li>
+          <li>Mantener la herramienta fuera del alcance de menores de edad o personas no familiarizadas con el manejo de taladros.</li>
+        </ul>
+        <p>
+          <strong>{configTienda.razonSocial} no se hace responsable por lesiones corporales o daños materiales derivados del uso negligente, falta de equipos de protección personal o inobservancia de las advertencias de seguridad.</strong>
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-xl font-bold uppercase font-['Barlow_Condensed'] text-white">
+          4. Legislación Aplicable y Jurisdicción
+        </h2>
+        <p>
+          Estos términos se rigen e interpretan de conformidad con las leyes de la República de Colombia. Cualquier controversia será resuelta prioritariamente por arreglo directo o ante las autoridades competentes del territorio colombiano (Superintendencia de Industria y Comercio).
+        </p>
+      </section>
+
+    </article>
+  </main>
+
+  <Footer />
+</Base>
