@@ -70,8 +70,8 @@ export const configTienda = {
   // ...
   producto: {
     precio: 99900,
-    precioAnterior: 200000,
-    ahorro: 100100,
+    precioAnterior: 139000,
+    ahorro: 39100,
   },
   packs: [
     {
@@ -114,6 +114,39 @@ especificaciones: {
 En la carpeta `src/assets/img/` se encuentran los 14 placeholders en formato WebP con dimensiones y proporciones exactas.
 
 Consulta el documento [docs/IMAGENES.md](file:///c:/Users/garci/OneDrive/Documentos/WS-NEXOBITE/Dropshipping/taladro/docs/IMAGENES.md) para acceder a los prompts de generación con IA (Imagen 3, Flux, Midjourney) listos para copiar y pegar. Una vez generadas tus fotos, guárdalas con el mismo nombre en `src/assets/img/` y Astro las optimizará automáticamente.
+
+### 4. Fotos y Videos Reales de Clientes
+
+Las pruebas reales de los clientes viven en `public/clientes/` y se enlazan a su reseña desde `src/content/testimonios.json`:
+
+1. Copia la foto (`.webp`) o el video (`.mp4`) del cliente en `public/clientes/` con un nombre descriptivo, por ejemplo `foto-banco-taller.webp` o `video-corte.mp4`.
+2. Si es un video, exporta un fotograma como `video-corte-poster.webp` (es la portada que se ve antes de reproducir).
+3. Añade el bloque `media` a la reseña correspondiente:
+
+```json
+{
+  "id": "resena-2",
+  "nombre": "Jhon Jairo Ospina",
+  "estrellas": 5,
+  "texto": "…",
+  "media": {
+    "tipo": "video",
+    "src": "/clientes/video-corte.mp4",
+    "poster": "/clientes/video-corte-poster.webp",
+    "alt": "Video de un cliente mostrando el taladro con la cortadora y una lámina delgada de aluminio"
+  }
+}
+```
+
+La foto o el video aparece en dos lugares: dentro de la tarjeta de esa reseña (sección "Lo que dicen quienes ya lo usan") y en la galería "Fotos y videos reales", que se arma sola con todas las reseñas que tengan `media`. Si ninguna reseña tiene `media`, la galería no se muestra.
+
+![Galería de fotos y videos reales en móvil](docs/capturas/galeria-clientes-movil.webp)
+
+Al tocar una foto o un video se abre un visor a pantalla completa con la reseña completa del cliente:
+
+![Visor de video con la reseña del cliente](docs/capturas/visor-video-cliente.webp)
+
+> Los archivos de `public/clientes/` se sirven tal cual (sin optimización de Astro): expórtalos en WebP para las fotos y 720×1280 en H.264/AAC para los videos, con un peso ideal menor a 5 MB.
 
 ---
 
@@ -173,23 +206,27 @@ Genera la carpeta `dist/` con archivos HTML, CSS y JS 100 % estáticos y optimiz
 │   ├── components/
 │   │   ├── islas/                  # Islas Preact con @preact/signals
 │   │   │   ├── CompatChecker.tsx   # Comprobador interactivo de compatibilidad
+│   │   │   ├── GaleriaClientes.tsx # Galería de fotos y videos reales con filtros
 │   │   │   ├── OrderForm.tsx       # Formulario contraentrega y fetch a NexoBite
 │   │   │   ├── OrderSelector.tsx   # Selector de pack en Hero
 │   │   │   ├── PackSelector.tsx    # Selector de pack en Sección 14
-│   │   │   └── StickyBar.tsx       # Barra flotante móvil reactiva al scroll
-│   │   ├── secciones/              # 18 secciones en Astro estático puro
+│   │   │   ├── ResenasLista.tsx    # Reseñas con su foto o video adjunto
+│   │   │   ├── StickyBar.tsx       # Barra flotante móvil reactiva al scroll
+│   │   │   └── VisorMedios.tsx     # Visor a pantalla completa de foto/video
+│   │   ├── secciones/              # 19 secciones en Astro estático puro
 │   │   └── ui/                     # Separadores diagonales de corte
 │   ├── config/
 │   │   └── tienda.ts               # Precios, textos, packs, especificaciones y WhatsApp
 │   ├── content/                    # Colecciones de contenido (Astro Content Layer)
 │   │   ├── faqs.json               # 7 preguntas frecuentes exactas
 │   │   ├── producto.json           # Datos de kit, comparativa y usos
-│   │   └── testimonios.json        # 6 reseñas auténticas de clientes en Colombia
+│   │   └── testimonios.json        # 20 reseñas auténticas con fotos y videos reales
 │   ├── data/
 │   │   └── colombia.json           # Catálogo DIVIPOLA DANE (32 departamentos + Bogotá)
 │   ├── layouts/
 │   │   └── Base.astro              # Layout base con SEO, OpenGraph y JSON-LD
 │   ├── lib/
+│   │   ├── clientes.ts             # Medios de clientes (fotos y videos) desde testimonios
 │   │   ├── env.ts                  # Validación de variables de entorno con Zod
 │   │   ├── pedido-schema.ts        # Esquema Zod de validación y contrato NexoBite
 │   │   ├── store.ts                # Signals de Preact para selección global de packs
@@ -204,5 +241,7 @@ Genera la carpeta `dist/` con archivos HTML, CSS y JS 100 % estáticos y optimiz
 │   │   └── terminos.astro          # Términos y condiciones de uso
 │   └── styles/
 │       └── global.css              # Tokens de color, fuentes y animación en Tailwind v4
+├── public/
+│   └── clientes/                   # Fotos, videos y pósters reales enviados por clientes
 └── astro.config.mjs
 ```

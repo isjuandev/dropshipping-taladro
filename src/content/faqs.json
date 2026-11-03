@@ -7,13 +7,12 @@
   {
     "id": "faq-2",
     "pregunta": "¿Con qué taladros funciona?",
-    "respuesta": "Funciona con cualquier taladro convencional o inalámbrico que tenga un mandril estándar compatible con vástago hexagonal (generalmente mandriles de 10 a 13 mm). Se monta y aprieta exactamente igual que una broca común.",
-    "activo": false
+    "respuesta": "Está indicada para taladros de litio de 12 a 21 V y es compatible con la mayoría de taladros eléctricos. Si tu taladro es de otro tipo, escríbenos por WhatsApp antes de pedir y te confirmamos."
   },
   {
     "id": "faq-3",
     "pregunta": "¿Qué grosor y qué materiales corta?",
-    "respuesta": "Está diseñado para láminas delgadas de zinc, aluminio, hojalata y lámina galvanizada (según el grosor máximo indicado en las especificaciones del lote). No está diseñado para láminas gruesas de acero pesado ni perfiles estructurales. Si tienes dudas sobre un material específico, escríbenos antes de realizar tu pedido."
+    "respuesta": "Hierro de 0,3 a 1 mm, lámina blanca de 0,3 a 1,2 mm, acero de 0,8 a 1 mm, y cobre y aluminio de 0,3 a 1,5 mm. Está pensada para lámina plana de menos de 1 mm. No es apta para plástico, aleaciones de alta dureza ni materiales angulares o de forma especial. Si tienes dudas sobre un material, escríbenos antes de pedir."
   },
   {
     "id": "faq-4",
@@ -24,7 +23,8 @@
   {
     "id": "faq-8",
     "pregunta": "¿Cómo se usa?",
-    "respuesta": "Acoplas el cortador al mandril del taladro, apoyas la varilla para darle estabilidad y guías el corte sobre la lámina. Practica primero en un retazo y avanza con calma."
+    "respuesta": "Acoplas el cortador al mandril del taladro, apoyas la varilla para darle estabilidad y guías el corte sobre la lámina. Practica primero en un retazo y avanza con calma.",
+    "activo": false
   },
   {
     "id": "faq-5",

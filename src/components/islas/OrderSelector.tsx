@@ -1,11 +1,24 @@
-import { configTienda, formatCOP } from '../../config/tienda';
-import { selectedPackId, ctaClick } from '../../lib/store';
+import { configTienda, formatCOP, porcentajeDescuento } from '../../config/tienda';
+import { selectedPackId, currentPack, ctaClick } from '../../lib/store';
 
 export default function OrderSelector() {
   const packs = configTienda.packs;
+  const packActivo = currentPack.value;
 
   return (
-    <div class="w-full space-y-3">
+    <div class="w-full mt-4 space-y-3">
+      <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1" aria-live="polite">
+        <span class="text-4xl font-extrabold text-white font-mono nums-tabular">
+          {formatCOP(packActivo.precio)}
+        </span>
+        <span class="text-base text-[var(--color-gris)] line-through font-mono nums-tabular">
+          {formatCOP(packActivo.precioAnterior)}
+        </span>
+        <span class="px-2 py-0.5 rounded bg-[var(--color-exito)]/20 text-[var(--color-exito)] text-xs font-bold uppercase">
+          -{porcentajeDescuento(packActivo.precio, packActivo.precioAnterior)}% · Ahorras {formatCOP(packActivo.ahorro)}
+        </span>
+      </div>
+
       <div class="grid grid-cols-2 gap-3" role="radiogroup" aria-label="Selecciona tu opción">
         {packs.map((pack) => {
           const isSelected = selectedPackId.value === pack.id;
@@ -25,9 +38,8 @@ export default function OrderSelector() {
               }`}
             >
               {pack.destacado && (
-                <span class="absolute -top-2.5 right-3 px-2 py-0.5 text-[10px] font-bold rounded-full bg-[var(--color-chispa)] text-[var(--color-tinta)]">
-                  <span aria-hidden="true">★</span>
-                  <span class="sr-only">Más vendido</span>
+                <span class="absolute -top-2.5 right-3 px-2 py-0.5 text-[10px] font-bold uppercase rounded-full bg-[var(--color-chispa)] text-[var(--color-tinta)]">
+                  Más vendido
                 </span>
               )}
               <div class="flex items-center justify-between">
@@ -48,9 +60,14 @@ export default function OrderSelector() {
                   )}
                 </span>
               </div>
-              <div class="mt-1 text-xl font-bold text-white font-['JetBrains_Mono'] nums-tabular">
+              <div class="mt-1 text-xl font-bold text-white font-mono nums-tabular">
                 {formatCOP(pack.precio)}
               </div>
+              {pack.unidades > 1 && (
+                <div class="text-xs text-gray-300 font-mono nums-tabular">
+                  {formatCOP(pack.precioUnitario)} c/u
+                </div>
+              )}
             </button>
           );
         })}
@@ -68,7 +85,7 @@ export default function OrderSelector() {
             <polyline points="12 5 19 12 12 19" />
           </svg>
         </button>
-        <p class="mt-2 text-center text-[13px] text-gray-300">Envío gratis · Taladro no incluido</p>
+        <p class="mt-2 text-center text-[13px] text-gray-300">Envío gratis · Taladro no incluido · Lámina hasta 1 mm</p>
       </div>
     </div>
   );

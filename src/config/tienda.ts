@@ -18,21 +18,9 @@ export interface PackItem {
   destacado?: boolean;
 }
 
-// Reseña visual de un cliente real. Solo fotos o videos reales: nunca rostros generados por IA.
-export interface UgcItem {
-  id: string;
-  tipo: 'foto' | 'video';
-  src: string; // ruta en /public (foto o mp4)
-  poster?: string; // obligatorio para video
-  alt: string;
-  nombre: string;
-  ciudad: string;
-  estrellas: number;
-}
-
 export const configTienda = {
   nombreTienda: 'ViralyShop',
-  whatsappSoporte: '573001234567',
+  whatsappSoporte: '573334021246',
   moneda: 'COP',
   tiempoDespacho: '1 a 2 días hábiles',
   tiempoEntrega: '3 a 5 días hábiles según la ciudad',
@@ -40,7 +28,7 @@ export const configTienda = {
   razonSocial: 'ViralyShop S.A.S.',
   nit: '901.842.319-1',
   gtmId: '',
-  pixelId: '',
+  pixelId: '1101201176110449',
 
   temporadaRegalo: {
     activo: true,
@@ -48,17 +36,14 @@ export const configTienda = {
     subtitulo: 'Aprovecha la temporada: lleva el pack de 2 con descuento especial para ti y para obsequiar.',
   },
 
-  // Galería de clientes: si está vacía, la sección no se muestra.
-  ugc: [] as UgcItem[],
-
   producto: {
     nombre: 'Cortadora de Lámina',
     nombreCompleto: 'Cortadora de Lámina — Accesorio para taladro',
     sku: 'HEXACUT-PRO',
     variante: 'Cortador de lámina para taladro · Acople hexagonal',
     precio: 99900,
-    precioAnterior: 200000,
-    ahorro: 100100,
+    precioAnterior: 139000,
+    ahorro: 39100,
     calificacion: 4.9,
     totalResenas: 148,
     incluyeRepuesto: false, // Si es true, añade "Ruedas de repuesto" a extras del payload
@@ -66,19 +51,18 @@ export const configTienda = {
     // Especificaciones técnicas controladas desde configuración
     // Marcadas "POR CONFIRMAR" hasta que el dueño las valide con su lote físico
     especificaciones: {
-      grosorMaximo: 'POR CONFIRMAR', // Ej: 1,2 mm en lámina de zinc o aluminio; menos en acero
-      materiales: 'POR CONFIRMAR', // Ej: Lámina de zinc, galvanizada, aluminio y hojalata
-      acople: 'POR CONFIRMAR', // Ej: Vástago hexagonal de 6,35 mm (1/4")
-      velocidadRecomendada: 'POR CONFIRMAR', // Ej: 1.500 a 3.000 RPM
-      compatibilidad: 'POR CONFIRMAR', // Ej: Taladros con mandril de 10 a 13 mm
-      peso: 'POR CONFIRMAR', // Ej: Aprox. 450 g
+      grosorMaximo: 'Lámina plana de menos de 1 mm; hasta 1,5 mm en aluminio y cobre',
+      materiales: 'Hierro 0,3–1 mm · Lámina blanca 0,3–1,2 mm · Acero 0,8–1 mm · Cobre 0,3–1,5 mm · Aluminio 0,3–1,5 mm',
+      noApto: 'Plástico, aleaciones de alta dureza y materiales angulares o de forma especial',
+      compatibilidad: 'Taladros de litio de 12 a 21 V',
+      medidas: '125 × 59 × 30 mm',
+      peso: '388 g',
     },
 
-    // Valores de referencia para el comprobador de compatibilidad (CompatChecker)
-    compatCheckerDefaults: {
-      mandrilMinMm: 10,
-      mandrilMaxMm: 13,
-      grosorMaxMm: 1.2,
+    // Textos del comprobador de compatibilidad (CompatChecker)
+    compatChecker: {
+      taladro: 'de litio de 12 a 21 V',
+      grosor: 'menos de 1 mm (hasta 1,5 mm si es aluminio o cobre)',
     },
   },
 
@@ -88,8 +72,8 @@ export const configTienda = {
       nombre: '1 Unidad',
       unidades: 1,
       precio: 99900,
-      precioAnterior: 200000,
-      ahorro: 100100,
+      precioAnterior: 139000,
+      ahorro: 39100,
       precioUnitario: 99900,
       etiqueta: 'Precio de lanzamiento',
       destacado: false,
@@ -99,8 +83,8 @@ export const configTienda = {
       nombre: 'Pack 2 unidades',
       unidades: 2,
       precio: 169900,
-      precioAnterior: 400000,
-      ahorro: 230100,
+      precioAnterior: 278000,
+      ahorro: 108100,
       precioUnitario: 84950,
       etiqueta: 'PARA TI Y TU TALLER · MÁS VENDIDO',
       destacado: true,
@@ -115,6 +99,11 @@ export function formatCOP(monto: number): string {
     currency: 'COP',
     maximumFractionDigits: 0,
   }).format(monto);
+}
+
+// Porcentaje de descuento entero respecto al precio anterior
+export function porcentajeDescuento(precio: number, precioAnterior: number): number {
+  return Math.round((1 - precio / precioAnterior) * 100);
 }
 
 // Verifica si existe alguna especificación pendiente de confirmar

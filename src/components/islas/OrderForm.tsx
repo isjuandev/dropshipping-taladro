@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'preact/hooks';
 import { configTienda, formatCOP, generarEnlaceWhatsApp } from '../../config/tienda';
-import { currentPack } from '../../lib/store';
+import { currentPack, selectedPackId } from '../../lib/store';
 import {
   clienteFormSchema,
   generarPedidoIdBogota,
@@ -17,6 +17,10 @@ interface DepartamentoData {
 
 const STORAGE_DRAFT_KEY = 'hexacut_pedido_draft_v1';
 const STORAGE_LAST_ORDER_KEY = 'ultimo_pedido_resumen';
+
+// Para buscar sin importar tildes ni mayúsculas ("medellin" encuentra "Medellín")
+const normalizar = (texto: string) =>
+  texto.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase();
 
 export default function OrderForm() {
   const pack = currentPack.value;
@@ -397,8 +401,12 @@ export default function OrderForm() {
     total: pack.precio,
   });
 
+  const enlaceDudas = generarEnlaceWhatsApp({
+    mensajePersonalizado: `Hola ${configTienda.nombreTienda}, tengo una duda antes de confirmar mi pedido de Cortadora de Lámina:`,
+  });
+
   const ciudadesFiltradas = ciudadesDisponibles.filter((c) =>
-    c.toLowerCase().includes(filtroCiudad.toLowerCase())
+    normalizar(c).includes(normalizar(filtroCiudad))
   );
 
   return (
@@ -409,7 +417,7 @@ export default function OrderForm() {
           PEDIDO CONTRAENTREGA
         </span>
         <h2 class="text-3xl md:text-4xl font-extrabold text-white uppercase font-['Barlow_Condensed'] tracking-wide mt-2">
-          Déjanos tus datos y te contactamos
+          Confirma tu pedido
         </h2>
         <p class="text-sm text-gray-300 mt-1 max-w-md mx-auto">
           Confirmamos el pedido contigo antes de despachar. Pagas en efectivo cuando el transportador te entregue.
@@ -432,21 +440,40 @@ export default function OrderForm() {
 
         <div class="text-right shrink-0">
           <div class="text-[10px] text-gray-400 uppercase">Pagas al recibir:</div>
-          <div class="text-xl md:text-2xl font-black text-white font-['JetBrains_Mono'] nums-tabular">
+          <div class="text-xl md:text-2xl font-black text-white font-mono nums-tabular">
             {formatCOP(pack.precio)}
           </div>
-          <a
-            href="#packs"
-            onClick={(e) => {
-              e.preventDefault();
-              const el = document.getElementById('packs');
-              if (el) el.scrollIntoView({ behavior: 'smooth' });
-            }}
-            class="text-[11px] text-[var(--color-naranja)] hover:underline font-semibold"
-          >
-            Cambiar opción
-          </a>
         </div>
+      </div>
+
+      {/* Cambiar de opción sin salir del formulario */}
+      <div class="mt-3 grid grid-cols-2 gap-2" role="radiogroup" aria-label="Elige cuántas unidades quieres">
+        {configTienda.packs.map((p) => {
+          const activo = p.id === pack.id;
+          return (
+            <button
+              key={p.id}
+              type="button"
+              role="radio"
+              aria-checked={activo}
+              onClick={() => {
+                selectedPackId.value = p.id;
+              }}
+              class={`min-h-12 px-3 py-2 rounded-lg border text-left transition-colors cursor-pointer ${
+                activo
+                  ? 'bg-[var(--color-acero)] border-[var(--color-naranja)] ring-1 ring-[var(--color-naranja)]'
+                  : 'bg-transparent border-gray-700 hover:border-gray-500'
+              }`}
+            >
+              <span class="block text-sm font-bold text-white font-['Barlow_Condensed'] uppercase tracking-wide">
+                {p.unidades} {p.unidades === 1 ? 'unidad' : 'unidades'}
+              </span>
+              <span class="block text-xs text-gray-300 font-mono nums-tabular">
+                {formatCOP(p.precio)}
+              </span>
+            </button>
+          );
+        })}
       </div>
 
       {/* Formulario de Orden */}
@@ -530,7 +557,7 @@ export default function OrderForm() {
               onBlur={() => validarCampo('celular')}
               aria-invalid={Boolean(errores.celular)}
               aria-describedby={errores.celular ? 'err-celular' : undefined}
-              class={`w-full h-12 pl-12 pr-3.5 rounded-lg bg-[var(--color-acero)] text-white placeholder-gray-500 border transition-all outline-none focus:ring-2 focus:ring-[var(--color-naranja)] font-['JetBrains_Mono'] nums-tabular ${
+              class={`w-full h-12 pl-12 pr-3.5 rounded-lg bg-[var(--color-acero)] text-white placeholder-gray-500 border transition-all outline-none focus:ring-2 focus:ring-[var(--color-naranja)] font-mono nums-tabular ${
                 errores.celular ? 'border-[var(--color-alerta)]' : 'border-gray-700'
               }`}
             />
@@ -558,6 +585,7 @@ export default function OrderForm() {
               ref={inputRefs.departamento}
               id="campo-departamento"
               name="departamento"
+              autocomplete="address-level1"
               value={departamento}
               onChange={(e) => {
                 const val = (e.target as HTMLSelectElement).value;
@@ -597,6 +625,7 @@ export default function OrderForm() {
               id="campo-ciudad"
               type="text"
               name="ciudad"
+              autocomplete="address-level2"
               disabled={!departamento}
               placeholder={departamento ? 'Escribe o elige tu ciudad' : 'Elige departamento primero'}
               value={ciudad || filtroCiudad}
@@ -775,7 +804,7 @@ export default function OrderForm() {
               <div>
                 <p class="font-medium">{mensajeEstado.texto}</p>
                 {segundosCooldown > 0 && (
-                  <p class="text-xs mt-1 font-['JetBrains_Mono']">
+                  <p class="text-xs mt-1 font-mono">
                     Tiempo de espera: {segundosCooldown} segundos restantes.
                   </p>
                 )}
@@ -798,6 +827,16 @@ export default function OrderForm() {
                       <span>Hablar con un asesor por WhatsApp</span>
                     </a>
                   </div>
+                )}
+                {mensajeEstado.tipo === 'duplicado' && (
+                  <a
+                    href={enlaceSoporte}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="mt-3 inline-block text-xs text-white underline hover:text-[var(--color-naranja)]"
+                  >
+                    Hablar con un asesor por WhatsApp
+                  </a>
                 )}
               </div>
             </div>
@@ -829,6 +868,16 @@ export default function OrderForm() {
           <p class="mt-3 text-[11px] text-gray-400 text-center leading-relaxed">
             Al enviar tus datos aceptas que te escribamos o te llamemos para confirmar el pedido.
             No hacemos cobros automáticos ni guardamos datos de pago.
+          </p>
+          <p class="mt-2 text-center text-xs">
+            <a
+              href={enlaceDudas}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-white underline hover:text-[var(--color-naranja)]"
+            >
+              ¿Tienes dudas? Escríbenos por WhatsApp
+            </a>
           </p>
         </div>
       </form>

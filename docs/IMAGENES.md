@@ -45,13 +45,11 @@ Guía completa y prompts optimizados para generar los activos visuales de la lan
 
 ---
 
-## Video Opcional (Hero Gallery)
+## Video del Hero
 
-- **Archivo**: `public/videos/hero.mp4` (proporción 9:16 o 4:5, 6 a 10 segundos).
-- **Poster**: `src/assets/img/hero-uso.webp`.
-- **Herramienta recomendada**: Kling AI, Luma Dream Machine o Google Veo animando la imagen base `hero-uso.webp`.
-- **Prompt para animación de video**:
-  > *"Cámara lenta cinematográfica, primer plano de un taller: el accesorio cortador montado en el taladro avanza suavemente sobre una lámina de zinc guiado por manos con guantes de cuero. La línea de corte avanza limpia y la tira delgada de descarte se va enrollando con elegancia hacia un costado sin chispas. Movimiento fluido, iluminación natural de taller, sin logos ni textos."*
+- **Archivo**: `public/videos/hero.mp4` (proporción 2:3, sin audio, máximo 2,5 MB). Se reproduce en silencio y en bucle.
+- **Poster**: `public/videos/hero-poster.webp` (primer cuadro del video).
+- Reemplaza a `slide-hero.webp`, que ya no se muestra. Se configura en la entrada `hero` de `src/content/slides.json`.
 
 ---
 
@@ -88,8 +86,8 @@ Reglas comunes: usar la foto real del producto como referencia; taladro genéric
 
 Videos: MP4 H.264 y WebM, máximo 2,5 MB cada uno, con poster WebP del primer cuadro. Lo que el video muestre debe ser lo que el producto hace de verdad. Para activar el WebM, agrega `"webm": "/video/video-demo.webm"` en la entrada del video en `slides.json`.
 
-> Estado actual: las 4 imágenes de slide y los 2 posters son recortes provisionales de las fotos existentes (hero-uso, paso-3-corta, resultado-piezas, hero-producto, uso-techo) para que no haya huecos; reemplázalos por las fotos reales siguiendo los prompts. `video-demo.mp4` y `video-usos.mp4` son copias provisionales de `hero.mp4`. El script `generate-placeholders.js` no pisa archivos existentes (`--force` regenera todo).
+> Estado actual: las 4 imágenes de slide y los 2 posters son recortes provisionales de las fotos existentes (hero-uso, paso-3-corta, resultado-piezas, hero-producto, uso-techo) para que no haya huecos; reemplázalos por las fotos reales siguiendo los prompts. `video-demo.mp4` y `video-usos.mp4` son videos provisionales. El script `generate-placeholders.js` no pisa archivos existentes (`--force` regenera todo).
 
 ### Galería de clientes
 
-Agrega fotos o videos reales de clientes en `public/ugc/` y regístralos en `configTienda.ugc` (`src/config/tienda.ts`). Mientras esté vacío, la sección no se muestra. Nunca uses rostros generados por IA.
+Las fotos y videos reales de clientes viven en `public/clientes/` y se asocian a su reseña en `src/content/testimonios.json` con el bloque `media` (`tipo`, `src`, `poster` y `alt`). La galería "Fotos y videos reales" se arma sola con las reseñas que tengan `media`; si ninguna lo tiene, la sección no se muestra. Nunca uses rostros generados por IA.

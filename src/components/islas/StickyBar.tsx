@@ -84,15 +84,10 @@ export default function StickyBar({ thumbnailUrl = '/og-image.jpg' }: StickyBarP
           </div>
           <div class="truncate">
             <div class="text-[11px] font-bold text-gray-300 uppercase tracking-wide truncate">
-              {pack.nombre}
+              {pack.unidades} und. · <span class="text-[var(--color-exito)]">Envío gratis</span>
             </div>
-            <div class="flex items-baseline gap-1.5">
-              <span class="text-base font-extrabold text-white font-['JetBrains_Mono'] nums-tabular">
-                {formatCOP(pack.precio)}
-              </span>
-              <span class="text-[10px] text-[var(--color-exito)] font-medium">
-                Envío gratis
-              </span>
+            <div class="text-base font-extrabold text-white font-mono nums-tabular">
+              {formatCOP(pack.precio)}
             </div>
           </div>
         </div>

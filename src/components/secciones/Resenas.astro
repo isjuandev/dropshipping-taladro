@@ -1,0 +1,35 @@
+---
+import { getCollection } from 'astro:content';
+import { configTienda } from '../../config/tienda';
+import ResenasLista from '../islas/ResenasLista';
+
+const resenas = (await getCollection('testimonios'))
+  .map((r) => r.data)
+  .map(({ id, nombre, ciudad, texto, estrellas, media }) => ({ id, nombre, ciudad, texto, estrellas, media }));
+
+const producto = configTienda.producto;
+---
+
+<section id="resenas" class="bg-[var(--color-acero)] text-white px-4 py-8 border-t border-gray-800 scroll-mt-14">
+  {/* check:texto no cuenta las reseñas en el presupuesto de palabras */}
+  <template data-texto="ignorar-inicio"></template>
+  <div class="mx-auto w-full max-w-[560px] md:max-w-3xl">
+    <h2 class="m-0 font-['Barlow_Condensed'] font-extrabold uppercase text-[32px] leading-[1] text-white">
+      Lo que dicen quienes ya lo usan
+    </h2>
+    <div class="mt-3 mb-5 flex items-center gap-2">
+      <div class="flex items-center text-[var(--color-chispa)]" aria-hidden="true">
+        {[1, 2, 3, 4, 5].map(() => (
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+          </svg>
+        ))}
+      </div>
+      <span class="text-sm font-bold text-white font-mono">
+        {String(producto.calificacion).replace('.', ',')} · {producto.totalResenas} clientes
+      </span>
+    </div>
+    <ResenasLista client:visible resenas={resenas} visiblesInicio={3} />
+  </div>
+  <template data-texto="ignorar-fin"></template>
+</section>
