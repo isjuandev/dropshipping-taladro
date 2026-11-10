@@ -736,7 +736,7 @@ export default function OrderForm() {
               onClick={() => handleTipoEntregaChange('domicilio')}
               class={`flex items-center justify-center gap-2 py-2.5 px-3 rounded-md text-xs font-bold transition-all cursor-pointer ${
                 tipoEntrega === 'domicilio'
-                  ? 'bg-[var(--color-naranja)] text-[var(--color-tinta)] shadow font-extrabold'
+                  ? 'bg-[var(--color-naranja)] text-white shadow font-extrabold'
                   : 'text-gray-300 hover:text-white'
               }`}
             >
@@ -747,7 +747,7 @@ export default function OrderForm() {
               onClick={() => handleTipoEntregaChange('oficina')}
               class={`flex items-center justify-center gap-2 py-2.5 px-3 rounded-md text-xs font-bold transition-all cursor-pointer ${
                 tipoEntrega === 'oficina'
-                  ? 'bg-[var(--color-naranja)] text-[var(--color-tinta)] shadow font-extrabold'
+                  ? 'bg-[var(--color-naranja)] text-white shadow font-extrabold'
                   : 'text-gray-300 hover:text-white'
               }`}
             >
