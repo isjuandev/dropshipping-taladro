@@ -23,8 +23,8 @@ const {
   preloadImagen,
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://viraly.shop');
-const fullOgImageUrl = new URL(ogImage, Astro.site || 'https://viraly.shop').href;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.shopviraly.shop');
+const fullOgImageUrl = new URL(ogImage, Astro.site || 'https://www.shopviraly.shop').href;
 
 // JSON-LD para Producto y Organización
 const productJsonLd = {
@@ -66,7 +66,7 @@ const orgJsonLd = {
   name: configTienda.nombreTienda,
   legalName: configTienda.razonSocial,
   taxID: configTienda.nit,
-  url: Astro.site || 'https://viraly.shop',
+  url: Astro.site || 'https://www.shopviraly.shop',
 };
 ---
 

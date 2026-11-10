@@ -1,12 +1,14 @@
-// Mide las palabras visibles entre la barra de anuncio y el formulario (#pedido) en dist/index.html.
+// Mide las palabras visibles entre la barra de anuncio y el formulario (#pedido) en dist/cortadora-de-lamina/index.html o dist/index.html.
 // Uso: pnpm build && pnpm check:texto
 import fs from 'node:fs';
 import path from 'node:path';
 
 const LIMITE = 200;
-const archivo = path.resolve('dist/index.html');
+const rutaCortadora = path.resolve('dist/cortadora-de-lamina/index.html');
+const rutaIndex = path.resolve('dist/index.html');
+const archivo = fs.existsSync(rutaCortadora) ? rutaCortadora : rutaIndex;
 if (!fs.existsSync(archivo)) {
-  console.error('No existe dist/index.html. Ejecuta primero: pnpm build');
+  console.error('No existe el archivo HTML compilado. Ejecuta primero: pnpm build');
   process.exit(1);
 }
 

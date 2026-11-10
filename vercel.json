@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/cortadora-de-lamina",
+      "permanent": true
+    }
+  ]
+}
