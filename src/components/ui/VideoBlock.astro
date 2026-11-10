@@ -9,7 +9,7 @@ interface Props {
   poster: string;
   titular: string;
   ariaLabel: string;
-  cta: { texto: string; origen: string };
+  cta: { texto: string; origen: string; packId?: string };
   vtt?: string; // subtítulos opcionales (.vtt)
   videoObject?: { nombre: string; descripcion: string; fecha: string; duracion: string };
 }
@@ -46,7 +46,7 @@ const videoJsonLd = videoObject && {
     </div>
   </div>
 
-  <BotonCta texto={cta.texto} origen={cta.origen} />
+  <BotonCta texto={cta.texto} origen={cta.origen} packId={cta.packId} />
 
   {videoJsonLd && <script type="application/ld+json" set:html={JSON.stringify(videoJsonLd)} />}
 </section>

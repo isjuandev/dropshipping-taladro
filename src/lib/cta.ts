@@ -7,6 +7,9 @@ export function iniciarCtaDelegado(): void {
   w.__hexacutCta = true;
   document.addEventListener('click', (e) => {
     const boton = (e.target as Element).closest<HTMLElement>('[data-cta]');
-    if (boton?.dataset.cta) ctaClick(boton.dataset.cta);
+    if (boton?.dataset.cta) {
+      const packId = boton.dataset.pack || 'pack-1';
+      ctaClick(boton.dataset.cta, packId);
+    }
   });
 }
