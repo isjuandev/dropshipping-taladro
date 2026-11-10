@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'preact/hooks';
 import { configTienda, formatCOP, generarEnlaceWhatsApp } from '../../config/tienda';
-import { currentPack, selectedPackId } from '../../lib/store';
+import { selectedPackId } from '../../lib/store';
 import {
   clienteFormSchema,
   generarPedidoIdBogota,
@@ -28,7 +28,15 @@ const normalizar = (texto: string) =>
   texto.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase();
 
 export default function OrderForm() {
-  const pack = currentPack.value;
+  const [activePackId, setActivePackId] = useState(selectedPackId.value);
+
+  useEffect(() => {
+    return selectedPackId.subscribe((id) => {
+      setActivePackId(id);
+    });
+  }, []);
+
+  const pack = configTienda.packs.find((p) => p.id === activePackId) || configTienda.packs[0];
 
   // Identificador de pedido generado con fecha de Bogotá, preservado en reintentos
   const [pedidoId, setPedidoId] = useState<string>('');
@@ -490,6 +498,7 @@ export default function OrderForm() {
               aria-checked={activo}
               onClick={() => {
                 selectedPackId.value = p.id;
+                setActivePackId(p.id);
               }}
               class={`min-h-12 px-3 py-2 rounded-lg border text-left transition-colors cursor-pointer ${
                 activo
@@ -736,22 +745,22 @@ export default function OrderForm() {
               onClick={() => handleTipoEntregaChange('domicilio')}
               class={`flex items-center justify-center gap-2 py-2.5 px-3 rounded-md text-xs font-bold transition-all cursor-pointer ${
                 tipoEntrega === 'domicilio'
-                  ? 'bg-[var(--color-naranja)] text-white shadow font-extrabold'
+                  ? 'bg-[var(--color-naranja)] !text-white shadow font-extrabold'
                   : 'text-gray-300 hover:text-white'
               }`}
             >
-              <span>A Domicilio</span>
+              <span class={tipoEntrega === 'domicilio' ? '!text-white' : ''}>A Domicilio</span>
             </button>
             <button
               type="button"
               onClick={() => handleTipoEntregaChange('oficina')}
               class={`flex items-center justify-center gap-2 py-2.5 px-3 rounded-md text-xs font-bold transition-all cursor-pointer ${
                 tipoEntrega === 'oficina'
-                  ? 'bg-[var(--color-naranja)] text-white shadow font-extrabold'
+                  ? 'bg-[var(--color-naranja)] !text-white shadow font-extrabold'
                   : 'text-gray-300 hover:text-white'
               }`}
             >
-              <span>Recoger en Oficina</span>
+              <span class={tipoEntrega === 'oficina' ? '!text-white' : ''}>Recoger en Oficina</span>
             </button>
           </div>
         </div>
