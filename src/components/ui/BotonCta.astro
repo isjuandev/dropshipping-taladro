@@ -3,15 +3,17 @@ interface Props {
   texto: string;
   origen: string; // id del bloque: se envía en cta_click
   garantia?: string | false;
+  packId?: string;
 }
 
-const { texto, origen, garantia = 'Pagas al recibir · Envío gratis' } = Astro.props;
+const { texto, origen, garantia = 'Pagas al recibir · Envío gratis', packId = 'pack-1' } = Astro.props;
 ---
 
 <div class="px-4 pt-4 pb-7 bg-[var(--color-acero)] text-center">
   <button
     type="button"
     data-cta={origen}
+    data-pack={packId}
     class="w-full max-w-md h-14 bg-[var(--color-naranja)] hover:bg-[var(--color-naranja-hover)] active:translate-y-0.5 text-[var(--color-tinta)] font-bold text-xl rounded-[10px] uppercase font-['Barlow_Condensed'] tracking-wider shadow-lg hover:shadow-orange-500/25 transition-all inline-flex items-center justify-center gap-2 cursor-pointer"
   >
     <span>{texto}</span>

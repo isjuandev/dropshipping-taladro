@@ -35,7 +35,7 @@ const faqs = defineCollection({
 });
 
 // Bloques de la landing en orden de lectura. Reordena con `orden` o apaga con `activo: false`.
-const cta = z.object({ texto: z.string(), origen: z.string() });
+const cta = z.object({ texto: z.string(), origen: z.string(), packId: z.string().optional() });
 
 const slides = defineCollection({
   loader: file('src/content/slides.json'),
