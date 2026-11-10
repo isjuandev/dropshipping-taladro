@@ -1,20 +1,30 @@
+import { useState, useEffect } from 'preact/hooks';
 import { configTienda, formatCOP } from '../../config/tienda';
-import { selectedPackId, currentPack, ctaClick } from '../../lib/store';
+import { selectedPackId, ctaClick } from '../../lib/store';
 
 export default function PackSelector() {
   const packs = configTienda.packs;
-  const packActivo = currentPack.value;
+  const [activePackId, setActivePackId] = useState(selectedPackId.value);
+
+  useEffect(() => {
+    return selectedPackId.subscribe((id) => {
+      setActivePackId(id);
+    });
+  }, []);
+
+  const packActivo = packs.find((p) => p.id === activePackId) || packs[0];
 
   return (
     <div class="w-full max-w-3xl mx-auto space-y-6">
       <div class="flex md:grid md:grid-cols-2 gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar -mx-4 px-4 pt-4 pb-2 md:mx-0 md:px-0" role="radiogroup" aria-label="Opciones de compra en paquete">
         {packs.map((pack) => {
-          const isSelected = selectedPackId.value === pack.id;
+          const isSelected = activePackId === pack.id;
           return (
             <div
               key={pack.id}
               onClick={() => {
                 selectedPackId.value = pack.id;
+                setActivePackId(pack.id);
               }}
               class={`relative rounded-[12px] p-4 cursor-pointer transition-all border snap-center shrink-0 w-[78%] sm:w-[60%] md:w-auto ${
                 isSelected
@@ -92,7 +102,7 @@ export default function PackSelector() {
       <div class="pt-2 text-center">
         <button
           type="button"
-          onClick={() => ctaClick('packs')}
+          onClick={() => ctaClick('packs', activePackId)}
           class="w-full max-w-md mx-auto h-14 bg-[var(--color-naranja)] hover:bg-[var(--color-naranja-hover)] active:translate-y-0.5 text-[var(--color-tinta)] font-bold text-xl rounded-[10px] uppercase font-['Barlow_Condensed'] tracking-wider shadow-lg hover:shadow-orange-500/25 transition-all flex items-center justify-center gap-2 cursor-pointer"
         >
           <span>

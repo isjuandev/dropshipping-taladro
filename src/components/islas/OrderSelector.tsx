@@ -1,9 +1,18 @@
+import { useState, useEffect } from 'preact/hooks';
 import { configTienda, formatCOP, porcentajeDescuento } from '../../config/tienda';
-import { selectedPackId, currentPack, ctaClick } from '../../lib/store';
+import { selectedPackId, ctaClick } from '../../lib/store';
 
 export default function OrderSelector() {
   const packs = configTienda.packs;
-  const packActivo = currentPack.value;
+  const [activePackId, setActivePackId] = useState(selectedPackId.value);
+
+  useEffect(() => {
+    return selectedPackId.subscribe((id) => {
+      setActivePackId(id);
+    });
+  }, []);
+
+  const packActivo = packs.find((p) => p.id === activePackId) || packs[0];
 
   return (
     <div class="w-full mt-4 space-y-3">
@@ -21,7 +30,7 @@ export default function OrderSelector() {
 
       <div class="grid grid-cols-2 gap-3" role="radiogroup" aria-label="Selecciona tu opción">
         {packs.map((pack) => {
-          const isSelected = selectedPackId.value === pack.id;
+          const isSelected = activePackId === pack.id;
           return (
             <button
               key={pack.id}
@@ -30,6 +39,7 @@ export default function OrderSelector() {
               aria-checked={isSelected}
               onClick={() => {
                 selectedPackId.value = pack.id;
+                setActivePackId(pack.id);
               }}
               class={`relative p-3 rounded-[12px] text-left transition-all cursor-pointer border ${
                 isSelected
@@ -76,7 +86,7 @@ export default function OrderSelector() {
       <div>
         <button
           type="button"
-          onClick={() => ctaClick('hero')}
+          onClick={() => ctaClick('hero', activePackId)}
           class="w-full h-14 bg-[var(--color-naranja)] hover:bg-[var(--color-naranja-hover)] active:translate-y-0.5 text-[var(--color-tinta)] font-bold text-xl rounded-[10px] uppercase font-['Barlow_Condensed'] tracking-wider shadow-md hover:shadow-orange-500/20 transition-all flex items-center justify-center gap-2 cursor-pointer"
         >
           <span>Pedir ahora — pagas al recibir</span>
