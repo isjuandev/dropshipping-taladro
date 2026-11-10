@@ -3,8 +3,8 @@ import { configTienda, type PackItem } from '../config/tienda';
 import { pushDataLayer } from './tracking';
 
 // Pack seleccionado globalmente compartido entre islas de Preact
-// Default: Pack 2 (más vendido / mejor valor)
-export const selectedPackId = signal<string>('pack-2');
+// Default: Pack 1 (1 unidad)
+export const selectedPackId = signal<string>('pack-1');
 
 // Objeto completo del pack activo
 export const currentPack = computed<PackItem>(() => {
