@@ -90,24 +90,6 @@ export default function OrderForm() {
       .catch((err) => {
         console.error('Error cargando catálogo de Colombia:', err);
       });
-
-    // Recuperar borrador si existe (nunca la casilla de consentimiento)
-    try {
-      const draftJson = localStorage.getItem(STORAGE_DRAFT_KEY);
-      if (draftJson) {
-        const d = JSON.parse(draftJson);
-        if (d.nombreCompleto) setNombreCompleto(d.nombreCompleto);
-        if (d.celular) setCelular(d.celular);
-        if (d.departamento) setDepartamento(d.departamento);
-        if (d.ciudad) setCiudad(d.ciudad);
-        if (d.codigoDane) setCodigoDane(d.codigoDane);
-        if (d.tipoEntrega) setTipoEntrega(d.tipoEntrega);
-        if (d.direccion) setDireccion(d.direccion);
-        if (d.indicaciones) setIndicaciones(d.indicaciones);
-      }
-    } catch (e) {
-      // localStorage bloqueado o inaccesible
-    }
   }, []);
 
   // Actualizar lista de municipios al cambiar departamento
@@ -527,7 +509,7 @@ export default function OrderForm() {
       </div>
 
       {/* Formulario de Orden */}
-      <form onSubmit={handleSubmit} noValidate class="mt-6 space-y-4">
+      <form onSubmit={handleSubmit} noValidate autoComplete="off" class="mt-6 space-y-4">
         {/* Honeypot invisible */}
         <div style={{ display: 'none' }} aria-hidden="true">
           <label for="empresa">Empresa</label>
@@ -554,7 +536,7 @@ export default function OrderForm() {
             name="nombreCompleto"
             value={nombreCompleto}
             placeholder="Ej. Juan Fernando Pérez"
-            autocomplete="name"
+            autoComplete="off"
             onFocus={handlePrimerFoco}
             onInput={(e) => {
               const val = (e.target as HTMLInputElement).value;
@@ -596,7 +578,7 @@ export default function OrderForm() {
               name="celular"
               value={formatearCelularColombiano(celular)}
               placeholder="300 123 4567"
-              autocomplete="tel-national"
+              autoComplete="off"
               onFocus={handlePrimerFoco}
               onInput={(e) => {
                 const val = (e.target as HTMLInputElement).value;
@@ -635,7 +617,7 @@ export default function OrderForm() {
               ref={inputRefs.departamento}
               id="campo-departamento"
               name="departamento"
-              autocomplete="address-level1"
+              autoComplete="off"
               value={departamento}
               onChange={(e) => {
                 const val = (e.target as HTMLSelectElement).value;
@@ -679,7 +661,7 @@ export default function OrderForm() {
               id="campo-ciudad"
               type="text"
               name="ciudad"
-              autocomplete="address-level2"
+              autoComplete="off"
               disabled={!departamento}
               placeholder={departamento ? 'Escribe o elige tu municipio' : 'Elige departamento primero'}
               value={ciudad || filtroCiudad}
@@ -796,7 +778,7 @@ export default function OrderForm() {
                 ? 'Ej: Calle 45 # 12-30, apto 302, barrio La Floresta'
                 : TEXTO_OFICINA
             }
-            autocomplete="street-address"
+            autoComplete="off"
             onInput={(e) => {
               const val = (e.target as HTMLInputElement).value;
               setDireccion(val);
@@ -826,7 +808,7 @@ export default function OrderForm() {
               <div class="space-y-0.5">
                 <p class="font-bold text-white">Pagas en efectivo al retirar tu paquete</p>
                 <p class="text-[11px] text-gray-300 leading-relaxed">
-                  El paquete llegará a la agencia principal de transportadora (Interrapidísimo o Coordinadora) en tu ciudad. Te enviaremos la guía por WhatsApp para que lo retires y pagues contraentrega.
+                  El paquete llegará a la oficina o agencia principal de transportadora en tu ciudad. Te enviaremos la guía por WhatsApp para que lo retires y pagues contraentrega.
                 </p>
               </div>
             </div>
@@ -844,6 +826,7 @@ export default function OrderForm() {
             name="indicaciones"
             value={indicaciones}
             maxLength={300}
+            autoComplete="off"
             placeholder="Ej: Casa esquinera frente al parque / Dejar en portería"
             onInput={(e) => {
               const val = (e.target as HTMLInputElement).value;
