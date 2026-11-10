@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'preact/hooks';
-import { currentPack, ctaClick } from '../../lib/store';
-import { formatCOP } from '../../config/tienda';
+import { selectedPackId, ctaClick } from '../../lib/store';
+import { configTienda, formatCOP } from '../../config/tienda';
 
 interface StickyBarProps {
   thumbnailUrl?: string;
@@ -8,7 +8,15 @@ interface StickyBarProps {
 
 export default function StickyBar({ thumbnailUrl = '/og-image.jpg' }: StickyBarProps) {
   const [visible, setVisible] = useState(false);
-  const pack = currentPack.value;
+  const [activePackId, setActivePackId] = useState(selectedPackId.value);
+
+  useEffect(() => {
+    return selectedPackId.subscribe((id) => {
+      setActivePackId(id);
+    });
+  }, []);
+
+  const pack = configTienda.packs.find((p) => p.id === activePackId) || configTienda.packs[0];
 
   useEffect(() => {
     const heroEl = document.getElementById('hero');
@@ -95,7 +103,7 @@ export default function StickyBar({ thumbnailUrl = '/og-image.jpg' }: StickyBarP
         {/* Botón CTA */}
         <button
           type="button"
-          onClick={() => ctaClick('sticky')}
+          onClick={() => ctaClick('sticky', activePackId)}
           class="h-11 px-5 rounded-lg bg-[var(--color-naranja)] hover:bg-[var(--color-naranja-hover)] text-[var(--color-tinta)] font-bold text-base font-['Barlow_Condensed'] uppercase tracking-wider shrink-0 shadow-md active:translate-y-0.5 cursor-pointer flex items-center gap-1.5"
         >
           <span>Pedir ahora</span>
