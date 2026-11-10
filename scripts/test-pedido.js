@@ -16,9 +16,9 @@ if (fs.existsSync(envPath)) {
   });
 }
 
-const apiUrl = process.env.PUBLIC_NEXOBITE_API_URL || 'https://api.nexobite.com/api/v1/public/dropshipping/campana-hexacut-pro/leads';
+const apiUrl = process.env.PUBLIC_NEXOBITE_API_URL || 'https://api.nexobite.com/api/v1/public/dropshipping/viralyshop/leads';
 const productId = process.env.PUBLIC_NEXOBITE_PRODUCT_ID || '98745';
-const campaignSlug = process.env.PUBLIC_NEXOBITE_CAMPAIGN_SLUG || 'campana-hexacut-pro';
+const campaignSlug = process.env.PUBLIC_NEXOBITE_CAMPAIGN_SLUG || 'viralyshop';
 
 // Generar pedidoId con fecha de Bogotá UTC-5
 const ahora = new Date();
@@ -44,7 +44,6 @@ const testPayload = {
   producto: {
     providerProductId: String(productId),
     nombre: 'Cortadora de Lámina · Pack 2 unidades',
-    sku: 'HEXACUT-PRO',
     variante: 'Cortador de lámina para taladro · Acople hexagonal',
     paquete: 'Pack 2 unidades',
     cantidad: 2,

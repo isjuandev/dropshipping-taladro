@@ -8,15 +8,14 @@ import { configTienda } from '../../config/tienda';
       
       {/* Columna 1: Marca y Razón Social */}
       <div class="md:col-span-5 space-y-3">
-        <div class="flex items-center gap-2 text-white">
-          <div class="w-7 h-7 rounded-lg bg-[var(--color-naranja)] flex items-center justify-center text-[var(--color-tinta)] font-bold text-sm">
-            <svg class="w-4 h-4 text-[var(--color-tinta)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <polygon points="6 2 18 2 18 6 6 6 6 2" />
-              <polygon points="3 6 21 6 21 16 3 16 3 6" />
-              <line x1="12" y1="16" x2="12" y2="22" />
-              <line x1="8" y1="22" x2="16" y2="22" />
-            </svg>
-          </div>
+        <div class="flex items-center gap-2.5 text-white">
+          <img
+            src="/favicon.svg"
+            alt={`Logo ${configTienda.nombreTienda}`}
+            width="32"
+            height="32"
+            class="w-8 h-8 rounded-lg shadow-sm shadow-[var(--color-naranja)]/20 object-cover"
+          />
           <span class="text-xl font-bold uppercase font-['Barlow_Condensed'] tracking-wider text-white">
             {configTienda.nombreTienda}
           </span>
@@ -29,6 +28,7 @@ import { configTienda } from '../../config/tienda';
         <div class="pt-1 text-gray-400 space-y-1">
           <div><strong class="text-gray-300">Razón Social:</strong> {configTienda.razonSocial}</div>
           <div><strong class="text-gray-300">NIT:</strong> {configTienda.nit}</div>
+          <div><strong class="text-gray-300">Horario de atención:</strong> {configTienda.horarioAtencion}</div>
           <div><strong class="text-gray-300">Ubicación:</strong> Colombia</div>
         </div>
       </div>
@@ -67,16 +67,33 @@ import { configTienda } from '../../config/tienda';
         </ul>
       </div>
 
-      {/* Columna 3: Medios de Despacho y Seguridad */}
+      {/* Columna 3: Canales, Redes y Despacho Seguro */}
       <div class="md:col-span-3 space-y-3">
         <h3 class="text-sm font-bold uppercase tracking-wider text-white font-['Barlow_Condensed'] mb-3">
-          Despacho y Pago Seguro
+          Canales & Redes
         </h3>
-        <p class="text-gray-400 leading-relaxed">
-          Pagas en efectivo únicamente cuando el domiciliario de Servientrega, Envía, Coordinadora o Interrapidísimo entrega el paquete en tus manos.
-        </p>
+        <ul class="space-y-2 list-none p-0 m-0 mb-3">
+          {configTienda.redes.instagram && (
+            <li>
+              <a href={configTienda.redes.instagram} target="_blank" rel="noopener noreferrer" class="hover:text-[var(--color-naranja)] transition-colors">
+                Instagram Oficial
+              </a>
+            </li>
+          )}
+        </ul>
+
+        <div class="pt-2 border-t border-gray-800">
+          <span class="text-[11px] text-gray-400 block mb-1.5 font-semibold">Métodos de pago aceptados:</span>
+          <div class="flex flex-wrap gap-1.5 text-[11px] text-gray-300">
+            <span class="px-2 py-0.5 rounded bg-[var(--color-hierro)] border border-gray-700">Contra entrega en efectivo</span>
+            <span class="px-2 py-0.5 rounded bg-[var(--color-hierro)] border border-gray-700">Bancolombia</span>
+            <span class="px-2 py-0.5 rounded bg-[var(--color-hierro)] border border-gray-700">Nequi</span>
+            <span class="px-2 py-0.5 rounded bg-[var(--color-hierro)] border border-gray-700">Daviplata</span>
+          </div>
+        </div>
+
         <div class="p-2.5 rounded-lg bg-[var(--color-hierro)] border border-gray-700 text-[11px] text-gray-300">
-          <span class="text-[var(--color-chispa)] font-semibold">Sin pagos anticipados.</span> Inspeccionas el paquete al recibir.
+          <span class="text-[var(--color-chispa)] font-semibold">Sin pagos anticipados.</span> Entregas por Servientrega, Envía, Coordinadora o Interrapidísimo.
         </div>
       </div>
 

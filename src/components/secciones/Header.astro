@@ -7,19 +7,18 @@ import { configTienda } from '../../config/tienda';
     <!-- Logo de la tienda -->
     <a
       href="/"
-      class="flex items-center gap-2 group text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-naranja)] rounded-md px-1"
+      class="flex items-center gap-2.5 group text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-naranja)] rounded-md px-1"
       aria-label="Ir al inicio de la tienda"
     >
-      <div class="w-8 h-8 rounded-lg bg-[var(--color-naranja)] flex items-center justify-center text-[var(--color-tinta)] font-black text-lg">
-        <svg class="w-5 h-5 text-[var(--color-tinta)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-          <polygon points="6 2 18 2 18 6 6 6 6 2" />
-          <polygon points="3 6 21 6 21 16 3 16 3 6" />
-          <line x1="12" y1="16" x2="12" y2="22" />
-          <line x1="8" y1="22" x2="16" y2="22" />
-        </svg>
-      </div>
+      <img
+        src="/favicon.svg"
+        alt={`Logo ${configTienda.nombreTienda}`}
+        width="36"
+        height="36"
+        class="w-9 h-9 rounded-xl shadow-md shadow-[var(--color-naranja)]/20 group-hover:scale-105 transition-transform object-cover"
+      />
       <div class="flex flex-col">
-        <span class="text-xl font-extrabold uppercase font-['Barlow_Condensed'] tracking-wider leading-none">
+        <span class="text-xl md:text-2xl font-extrabold uppercase font-['Barlow_Condensed'] tracking-wider leading-none">
           {configTienda.nombreTienda}
         </span>
       </div>

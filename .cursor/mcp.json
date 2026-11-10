@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "sequence": {
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "--yes",
+        "https://alamkanak.github.io/sequence/mcp/sequence-mcp-0.2.1.tgz",
+        "--allow-media",
+        "C:\\Users\\garci\\Documents\\WS-NEXOBITE\\Dropshipping\\taladro\\videos"
+      ]
+    }
+  }
+}

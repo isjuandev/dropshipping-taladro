@@ -6,17 +6,22 @@ import {
   generarPedidoIdBogota,
   formatearCelularColombiano,
   limpiarCelularParaPayload,
-  type NexobitePayload,
 } from '../../lib/pedido-schema';
-import { inicializarTracking, dispararInicioCheckout } from '../../lib/tracking';
+import { inicializarTracking, dispararInicioCheckout, getMetaCookies } from '../../lib/tracking';
+
+interface MunicipioItem {
+  nombre: string;
+  codigoDane: string;
+}
 
 interface DepartamentoData {
   departamento: string;
-  ciudades: string[];
+  municipios: MunicipioItem[];
 }
 
 const STORAGE_DRAFT_KEY = 'hexacut_pedido_draft_v1';
 const STORAGE_LAST_ORDER_KEY = 'ultimo_pedido_resumen';
+const TEXTO_OFICINA = 'Reclamar en oficina principal';
 
 // Para buscar sin importar tildes ni mayúsculas ("medellin" encuentra "Medellín")
 const normalizar = (texto: string) =>
@@ -34,6 +39,8 @@ export default function OrderForm() {
   const [celular, setCelular] = useState('');
   const [departamento, setDepartamento] = useState('');
   const [ciudad, setCiudad] = useState('');
+  const [codigoDane, setCodigoDane] = useState('');
+  const [tipoEntrega, setTipoEntrega] = useState<'domicilio' | 'oficina'>('domicilio');
   const [direccion, setDireccion] = useState('');
   const [indicaciones, setIndicaciones] = useState('');
   const [consentimiento, setConsentimiento] = useState(false);
@@ -42,9 +49,9 @@ export default function OrderForm() {
   // Errores de validación campo a campo
   const [errores, setErrores] = useState<Record<string, string>>({});
 
-  // Lista de departamentos y ciudades (cargada dinámicamente)
+  // Lista de departamentos y municipios (cargada dinámicamente)
   const [colombiaData, setColombiaData] = useState<DepartamentoData[]>([]);
-  const [ciudadesDisponibles, setCiudadesDisponibles] = useState<string[]>([]);
+  const [municipiosDisponibles, setMunicipiosDisponibles] = useState<MunicipioItem[]>([]);
   const [filtroCiudad, setFiltroCiudad] = useState('');
   const [mostrarDropdownCiudad, setMostrarDropdownCiudad] = useState(false);
 
@@ -74,7 +81,7 @@ export default function OrderForm() {
     mountTimeRef.current = Date.now();
     inicializarTracking();
 
-    // Cargar datos DIVIPOLA DANE dinámicamente
+    // Cargar datos DIVIPOLA DANE dinámicamente con códigos DANE
     import('../../data/colombia.json')
       .then((mod) => {
         const datos = (mod.default || mod) as DepartamentoData[];
@@ -93,6 +100,8 @@ export default function OrderForm() {
         if (d.celular) setCelular(d.celular);
         if (d.departamento) setDepartamento(d.departamento);
         if (d.ciudad) setCiudad(d.ciudad);
+        if (d.codigoDane) setCodigoDane(d.codigoDane);
+        if (d.tipoEntrega) setTipoEntrega(d.tipoEntrega);
         if (d.direccion) setDireccion(d.direccion);
         if (d.indicaciones) setIndicaciones(d.indicaciones);
       }
@@ -101,41 +110,67 @@ export default function OrderForm() {
     }
   }, []);
 
-  // Actualizar lista de ciudades al cambiar departamento
+  // Actualizar lista de municipios al cambiar departamento
   useEffect(() => {
     if (!departamento || colombiaData.length === 0) {
-      setCiudadesDisponibles([]);
+      setMunicipiosDisponibles([]);
       return;
     }
     const dptoEncontrado = colombiaData.find(
-      (item) => item.departamento.toLowerCase() === departamento.toLowerCase()
+      (item) => normalizar(item.departamento) === normalizar(departamento)
     );
-    if (dptoEncontrado) {
-      setCiudadesDisponibles(dptoEncontrado.ciudades);
+    if (dptoEncontrado && Array.isArray(dptoEncontrado.municipios)) {
+      setMunicipiosDisponibles(dptoEncontrado.municipios);
       // Si la ciudad actual no pertenece al departamento, resetearla
-      if (ciudad && !dptoEncontrado.ciudades.includes(ciudad)) {
+      const existeCiudad = dptoEncontrado.municipios.some(
+        (m) => normalizar(m.nombre) === normalizar(ciudad)
+      );
+      if (ciudad && !existeCiudad) {
         setCiudad('');
+        setCodigoDane('');
         setFiltroCiudad('');
       }
     } else {
-      setCiudadesDisponibles([]);
+      setMunicipiosDisponibles([]);
     }
   }, [departamento, colombiaData]);
 
   // Persistir borrador al escribir
-  const guardarBorrador = (datos: Record<string, string>) => {
+  const guardarBorrador = (datos: Record<string, any>) => {
     try {
       const actual = {
         nombreCompleto,
         celular,
         departamento,
         ciudad,
+        codigoDane,
+        tipoEntrega,
         direccion,
         indicaciones,
         ...datos,
       };
       localStorage.setItem(STORAGE_DRAFT_KEY, JSON.stringify(actual));
     } catch (e) {}
+  };
+
+  // Manejador del cambio entre Entrega a Domicilio y Recoger en Oficina
+  const handleTipoEntregaChange = (tipo: 'domicilio' | 'oficina') => {
+    setTipoEntrega(tipo);
+    if (tipo === 'oficina') {
+      if (!direccion || direccion.trim() === '') {
+        setDireccion(TEXTO_OFICINA);
+        guardarBorrador({ tipoEntrega: tipo, direccion: TEXTO_OFICINA });
+      } else {
+        guardarBorrador({ tipoEntrega: tipo });
+      }
+    } else {
+      if (direccion === TEXTO_OFICINA) {
+        setDireccion('');
+        guardarBorrador({ tipoEntrega: tipo, direccion: '' });
+      } else {
+        guardarBorrador({ tipoEntrega: tipo });
+      }
+    }
   };
 
   // Cuenta regresiva para 429
@@ -166,6 +201,8 @@ export default function OrderForm() {
       celular,
       departamento,
       ciudad,
+      codigoDane: codigoDane || '00000',
+      tipoEntrega,
       direccion,
       indicaciones,
       consentimiento,
@@ -213,6 +250,8 @@ export default function OrderForm() {
       celular,
       departamento,
       ciudad,
+      codigoDane: codigoDane || '00000',
+      tipoEntrega,
       direccion,
       indicaciones,
       consentimiento,
@@ -250,15 +289,24 @@ export default function OrderForm() {
 
     // 4. Preparar Payload del contrato público de NexoBite Leads
     const tracking = inicializarTracking();
-    const apiUrl = import.meta.env.PUBLIC_NEXOBITE_API_URL || '';
-    const productId = import.meta.env.PUBLIC_NEXOBITE_PRODUCT_ID || '1';
-    const campaignSlug = import.meta.env.PUBLIC_NEXOBITE_CAMPAIGN_SLUG || 'campana-hexacut-pro';
+    const metaCookies = getMetaCookies(tracking.fbclid);
+
+    const apiUrl = configTienda.pedido.endpoint;
+    const productId = configTienda.pedido.productId;
+    const campaignSlug = configTienda.pedido.campaignSlug;
 
     const landingUrl = typeof window !== 'undefined'
       ? `${window.location.origin}${window.location.pathname}`
       : 'https://viraly.shop/cortador-lamina-taladro';
 
-    const payload: NexobitePayload = {
+    const textoIndicaciones = [
+      parsed.data.indicaciones?.trim(),
+      tipoEntrega === 'oficina' ? '[RECOGER EN OFICINA PRINCIPAL]' : '',
+    ]
+      .filter(Boolean)
+      .join(' · ');
+
+    const nexoPayload = {
       pedidoId,
       fecha: new Date().toISOString(),
       tienda: configTienda.nombreTienda,
@@ -267,7 +315,6 @@ export default function OrderForm() {
       producto: {
         providerProductId: String(productId),
         nombre: `${configTienda.producto.nombre} · ${pack.nombre}`,
-        sku: configTienda.producto.sku,
         variante: configTienda.producto.variante,
         paquete: pack.nombre,
         cantidad: pack.unidades,
@@ -281,18 +328,18 @@ export default function OrderForm() {
         departamento: parsed.data.departamento,
         ciudad: parsed.data.ciudad,
         direccion: parsed.data.direccion,
-        indicaciones: parsed.data.indicaciones || '',
+        indicaciones: textoIndicaciones,
       },
-      consentimiento: true,
+      consentimiento: true as const,
       origen: {
-        utm_source: tracking.utm_source,
-        utm_medium: tracking.utm_medium,
-        utm_campaign: tracking.utm_campaign,
-        utm_content: tracking.utm_content,
-        fbclid: tracking.fbclid,
-        referrer: tracking.referrer,
-        fbp: tracking.fbp,
-        fbc: tracking.fbc,
+        utm_source: tracking.utm_source || '',
+        utm_medium: tracking.utm_medium || '',
+        utm_campaign: tracking.utm_campaign || '',
+        utm_content: tracking.utm_content || '',
+        fbclid: tracking.fbclid || '',
+        referrer: tracking.referrer || '',
+        fbp: tracking.fbp || metaCookies.fbp || '',
+        fbc: tracking.fbc || metaCookies.fbc || '',
       },
       antispam: {
         empresa: '',
@@ -311,7 +358,7 @@ export default function OrderForm() {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
         },
-        body: JSON.stringify(payload),
+        body: JSON.stringify(nexoPayload),
         signal: controller.signal,
       });
 
@@ -325,7 +372,7 @@ export default function OrderForm() {
           setEnviando(false);
           setMensajeEstado({
             tipo: 'duplicado',
-            texto: 'Ya tienes un pedido en curso con estos datos. Te contactaremos para confirmarlo.',
+            texto: 'Ya tienes un pedido en curso con estos datos. Te contactaremos pronto para confirmarlo.',
           });
           return;
         }
@@ -333,19 +380,21 @@ export default function OrderForm() {
         // Éxito confirmado: guardar resumen y limpiar borrador
         try {
           localStorage.removeItem(STORAGE_DRAFT_KEY);
-          localStorage.setItem(
-            STORAGE_LAST_ORDER_KEY,
-            JSON.stringify({
-              pedidoId,
-              orderId: json?.data?.orderId || pedidoId,
-              pack: pack.nombre,
-              total: pack.precio,
-              clienteNombre: parsed.data.nombreCompleto,
-              ciudad: parsed.data.ciudad,
-              departamento: parsed.data.departamento,
-              direccion: parsed.data.direccion,
-            })
-          );
+          const resumen = {
+            pedidoId,
+            orderId: json?.data?.orderId || pedidoId,
+            pack: pack.nombre,
+            total: pack.precio,
+            clienteNombre: parsed.data.nombreCompleto,
+            ciudad: parsed.data.ciudad,
+            departamento: parsed.data.departamento,
+            codigoDane: codigoDane || '00000',
+            tipoEntrega,
+            direccion: parsed.data.direccion,
+          };
+          localStorage.setItem(STORAGE_LAST_ORDER_KEY, JSON.stringify(resumen));
+          sessionStorage.setItem(STORAGE_LAST_ORDER_KEY, JSON.stringify(resumen));
+          localStorage.setItem('ultimo_pedido_resumen_backup', JSON.stringify(resumen));
         } catch (e) {}
 
         // Redirección inmediata a /gracias
@@ -369,13 +418,14 @@ export default function OrderForm() {
         setEnviando(false);
         setMensajeEstado({
           tipo: 'no-disponible',
-          texto: 'Este producto no está disponible en este momento.',
+          texto: 'Este producto no está disponible en este momento. Escríbenos por WhatsApp para asistirte.',
         });
         return;
       }
 
       // D) Otros errores HTTP
-      throw new Error(`Error de servidor (${res.status})`);
+      const apiMsg = typeof json?.message === 'string' ? json.message : '';
+      throw new Error(apiMsg || `Error de servidor (${res.status})`);
     } catch (err: any) {
       clearTimeout(timeoutId);
       setEnviando(false);
@@ -388,7 +438,7 @@ export default function OrderForm() {
       } else {
         setMensajeEstado({
           tipo: 'error-red',
-          texto: 'No pudimos enviar tu pedido. Revisa tu conexión e inténtalo de nuevo.',
+          texto: err?.message || 'No pudimos enviar tu pedido. Revisa tu conexión e inténtalo de nuevo.',
         });
       }
     }
@@ -405,8 +455,8 @@ export default function OrderForm() {
     mensajePersonalizado: `Hola ${configTienda.nombreTienda}, tengo una duda antes de confirmar mi pedido de Cortadora de Lámina:`,
   });
 
-  const ciudadesFiltradas = ciudadesDisponibles.filter((c) =>
-    normalizar(c).includes(normalizar(filtroCiudad))
+  const ciudadesFiltradas = municipiosDisponibles.filter((m) =>
+    normalizar(m.nombre).includes(normalizar(filtroCiudad))
   );
 
   return (
@@ -591,8 +641,9 @@ export default function OrderForm() {
                 const val = (e.target as HTMLSelectElement).value;
                 setDepartamento(val);
                 setCiudad('');
+                setCodigoDane('');
                 setFiltroCiudad('');
-                guardarBorrador({ departamento: val, ciudad: '' });
+                guardarBorrador({ departamento: val, ciudad: '', codigoDane: '' });
               }}
               onBlur={() => validarCampo('departamento')}
               aria-invalid={Boolean(errores.departamento)}
@@ -615,10 +666,13 @@ export default function OrderForm() {
             )}
           </div>
 
-          {/* Ciudad o Municipio (Combobox con filtro) */}
+          {/* Ciudad o Municipio (Combobox con filtro y DANE) */}
           <div class="relative">
-            <label for="campo-ciudad" class="block text-xs font-bold text-gray-300 uppercase tracking-wide mb-1.5">
-              Ciudad o Municipio <span class="text-[var(--color-naranja)]">*</span>
+            <label for="campo-ciudad" class="block text-xs font-bold text-gray-300 uppercase tracking-wide mb-1.5 flex items-center justify-between">
+              <span>Ciudad o Municipio <span class="text-[var(--color-naranja)]">*</span></span>
+              {codigoDane && (
+                <span class="text-[10px] text-gray-400 font-mono">DANE {codigoDane}</span>
+              )}
             </label>
             <input
               ref={inputRefs.ciudad}
@@ -627,7 +681,7 @@ export default function OrderForm() {
               name="ciudad"
               autocomplete="address-level2"
               disabled={!departamento}
-              placeholder={departamento ? 'Escribe o elige tu ciudad' : 'Elige departamento primero'}
+              placeholder={departamento ? 'Escribe o elige tu municipio' : 'Elige departamento primero'}
               value={ciudad || filtroCiudad}
               onFocus={() => {
                 if (departamento) setMostrarDropdownCiudad(true);
@@ -636,8 +690,9 @@ export default function OrderForm() {
                 const val = (e.target as HTMLInputElement).value;
                 setFiltroCiudad(val);
                 setCiudad(val);
+                setCodigoDane('');
                 setMostrarDropdownCiudad(true);
-                guardarBorrador({ ciudad: val });
+                guardarBorrador({ ciudad: val, codigoDane: '' });
               }}
               onBlur={() => {
                 setTimeout(() => {
@@ -652,27 +707,29 @@ export default function OrderForm() {
               }`}
             />
 
-            {/* Dropdown de opciones filtradas */}
+            {/* Dropdown de opciones filtradas con código DANE */}
             {mostrarDropdownCiudad && departamento && (
-              <ul class="absolute z-30 left-0 right-0 mt-1 max-h-48 overflow-y-auto rounded-lg bg-[var(--color-acero)] border border-gray-600 shadow-xl py-1 text-sm">
+              <ul class="absolute z-30 left-0 right-0 mt-1 max-h-56 overflow-y-auto rounded-lg bg-[var(--color-acero)] border border-gray-600 shadow-xl py-1 text-sm divide-y divide-gray-700/50">
                 {ciudadesFiltradas.length > 0 ? (
-                  ciudadesFiltradas.map((c) => (
+                  ciudadesFiltradas.map((m) => (
                     <li
-                      key={c}
+                      key={m.codigoDane || m.nombre}
                       onMouseDown={() => {
-                        setCiudad(c);
+                        setCiudad(m.nombre);
+                        setCodigoDane(m.codigoDane);
                         setFiltroCiudad('');
                         setMostrarDropdownCiudad(false);
-                        guardarBorrador({ ciudad: c });
+                        guardarBorrador({ ciudad: m.nombre, codigoDane: m.codigoDane });
                       }}
-                      class="px-3.5 py-2 hover:bg-[var(--color-hierro)] text-white cursor-pointer transition-colors"
+                      class="px-3.5 py-2.5 hover:bg-[var(--color-hierro)] text-white cursor-pointer transition-colors flex items-center justify-between"
                     >
-                      {c}
+                      <span class="font-medium">{m.nombre}</span>
+                      <span class="text-[11px] text-gray-400 font-mono">DANE {m.codigoDane}</span>
                     </li>
                   ))
                 ) : (
                   <li class="px-3.5 py-2 text-gray-400 text-xs italic">
-                    Puedes escribir tu municipio directamente
+                    No encontramos "{filtroCiudad}". Puedes escribirlo directamente.
                   </li>
                 )}
               </ul>
@@ -686,18 +743,59 @@ export default function OrderForm() {
           </div>
         </div>
 
-        {/* 4. Dirección de Entrega */}
+        {/* 4. Selector Modo de Entrega: A Domicilio vs Recoger en Oficina */}
         <div>
-          <label for="campo-direccion" class="block text-xs font-bold text-gray-300 uppercase tracking-wide mb-1.5">
-            Dirección Exacta de Entrega <span class="text-[var(--color-naranja)]">*</span>
+          <label class="block text-xs font-bold text-gray-300 uppercase tracking-wide mb-1.5">
+            Modo de Entrega
           </label>
+          <div class="grid grid-cols-2 gap-2 p-1 bg-[var(--color-acero)] rounded-lg border border-gray-700">
+            <button
+              type="button"
+              onClick={() => handleTipoEntregaChange('domicilio')}
+              class={`flex items-center justify-center gap-2 py-2.5 px-3 rounded-md text-xs font-bold transition-all cursor-pointer ${
+                tipoEntrega === 'domicilio'
+                  ? 'bg-[var(--color-naranja)] text-[var(--color-tinta)] shadow font-extrabold'
+                  : 'text-gray-300 hover:text-white'
+              }`}
+            >
+              <span>A Domicilio</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => handleTipoEntregaChange('oficina')}
+              class={`flex items-center justify-center gap-2 py-2.5 px-3 rounded-md text-xs font-bold transition-all cursor-pointer ${
+                tipoEntrega === 'oficina'
+                  ? 'bg-[var(--color-naranja)] text-[var(--color-tinta)] shadow font-extrabold'
+                  : 'text-gray-300 hover:text-white'
+              }`}
+            >
+              <span>Recoger en Oficina</span>
+            </button>
+          </div>
+        </div>
+
+        {/* 5. Dirección de Entrega o Punto de Recogida */}
+        <div>
+          <div class="flex items-center justify-between mb-1.5">
+            <label for="campo-direccion" class="block text-xs font-bold text-gray-300 uppercase tracking-wide">
+              {tipoEntrega === 'domicilio' ? 'Dirección Exacta de Entrega' : 'Punto de Recogida en Oficina'}{' '}
+              <span class="text-[var(--color-naranja)]">*</span>
+            </label>
+            {tipoEntrega === 'domicilio' && (
+              <span class="text-[11px] text-gray-400">Casa, trabajo, vereda o punto conocido</span>
+            )}
+          </div>
           <input
             ref={inputRefs.direccion}
             id="campo-direccion"
             type="text"
             name="direccion"
             value={direccion}
-            placeholder="Ej: Calle 45 # 12-30, apto 302, barrio La Floresta"
+            placeholder={
+              tipoEntrega === 'domicilio'
+                ? 'Ej: Calle 45 # 12-30, apto 302, barrio La Floresta'
+                : TEXTO_OFICINA
+            }
             autocomplete="street-address"
             onInput={(e) => {
               const val = (e.target as HTMLInputElement).value;
@@ -721,9 +819,21 @@ export default function OrderForm() {
               {errores.direccion}
             </p>
           )}
+
+          {/* Aviso informativo cuando se escoge Oficina */}
+          {tipoEntrega === 'oficina' && (
+            <div class="mt-2.5 p-3 rounded-lg bg-[var(--color-acero)] border border-[var(--color-naranja)]/40 text-xs text-gray-200 flex items-start gap-2.5">
+              <div class="space-y-0.5">
+                <p class="font-bold text-white">Pagas en efectivo al retirar tu paquete</p>
+                <p class="text-[11px] text-gray-300 leading-relaxed">
+                  El paquete llegará a la agencia principal de transportadora (Interrapidísimo o Coordinadora) en tu ciudad. Te enviaremos la guía por WhatsApp para que lo retires y pagues contraentrega.
+                </p>
+              </div>
+            </div>
+          )}
         </div>
 
-        {/* 5. Indicaciones Adicionales (Opcional) */}
+        {/* 6. Indicaciones Adicionales (Opcional) */}
         <div>
           <label for="campo-indicaciones" class="block text-xs font-bold text-gray-300 uppercase tracking-wide mb-1.5">
             Indicaciones Adicionales para el Domiciliario (Opcional)
@@ -744,7 +854,7 @@ export default function OrderForm() {
           />
         </div>
 
-        {/* 6. Casilla de Consentimiento Obligatoria (Desmarcada por defecto) */}
+        {/* 7. Casilla de Consentimiento Obligatoria */}
         <div class="pt-2">
           <label class="flex items-start gap-3 cursor-pointer group">
             <input
@@ -808,7 +918,7 @@ export default function OrderForm() {
                     Tiempo de espera: {segundosCooldown} segundos restantes.
                   </p>
                 )}
-                {/* Enlace de WhatsApp solo en estados de error o no disponible */}
+                {/* Enlace de WhatsApp en error o no disponible */}
                 {(mensajeEstado.tipo === 'error-red' || mensajeEstado.tipo === 'no-disponible') && (
                   <div class="mt-3 flex flex-wrap items-center gap-3">
                     <button

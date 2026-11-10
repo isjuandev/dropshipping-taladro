@@ -27,8 +27,28 @@ export const configTienda = {
   garantia: 'Garantía de 30 días por defectos de fábrica',
   razonSocial: 'ViralyShop S.A.S.',
   nit: '901.842.319-1',
-  gtmId: '',
-  pixelId: '1101201176110449',
+  horarioAtencion: 'Lunes a Domingo · 24/7',
+  redes: {
+    instagram: 'https://instagram.com/ViralyShop'
+  },
+  metodosPago: [
+    'Pago Contra Entrega en efectivo al recibir',
+    'Transferencia Bancolombia / Nequi / Daviplata al recibir',
+  ],
+  gtmId: import.meta.env.PUBLIC_GTM_ID || '',
+  pixelId: import.meta.env.PUBLIC_PIXEL_ID || '1101201176110449',
+  turnstileSiteKey: import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '',
+
+  pedido: {
+    modo: 'directo' as const,
+    endpoint:
+      import.meta.env.PUBLIC_NEXOBITE_API_URL ||
+      'https://api.nexobite.com/api/v1/public/dropshipping/viralyshop/leads',
+    productId: import.meta.env.PUBLIC_NEXOBITE_PRODUCT_ID || '98745',
+    campaignSlug: import.meta.env.PUBLIC_NEXOBITE_CAMPAIGN_SLUG || 'viralyshop',
+    horarioConfirmacion: 'lunes a sábado, 8 a. m. a 6 p. m.',
+    tiempoConfirmacion: 'en menos de 2 horas hábiles',
+  },
 
   temporadaRegalo: {
     activo: true,

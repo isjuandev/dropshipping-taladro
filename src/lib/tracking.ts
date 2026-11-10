@@ -124,7 +124,22 @@ export function inicializarTracking(): OrigenTracking {
   }
 }
 
-// Dispara evento BeginCheckout / InitiateCheckout al primer foco del formulario
+// Cookies de Meta (_fbp, _fbc)
+export function getMetaCookies(fbclid?: string): { fbp?: string; fbc?: string } {
+  const fbp = getCookie('_fbp');
+  const fbcCookie = getCookie('_fbc');
+  const fbc = fbcCookie || (fbclid ? `fb.1.${Date.now()}.${fbclid}` : '');
+  return {
+    ...(fbp ? { fbp } : {}),
+    ...(fbc ? { fbc } : {}),
+  };
+}
+
+export const trackBeginCheckout = (params: { pack: string; valor: number }) =>
+  dispararInicioCheckout(params.valor);
+
+export const trackGenerateLead = (params: { pedidoId: string; valor: number; pack: string }) =>
+  dispararEventoLead(params.pedidoId, params.valor, params.pack);
 export function dispararInicioCheckout(precioTotal: number): void {
   if (typeof window === 'undefined') return;
 

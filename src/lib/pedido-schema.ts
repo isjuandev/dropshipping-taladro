@@ -5,8 +5,8 @@ export const clienteFormSchema = z.object({
   nombreCompleto: z
     .string()
     .trim()
-    .min(1, 'Escribe tu nombre y apellido')
-    .refine((val) => val.trim().split(/\s+/).length >= 2, {
+    .min(3, 'Escribe tu nombre y apellido')
+    .refine((val) => val.trim().split(/\s+/).filter(Boolean).length >= 2, {
       message: 'Ingresa al menos nombre y apellido (mínimo dos palabras)',
     }),
   celular: z
@@ -27,13 +27,17 @@ export const clienteFormSchema = z.object({
     .string()
     .trim()
     .min(1, 'Selecciona tu ciudad o municipio'),
+  codigoDane: z
+    .string()
+    .trim()
+    .default('00000'),
+  tipoEntrega: z
+    .enum(['domicilio', 'oficina'])
+    .default('domicilio'),
   direccion: z
     .string()
     .trim()
-    .min(8, 'La dirección debe tener al menos 8 caracteres')
-    .refine((val) => /\d/.test(val), {
-      message: 'La dirección debe incluir al menos un número (ej: Calle 45 # 12-30)',
-    }),
+    .min(3, 'La dirección debe tener al menos 3 caracteres'),
   indicaciones: z
     .string()
     .max(300, 'Las indicaciones no pueden superar los 300 caracteres')
@@ -50,74 +54,86 @@ export type ClienteFormData = z.infer<typeof clienteFormSchema>;
 
 // Esquema completo del payload para la API pública de NexoBite Leads
 export const nexobitePayloadSchema = z.object({
-  pedidoId: z.string().regex(/^PED-\d{8}-[A-Z0-9]{4}$/, 'Formato de pedidoId inválido (debe ser PED-AAAAMMDD-XXXX)'),
-  fecha: z.string().datetime({ message: 'La fecha debe estar en formato ISO 8601 UTC' }),
+  pedidoId: z.string().regex(/^PED-\d{8}-[A-Za-z0-9]{4}$/, 'Formato de pedidoId inválido (debe ser PED-AAAAMMDD-XXXX)'),
+  fecha: z.string(),
   tienda: z.string().min(1, 'El nombre de la tienda es obligatorio'),
   landing: z.string().url('La URL de la landing debe ser válida'),
   campaignSlug: z.string().min(1, 'El campaignSlug es obligatorio'),
   producto: z.object({
     providerProductId: z.string().min(1, 'providerProductId obligatorio'),
     nombre: z.string().min(1, 'nombre de producto obligatorio'),
-    sku: z.string().min(1, 'sku obligatorio'),
+    sku: z.string().optional(),
     variante: z.string().min(1, 'variante obligatoria'),
     paquete: z.string().min(1, 'paquete obligatorio'),
     cantidad: z.number().int().positive(),
-    extras: z.array(z.string()),
+    extras: z.array(z.string()).default([]),
     precioUnitario: z.number().positive(),
     total: z.number().positive(),
   }),
   cliente: z.object({
     nombreCompleto: z.string().min(2),
-    celular: z.string().regex(/^\+573\d{9}$/, 'El celular debe tener formato internacional +573XXXXXXXXX'),
+    celular: z.string(),
     departamento: z.string().min(1),
     ciudad: z.string().min(1),
-    direccion: z.string().min(8),
-    indicaciones: z.string(),
+    codigoDane: z.string().optional(),
+    direccion: z.string().min(3),
+    indicaciones: z.string().optional().default(''),
   }),
   consentimiento: z.literal(true),
   origen: z.object({
-    utm_source: z.string(),
-    utm_medium: z.string(),
-    utm_campaign: z.string(),
-    utm_content: z.string(),
-    fbclid: z.string(),
-    referrer: z.string(),
-    fbp: z.string(),
-    fbc: z.string(),
+    utm_source: z.string().optional().default(''),
+    utm_medium: z.string().optional().default(''),
+    utm_campaign: z.string().optional().default(''),
+    utm_content: z.string().optional().default(''),
+    fbclid: z.string().optional().default(''),
+    referrer: z.string().optional().default(''),
+    fbp: z.string().optional(),
+    fbc: z.string().optional(),
   }),
   antispam: z.object({
-    empresa: z.string().max(0, 'Honeypot activado'),
-    segundos: z.number().min(5, 'Formulario completado demasiado rápido'),
+    empresa: z.string().default(''),
+    segundos: z.number().default(0),
   }),
+  turnstileToken: z.string().optional(),
 });
 
 export type NexobitePayload = z.infer<typeof nexobitePayloadSchema>;
 
+/** Respuesta del endpoint público de dropshipping de NexoBite */
+export interface NexoBiteLeadResponse {
+  data?: {
+    orderId?: string;
+    status?: string;
+    duplicate?: boolean;
+    spam?: boolean;
+    message?: string;
+  };
+  message?: string;
+}
+
 // Genera el ID de pedido con la fecha en la zona horaria de Bogotá (UTC-5): PED-AAAAMMDD-XXXX
-export function generarPedidoIdBogota(): string {
-  const ahora = new Date();
-  // Formato para Bogotá (UTC-5)
-  const partes = new Intl.DateTimeFormat('en-US', {
-    timeZone: 'America/Bogota',
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-  }).formatToParts(ahora);
+export function generarPedidoIdBogota(fechaBase?: Date): string {
+  const now = fechaBase || new Date();
+  const bogotaStr = now.toLocaleString('en-US', { timeZone: 'America/Bogota' });
+  const bogotaDate = new Date(bogotaStr);
 
-  const year = partes.find((p) => p.type === 'year')?.value || '2026';
-  const month = partes.find((p) => p.type === 'month')?.value || '11';
-  const day = partes.find((p) => p.type === 'day')?.value || '02';
+  const yyyy = bogotaDate.getFullYear();
+  const mm = String(bogotaDate.getMonth() + 1).padStart(2, '0');
+  const dd = String(bogotaDate.getDate()).padStart(2, '0');
+  const datePart = `${yyyy}${mm}${dd}`;
 
-  // 4 caracteres alfanuméricos en mayúsculas
-  const caracteres = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-  let sufijo = '';
+  // Conjunto alfanumérico sin caracteres ambiguos (sin 0, O, 1, I, L)
+  const chars = '23456789ABCDEFGHJKMNPQRSTUVWXYZ';
+  let randomPart = '';
   for (let i = 0; i < 4; i++) {
-    const idx = Math.floor(Math.random() * caracteres.length);
-    sufijo += caracteres[idx];
+    const idx = Math.floor(Math.random() * chars.length);
+    randomPart += chars[idx];
   }
 
-  return `PED-${year}${month}${day}-${sufijo}`;
+  return `PED-${datePart}-${randomPart}`;
 }
+
+export const generatePedidoId = generarPedidoIdBogota;
 
 // Formatea el celular para visualización agradable en vivo: 300 000 0000
 export function formatearCelularColombiano(valor: string): string {
@@ -127,11 +143,16 @@ export function formatearCelularColombiano(valor: string): string {
   return `${soloDigitos.slice(0, 3)} ${soloDigitos.slice(3, 6)} ${soloDigitos.slice(6)}`;
 }
 
+export const formatCelularInput = formatearCelularColombiano;
+
+export function cleanCelularDigits(formatted: string): string {
+  return formatted.replace(/\D/g, '').slice(0, 10);
+}
+
 // Transforma el celular al formato internacional exigido por NexoBite: +573XXXXXXXXX
 export function limpiarCelularParaPayload(valor: string): string {
-  const soloDigitos = valor.replace(/\D/g, '');
-  if (soloDigitos.startsWith('57') && soloDigitos.length === 12) {
-    return `+${soloDigitos}`;
-  }
+  const soloDigitos = cleanCelularDigits(valor);
   return `+57${soloDigitos}`;
 }
+
+export const toInternationalPhone = limpiarCelularParaPayload;

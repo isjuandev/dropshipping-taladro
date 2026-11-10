@@ -1,253 +1,4647 @@
 [
   {
-    "departamento": "Bogotá D.C.",
-    "ciudades": ["Bogotá D.C."]
+    "departamento": "Amazonas",
+    "municipios": [
+      {
+        "nombre": "El Encanto",
+        "codigoDane": "91263"
+      },
+      {
+        "nombre": "La Chorrera",
+        "codigoDane": "91405"
+      },
+      {
+        "nombre": "La Pedrera",
+        "codigoDane": "91407"
+      },
+      {
+        "nombre": "La Victoria",
+        "codigoDane": "91430"
+      },
+      {
+        "nombre": "Leticia",
+        "codigoDane": "91001"
+      },
+      {
+        "nombre": "Miriti-parana",
+        "codigoDane": "91460"
+      },
+      {
+        "nombre": "Puerto Alegria",
+        "codigoDane": "91530"
+      },
+      {
+        "nombre": "Puerto Arica",
+        "codigoDane": "91536"
+      },
+      {
+        "nombre": "Puerto Nari¥o",
+        "codigoDane": "91540"
+      },
+      {
+        "nombre": "Puerto Santander",
+        "codigoDane": "91669"
+      },
+      {
+        "nombre": "Tarapaca",
+        "codigoDane": "91798"
+      }
+    ]
   },
   {
     "departamento": "Antioquia",
-    "ciudades": [
-      "Medellín", "Bello", "Itagüí", "Envigado", "Apartadó", "Rionegro", "Turbo", "Caucasia",
-      "Sabaneta", "Chigorodó", "Copacabana", "La Estrella", "Caldas", "Marinilla", "Guarne",
-      "Girardota", "El Carmen de Viboral", "Santa Fe de Antioquia", "Yarumal", "Santa Rosa de Osos",
-      "Barbosa", "Puerto Berrío", "Andes", "Segovia", "Amagá", "Ciudad Bolívar", "Urrao",
-      "Dabeiba", "Remedios", "Sonsón", "Frontino", "San Pedro de los Milagros", "El Bagre",
-      "Zaragoza", "Necoclí", "San Juan de Urabá", "Arboletes", "Donmatías", "Entrerríos", "La Ceja", "El Retiro"
-    ]
-  },
-  {
-    "departamento": "Atlántico",
-    "ciudades": [
-      "Barranquilla", "Soledad", "Malambo", "Sabanalarga", "Baranoa", "Galapa", "Puerto Colombia",
-      "Santo Tomás", "Palmar de Varela", "Sabanagrande", "Polonuevo", "Campo de la Cruz", "Ponedera",
-      "Luruaco", "Manatí", "Repelón", "Candelaria", "Tubará", "Juan de Acosta", "Usiacurí", "Piojó",
-      "Suan", "Santa Lucía"
-    ]
-  },
-  {
-    "departamento": "Valle del Cauca",
-    "ciudades": [
-      "Cali", "Buenaventura", "Palmira", "Tuluá", "Cartago", "Buga", "Jamundí", "Yumbo",
-      "Candelaria", "Florida", "Pradera", "Sevilla", "Zarzal", "Roldanillo", "Caicedonia",
-      "El Cerrito", "Guacarí", "Bugalagrande", "Ginebra", "Dagua", "La Unión", "Ansermanuevo",
-      "Toro", "Trujillo", "Restrepo", "Riofrío", "San Pedro", "Bolívar", "Alcalá", "Vijes",
-      "Obando", "Yotoco", "Calima El Darién", "La Victoria"
-    ]
-  },
-  {
-    "departamento": "Cundinamarca",
-    "ciudades": [
-      "Soacha", "Facatativá", "Zipaquirá", "Chía", "Fusagasugá", "Mosquera", "Madrid", "Funza",
-      "Cajicá", "Girardot", "Ubaté", "Tocancipá", "Sibaté", "Cota", "La Calera", "Villeta",
-      "Guaduas", "Sopó", "Tenjo", "Tabio", "Pacho", "El Rosal", "Silvania", "Nemocón",
-      "La Mesa", "Anapoima", "Cáqueza", "Gachancipá", "Chocontá", "Subachoque", "Cogua",
-      "Susa", "Simijaca", "Guasca", "Arbeláez", "Ricaurte", "Agua de Dios"
-    ]
-  },
-  {
-    "departamento": "Santander",
-    "ciudades": [
-      "Bucaramanga", "Floridablanca", "Girón", "Piedecuesta", "Barrancabermeja", "San Gil",
-      "Socorro", "Lebrija", "Barbosa", "Cimitarra", "Sabana de Torres", "San Vicente de Chucurí",
-      "Vélez", "Charalá", "Rionegro", "Málaga", "Zapatoca", "Puerto Wilches", "Oiba", "Curití",
-      "Aratoca", "Landázuri", "Suaita"
-    ]
-  },
-  {
-    "departamento": "Bolívar",
-    "ciudades": [
-      "Cartagena", "Magangué", "El Carmen de Bolívar", "Turbaco", "Arjona", "María La Baja",
-      "San Juan Nepomuceno", "San Jacinto", "Santa Rosa del Sur", "Mompós", "Calamar",
-      "San Pablo", "Morales", "Simití", "Mahates", "Villanueva", "Santa Catalina"
-    ]
-  },
-  {
-    "departamento": "Boyacá",
-    "ciudades": [
-      "Tunja", "Duitama", "Sogamoso", "Chiquinquirá", "Puerto Boyacá", "Paipa", "Moniquirá",
-      "Samacá", "Garagoa", "Villa de Leyva", "Nobsa", "Santa Rosa de Viterbo", "Soatá",
-      "Guateque", "Muzo", "Miraflores", "Aquitania", "Cómbita", "Ventaquemada", "Ramiriquí", "Tibasosa"
-    ]
-  },
-  {
-    "departamento": "Caldas",
-    "ciudades": [
-      "Manizales", "La Dorada", "Chinchiná", "Villamaría", "Riosucio", "Anserma", "Supía",
-      "Salamina", "Neira", "Aguadas", "Pensilvania", "Manzanares", "Viterbo", "Palestina",
-      "Marquetalia", "Samaná"
-    ]
-  },
-  {
-    "departamento": "Risaralda",
-    "ciudades": [
-      "Pereira", "Dosquebradas", "Santa Rosa de Cabal", "La Virginia", "Belén de Umbría",
-      "Marsella", "Quinchía", "Santuario", "Apía", "Mistrató", "Guática", "Pueblo Rico",
-      "Balboa", "La Celia"
-    ]
-  },
-  {
-    "departamento": "Quindío",
-    "ciudades": [
-      "Armenia", "Calarcá", "Montenegro", "Quimbaya", "La Tebaida", "Circasia", "Filandia",
-      "Salento", "Génova", "Barcelona", "Córdoba", "Buenavista", "Pijao"
-    ]
-  },
-  {
-    "departamento": "Tolima",
-    "ciudades": [
-      "Ibagué", "Espinal", "Melgar", "Chaparral", "Mariquita", "Líbano", "Honda", "Flandes",
-      "Guamo", "Fresno", "Cajamarca", "Saldaña", "Purificación", "Rovira", "Lérida",
-      "Armero Guayabal", "Ortega", "Natagaima", "San Antonio", "Planadas", "Rioblanco",
-      "Dolores", "Prado", "Venadillo", "Carmen de Apicalá"
-    ]
-  },
-  {
-    "departamento": "Huila",
-    "ciudades": [
-      "Neiva", "Pitalito", "Garzón", "La Plata", "Campoalegre", "Rivera", "Gigante",
-      "Palermo", "San Agustín", "Algeciras", "Aipe", "Timaná", "Isnos", "Tarqui",
-      "Tesalia", "Yaguará", "Teruel", "Baraya", "Tello"
-    ]
-  },
-  {
-    "departamento": "Nariño",
-    "ciudades": [
-      "Pasto", "Tumaco", "Ipiales", "Túquerres", "Samaniego", "La Unión", "Sandoná",
-      "El Charco", "Barbacoas", "San Pablo", "Cumbal", "Guaitarilla", "Buesaco", "Consacá",
-      "Ricaurte", "Pupiales", "Chachagüí"
-    ]
-  },
-  {
-    "departamento": "Norte de Santander",
-    "ciudades": [
-      "Cúcuta", "Ocaña", "Villa del Rosario", "Los Patios", "Pamplona", "Tibú", "Abrego",
-      "Chinácota", "El Zulia", "Sardinata", "Teorama", "Convención", "Toledo", "Arboledas",
-      "Cáchira", "Salazar", "San Cayetano", "Puerto Santander"
-    ]
-  },
-  {
-    "departamento": "Córdoba",
-    "ciudades": [
-      "Montería", "Lorica", "Sahagún", "Cereté", "Montelíbano", "Planeta Rica", "Tierralta",
-      "Ciénaga de Oro", "Chinú", "San Pelayo", "San Andrés de Sotavento", "Valencia",
-      "Pueblo Nuevo", "Ayapel", "Moñitos", "San Bernardo del Viento", "Puerto Escondido", "Canalete"
-    ]
-  },
-  {
-    "departamento": "Cesar",
-    "ciudades": [
-      "Valledupar", "Aguachica", "Agustín Codazzi", "Bosconia", "Curumaní", "El Paso",
-      "La Paz", "Chiriguaná", "El Copey", "San Alberto", "San Diego", "San Martín",
-      "Pelaya", "Chimichagua", "Pailitas", "La Jagua de Ibirico"
-    ]
-  },
-  {
-    "departamento": "Meta",
-    "ciudades": [
-      "Villavicencio", "Acacías", "Granada", "Puerto López", "San Martín", "Puerto Gaitán",
-      "Restrepo", "Cumaral", "Guamal", "Vista Hermosa", "Mesetas", "San Juan de Arama",
-      "Lejanías", "Fuente de Oro", "Cabuyaro", "Barranca de Upía", "Mapiripán"
-    ]
-  },
-  {
-    "departamento": "Magdalena",
-    "ciudades": [
-      "Santa Marta", "Ciénaga", "Fundación", "Plato", "El Banco", "Aracataca", "Pivijay",
-      "Zona Bananera", "Santa Ana", "Guamal", "San Sebastián de Buenavista", "Sitio Nuevo",
-      "Puebloviejo", "Chibolo", "Ariguaní", "El Retén"
-    ]
-  },
-  {
-    "departamento": "Cauca",
-    "ciudades": [
-      "Popayán", "Santander de Quilichao", "Puerto Tejada", "Patía", "Piendamó", "Miranda",
-      "Corinto", "Bolívar", "Caloto", "Guapi", "Silvia", "El Tambo", "Morales", "Timbío",
-      "Buenos Aires", "Suárez", "Padilla", "Villa Rica"
-    ]
-  },
-  {
-    "departamento": "Sucre",
-    "ciudades": [
-      "Sincelejo", "Corozal", "San Marcos", "San Onofre", "Tolú", "Sampués", "San Pedro",
-      "Sincé", "Coveñas", "Majagual", "Morroa", "Los Palmitos", "Galeras", "Buenavista",
-      "Ovejas", "San Benito Abad", "Sucre", "Caimito"
-    ]
-  },
-  {
-    "departamento": "La Guajira",
-    "ciudades": [
-      "Riohacha", "Maicao", "Uribia", "Manaure", "San Juan del Cesar", "Fonseca", "Barrancas",
-      "Villanueva", "Albania", "Dibulla", "Hatonuevo", "Distracción", "El Molino",
-      "La Jagua del Pilar", "Urumita"
-    ]
-  },
-  {
-    "departamento": "Casanare",
-    "ciudades": [
-      "Yopal", "Aguazul", "Villanueva", "Tauramena", "Paz de Ariporo", "Monterrey", "Maní",
-      "Pore", "Hato Corozal", "Trinidad", "Orocué", "Nunchía", "Sabanalarga"
-    ]
-  },
-  {
-    "departamento": "Chocó",
-    "ciudades": [
-      "Quibdó", "Istmina", "Condoto", "Tadó", "Bahía Solano", "Nuquí", "Acandí", "Riosucio",
-      "Carmen del Darién", "Alto Baudó", "Medio Baudó", "Bajo Baudó", "Juradó", "Nóvita"
-    ]
-  },
-  {
-    "departamento": "Caquetá",
-    "ciudades": [
-      "Florencia", "San Vicente del Caguán", "Cartagena del Chairá", "Puerto Rico",
-      "El Doncello", "Paujil", "Belén de los Andaquíes", "San José del Fragua", "Morelia", "Montañita"
-    ]
-  },
-  {
-    "departamento": "Putumayo",
-    "ciudades": [
-      "Mocoa", "Puerto Asís", "Orito", "Valle del Guamuez", "Puerto Guzmán", "Villagarzón",
-      "Sibundoy", "San Miguel", "Puerto Leguízamo", "San Francisco", "Colón", "Santiago"
+    "municipios": [
+      {
+        "nombre": "Abejorral",
+        "codigoDane": "05002"
+      },
+      {
+        "nombre": "Abriaqui",
+        "codigoDane": "05004"
+      },
+      {
+        "nombre": "Alejandria",
+        "codigoDane": "05021"
+      },
+      {
+        "nombre": "Amaga",
+        "codigoDane": "05030"
+      },
+      {
+        "nombre": "Amalfi",
+        "codigoDane": "05031"
+      },
+      {
+        "nombre": "Andes",
+        "codigoDane": "05034"
+      },
+      {
+        "nombre": "Angelopolis",
+        "codigoDane": "05036"
+      },
+      {
+        "nombre": "Angostura",
+        "codigoDane": "05038"
+      },
+      {
+        "nombre": "Anori",
+        "codigoDane": "05040"
+      },
+      {
+        "nombre": "Anza",
+        "codigoDane": "05044"
+      },
+      {
+        "nombre": "Apartado",
+        "codigoDane": "05045"
+      },
+      {
+        "nombre": "Arboletes",
+        "codigoDane": "05051"
+      },
+      {
+        "nombre": "Argelia",
+        "codigoDane": "05055"
+      },
+      {
+        "nombre": "Armenia",
+        "codigoDane": "05059"
+      },
+      {
+        "nombre": "Barbosa",
+        "codigoDane": "05079"
+      },
+      {
+        "nombre": "Bello",
+        "codigoDane": "05088"
+      },
+      {
+        "nombre": "Belmira",
+        "codigoDane": "05086"
+      },
+      {
+        "nombre": "Betania",
+        "codigoDane": "05091"
+      },
+      {
+        "nombre": "Betulia",
+        "codigoDane": "05093"
+      },
+      {
+        "nombre": "Brice¥o",
+        "codigoDane": "05107"
+      },
+      {
+        "nombre": "Buritica",
+        "codigoDane": "05113"
+      },
+      {
+        "nombre": "Caceres",
+        "codigoDane": "05120"
+      },
+      {
+        "nombre": "Caicedo",
+        "codigoDane": "05125"
+      },
+      {
+        "nombre": "Caldas",
+        "codigoDane": "05129"
+      },
+      {
+        "nombre": "Campamento",
+        "codigoDane": "05134"
+      },
+      {
+        "nombre": "Caracoli",
+        "codigoDane": "05142"
+      },
+      {
+        "nombre": "Caramanta",
+        "codigoDane": "05145"
+      },
+      {
+        "nombre": "Carepa",
+        "codigoDane": "05147"
+      },
+      {
+        "nombre": "Carolina",
+        "codigoDane": "05150"
+      },
+      {
+        "nombre": "Caucasia",
+        "codigoDane": "05154"
+      },
+      {
+        "nombre": "Ca¥asgordas",
+        "codigoDane": "05138"
+      },
+      {
+        "nombre": "Chigorodo",
+        "codigoDane": "05172"
+      },
+      {
+        "nombre": "Cisneros",
+        "codigoDane": "05190"
+      },
+      {
+        "nombre": "Ciudad Bolivar",
+        "codigoDane": "05101"
+      },
+      {
+        "nombre": "Cocorna",
+        "codigoDane": "05197"
+      },
+      {
+        "nombre": "Concepcion",
+        "codigoDane": "05206"
+      },
+      {
+        "nombre": "Concordia",
+        "codigoDane": "05209"
+      },
+      {
+        "nombre": "Copacabana",
+        "codigoDane": "05212"
+      },
+      {
+        "nombre": "Dabeiba",
+        "codigoDane": "05234"
+      },
+      {
+        "nombre": "Don Matias",
+        "codigoDane": "05237"
+      },
+      {
+        "nombre": "Ebejico",
+        "codigoDane": "05240"
+      },
+      {
+        "nombre": "El Bagre",
+        "codigoDane": "05250"
+      },
+      {
+        "nombre": "El Carmen de Viboral",
+        "codigoDane": "05148"
+      },
+      {
+        "nombre": "El Santuario",
+        "codigoDane": "05697"
+      },
+      {
+        "nombre": "Entrerrios",
+        "codigoDane": "05264"
+      },
+      {
+        "nombre": "Envigado",
+        "codigoDane": "05266"
+      },
+      {
+        "nombre": "Fredonia",
+        "codigoDane": "05282"
+      },
+      {
+        "nombre": "Frontino",
+        "codigoDane": "05284"
+      },
+      {
+        "nombre": "Giraldo",
+        "codigoDane": "05306"
+      },
+      {
+        "nombre": "Girardota",
+        "codigoDane": "05308"
+      },
+      {
+        "nombre": "Gomez Plata",
+        "codigoDane": "05310"
+      },
+      {
+        "nombre": "Granada",
+        "codigoDane": "05313"
+      },
+      {
+        "nombre": "Guadalupe",
+        "codigoDane": "05315"
+      },
+      {
+        "nombre": "Guarne",
+        "codigoDane": "05318"
+      },
+      {
+        "nombre": "Guatape",
+        "codigoDane": "05321"
+      },
+      {
+        "nombre": "Heliconia",
+        "codigoDane": "05347"
+      },
+      {
+        "nombre": "Hispania",
+        "codigoDane": "05353"
+      },
+      {
+        "nombre": "Itagüí",
+        "codigoDane": "05360"
+      },
+      {
+        "nombre": "Ituango",
+        "codigoDane": "05361"
+      },
+      {
+        "nombre": "Jardin",
+        "codigoDane": "05364"
+      },
+      {
+        "nombre": "Jerico",
+        "codigoDane": "05368"
+      },
+      {
+        "nombre": "La Ceja",
+        "codigoDane": "05376"
+      },
+      {
+        "nombre": "La Estrella",
+        "codigoDane": "05380"
+      },
+      {
+        "nombre": "La Pintada",
+        "codigoDane": "05390"
+      },
+      {
+        "nombre": "La Union",
+        "codigoDane": "05400"
+      },
+      {
+        "nombre": "Liborina",
+        "codigoDane": "05411"
+      },
+      {
+        "nombre": "Maceo",
+        "codigoDane": "05425"
+      },
+      {
+        "nombre": "Marinilla",
+        "codigoDane": "05440"
+      },
+      {
+        "nombre": "Medellín",
+        "codigoDane": "05001"
+      },
+      {
+        "nombre": "Montebello",
+        "codigoDane": "05467"
+      },
+      {
+        "nombre": "Murindo",
+        "codigoDane": "05475"
+      },
+      {
+        "nombre": "Mutata",
+        "codigoDane": "05480"
+      },
+      {
+        "nombre": "Nari¥o",
+        "codigoDane": "05483"
+      },
+      {
+        "nombre": "Nechi",
+        "codigoDane": "05495"
+      },
+      {
+        "nombre": "Necocli",
+        "codigoDane": "05490"
+      },
+      {
+        "nombre": "Olaya",
+        "codigoDane": "05501"
+      },
+      {
+        "nombre": "Peque",
+        "codigoDane": "05543"
+      },
+      {
+        "nombre": "Pe¥ol",
+        "codigoDane": "05541"
+      },
+      {
+        "nombre": "Pueblorrico",
+        "codigoDane": "05576"
+      },
+      {
+        "nombre": "Puerto Berrio",
+        "codigoDane": "05579"
+      },
+      {
+        "nombre": "Puerto Nare",
+        "codigoDane": "05585"
+      },
+      {
+        "nombre": "Puerto Triunfo",
+        "codigoDane": "05591"
+      },
+      {
+        "nombre": "Remedios",
+        "codigoDane": "05604"
+      },
+      {
+        "nombre": "Retiro",
+        "codigoDane": "05607"
+      },
+      {
+        "nombre": "Rionegro",
+        "codigoDane": "05615"
+      },
+      {
+        "nombre": "Sabanalarga",
+        "codigoDane": "05628"
+      },
+      {
+        "nombre": "Sabaneta",
+        "codigoDane": "05631"
+      },
+      {
+        "nombre": "Salgar",
+        "codigoDane": "05642"
+      },
+      {
+        "nombre": "San Andres",
+        "codigoDane": "05647"
+      },
+      {
+        "nombre": "San Carlos",
+        "codigoDane": "05649"
+      },
+      {
+        "nombre": "San Francisco",
+        "codigoDane": "05652"
+      },
+      {
+        "nombre": "San Jeronimo",
+        "codigoDane": "05656"
+      },
+      {
+        "nombre": "San Jose de la Monta¥a",
+        "codigoDane": "05658"
+      },
+      {
+        "nombre": "San Juan de Uraba",
+        "codigoDane": "05659"
+      },
+      {
+        "nombre": "San Luis",
+        "codigoDane": "05660"
+      },
+      {
+        "nombre": "San Pedro",
+        "codigoDane": "05664"
+      },
+      {
+        "nombre": "San Pedro de Uraba",
+        "codigoDane": "05665"
+      },
+      {
+        "nombre": "San Rafael",
+        "codigoDane": "05667"
+      },
+      {
+        "nombre": "San Roque",
+        "codigoDane": "05670"
+      },
+      {
+        "nombre": "San Vicente",
+        "codigoDane": "05674"
+      },
+      {
+        "nombre": "Santa Barbara",
+        "codigoDane": "05679"
+      },
+      {
+        "nombre": "Santa Rosa de Osos",
+        "codigoDane": "05686"
+      },
+      {
+        "nombre": "Santafe de Antioquia",
+        "codigoDane": "05042"
+      },
+      {
+        "nombre": "Santo Domingo",
+        "codigoDane": "05690"
+      },
+      {
+        "nombre": "Segovia",
+        "codigoDane": "05736"
+      },
+      {
+        "nombre": "Sonson",
+        "codigoDane": "05756"
+      },
+      {
+        "nombre": "Sopetran",
+        "codigoDane": "05761"
+      },
+      {
+        "nombre": "Tamesis",
+        "codigoDane": "05789"
+      },
+      {
+        "nombre": "Taraza",
+        "codigoDane": "05790"
+      },
+      {
+        "nombre": "Tarso",
+        "codigoDane": "05792"
+      },
+      {
+        "nombre": "Titiribi",
+        "codigoDane": "05809"
+      },
+      {
+        "nombre": "Toledo",
+        "codigoDane": "05819"
+      },
+      {
+        "nombre": "Turbo",
+        "codigoDane": "05837"
+      },
+      {
+        "nombre": "Uramita",
+        "codigoDane": "05842"
+      },
+      {
+        "nombre": "Urrao",
+        "codigoDane": "05847"
+      },
+      {
+        "nombre": "Valdivia",
+        "codigoDane": "05854"
+      },
+      {
+        "nombre": "Valparaiso",
+        "codigoDane": "05856"
+      },
+      {
+        "nombre": "Vegachi",
+        "codigoDane": "05858"
+      },
+      {
+        "nombre": "Venecia",
+        "codigoDane": "05861"
+      },
+      {
+        "nombre": "Vigia del Fuerte",
+        "codigoDane": "05873"
+      },
+      {
+        "nombre": "Yali",
+        "codigoDane": "05885"
+      },
+      {
+        "nombre": "Yarumal",
+        "codigoDane": "05887"
+      },
+      {
+        "nombre": "Yolombo",
+        "codigoDane": "05890"
+      },
+      {
+        "nombre": "Yondo",
+        "codigoDane": "05893"
+      },
+      {
+        "nombre": "Zaragoza",
+        "codigoDane": "05895"
+      }
     ]
   },
   {
     "departamento": "Arauca",
-    "ciudades": [
-      "Arauca", "Tame", "Saravena", "Arauquita", "Fortul", "Cravo Norte", "Puerto Rondón"
+    "municipios": [
+      {
+        "nombre": "Arauca",
+        "codigoDane": "81001"
+      },
+      {
+        "nombre": "Arauquita",
+        "codigoDane": "81065"
+      },
+      {
+        "nombre": "Cravo Norte",
+        "codigoDane": "81220"
+      },
+      {
+        "nombre": "Fortul",
+        "codigoDane": "81300"
+      },
+      {
+        "nombre": "Puerto Rondon",
+        "codigoDane": "81591"
+      },
+      {
+        "nombre": "Saravena",
+        "codigoDane": "81736"
+      },
+      {
+        "nombre": "Tame",
+        "codigoDane": "81794"
+      }
     ]
   },
   {
-    "departamento": "Amazonas",
-    "ciudades": [
-      "Leticia", "Puerto Nariño"
+    "departamento": "Atlántico",
+    "municipios": [
+      {
+        "nombre": "Baranoa",
+        "codigoDane": "08078"
+      },
+      {
+        "nombre": "Barranquilla",
+        "codigoDane": "08001"
+      },
+      {
+        "nombre": "Campo de la Cruz",
+        "codigoDane": "08137"
+      },
+      {
+        "nombre": "Candelaria",
+        "codigoDane": "08141"
+      },
+      {
+        "nombre": "Galapa",
+        "codigoDane": "08296"
+      },
+      {
+        "nombre": "Juan de Acosta",
+        "codigoDane": "08372"
+      },
+      {
+        "nombre": "Luruaco",
+        "codigoDane": "08421"
+      },
+      {
+        "nombre": "Malambo",
+        "codigoDane": "08433"
+      },
+      {
+        "nombre": "Manati",
+        "codigoDane": "08436"
+      },
+      {
+        "nombre": "Palmar de Varela",
+        "codigoDane": "08520"
+      },
+      {
+        "nombre": "Piojo",
+        "codigoDane": "08549"
+      },
+      {
+        "nombre": "Polonuevo",
+        "codigoDane": "08558"
+      },
+      {
+        "nombre": "Ponedera",
+        "codigoDane": "08560"
+      },
+      {
+        "nombre": "Puerto Colombia",
+        "codigoDane": "08573"
+      },
+      {
+        "nombre": "Repelon",
+        "codigoDane": "08606"
+      },
+      {
+        "nombre": "Sabanagrande",
+        "codigoDane": "08634"
+      },
+      {
+        "nombre": "Sabanalarga",
+        "codigoDane": "08638"
+      },
+      {
+        "nombre": "Santa Lucia",
+        "codigoDane": "08675"
+      },
+      {
+        "nombre": "Santo Tomas",
+        "codigoDane": "08685"
+      },
+      {
+        "nombre": "Soledad",
+        "codigoDane": "08758"
+      },
+      {
+        "nombre": "Suan",
+        "codigoDane": "08770"
+      },
+      {
+        "nombre": "Tubara",
+        "codigoDane": "08832"
+      },
+      {
+        "nombre": "Usiacuri",
+        "codigoDane": "08849"
+      }
     ]
   },
   {
-    "departamento": "Guaviare",
-    "ciudades": [
-      "San José del Guaviare", "El Retorno", "Calamar", "Miraflores"
+    "departamento": "Bogotá D.C.",
+    "municipios": [
+      {
+        "nombre": "Bogotá D.C.",
+        "codigoDane": "11001"
+      }
     ]
   },
   {
-    "departamento": "San Andrés y Providencia",
-    "ciudades": [
-      "San Andrés", "Providencia"
+    "departamento": "Bolívar",
+    "municipios": [
+      {
+        "nombre": "Achi",
+        "codigoDane": "13006"
+      },
+      {
+        "nombre": "Altos del Rosario",
+        "codigoDane": "13030"
+      },
+      {
+        "nombre": "Arenal",
+        "codigoDane": "13042"
+      },
+      {
+        "nombre": "Arjona",
+        "codigoDane": "13052"
+      },
+      {
+        "nombre": "Arroyohondo",
+        "codigoDane": "13062"
+      },
+      {
+        "nombre": "Barranco de Loba",
+        "codigoDane": "13074"
+      },
+      {
+        "nombre": "Calamar",
+        "codigoDane": "13140"
+      },
+      {
+        "nombre": "Cantagallo",
+        "codigoDane": "13160"
+      },
+      {
+        "nombre": "Cartagena de Indias",
+        "codigoDane": "13001"
+      },
+      {
+        "nombre": "Cicuco",
+        "codigoDane": "13188"
+      },
+      {
+        "nombre": "Clemencia",
+        "codigoDane": "13222"
+      },
+      {
+        "nombre": "Cordoba",
+        "codigoDane": "13212"
+      },
+      {
+        "nombre": "El Carmen de Bolivar",
+        "codigoDane": "13244"
+      },
+      {
+        "nombre": "El Guamo",
+        "codigoDane": "13248"
+      },
+      {
+        "nombre": "El Pe¥on",
+        "codigoDane": "13268"
+      },
+      {
+        "nombre": "Hatillo de Loba",
+        "codigoDane": "13300"
+      },
+      {
+        "nombre": "Magangue",
+        "codigoDane": "13430"
+      },
+      {
+        "nombre": "Mahates",
+        "codigoDane": "13433"
+      },
+      {
+        "nombre": "Margarita",
+        "codigoDane": "13440"
+      },
+      {
+        "nombre": "Maria la Baja",
+        "codigoDane": "13442"
+      },
+      {
+        "nombre": "Mompos",
+        "codigoDane": "13468"
+      },
+      {
+        "nombre": "Montecristo",
+        "codigoDane": "13458"
+      },
+      {
+        "nombre": "Morales",
+        "codigoDane": "13473"
+      },
+      {
+        "nombre": "Pinillos",
+        "codigoDane": "13549"
+      },
+      {
+        "nombre": "Regidor",
+        "codigoDane": "13580"
+      },
+      {
+        "nombre": "Rio Viejo",
+        "codigoDane": "13600"
+      },
+      {
+        "nombre": "San Cristobal",
+        "codigoDane": "13620"
+      },
+      {
+        "nombre": "San Estanislao",
+        "codigoDane": "13647"
+      },
+      {
+        "nombre": "San Fernando",
+        "codigoDane": "13650"
+      },
+      {
+        "nombre": "San Jacinto",
+        "codigoDane": "13654"
+      },
+      {
+        "nombre": "San Jacinto del Cauca",
+        "codigoDane": "13655"
+      },
+      {
+        "nombre": "San Juan Nepomuceno",
+        "codigoDane": "13657"
+      },
+      {
+        "nombre": "San Martin de Loba",
+        "codigoDane": "13667"
+      },
+      {
+        "nombre": "San Pablo",
+        "codigoDane": "13670"
+      },
+      {
+        "nombre": "Santa Catalina",
+        "codigoDane": "13673"
+      },
+      {
+        "nombre": "Santa Rosa",
+        "codigoDane": "13683"
+      },
+      {
+        "nombre": "Santa Rosa del Sur",
+        "codigoDane": "13688"
+      },
+      {
+        "nombre": "Simiti",
+        "codigoDane": "13744"
+      },
+      {
+        "nombre": "Soplaviento",
+        "codigoDane": "13760"
+      },
+      {
+        "nombre": "Talaigua Nuevo",
+        "codigoDane": "13780"
+      },
+      {
+        "nombre": "Tiquisio",
+        "codigoDane": "13810"
+      },
+      {
+        "nombre": "Turbaco",
+        "codigoDane": "13836"
+      },
+      {
+        "nombre": "Turbana",
+        "codigoDane": "13838"
+      },
+      {
+        "nombre": "Villanueva",
+        "codigoDane": "13873"
+      },
+      {
+        "nombre": "Zambrano",
+        "codigoDane": "13894"
+      }
+    ]
+  },
+  {
+    "departamento": "Boyacá",
+    "municipios": [
+      {
+        "nombre": "Almeida",
+        "codigoDane": "15022"
+      },
+      {
+        "nombre": "Aquitania",
+        "codigoDane": "15047"
+      },
+      {
+        "nombre": "Arcabuco",
+        "codigoDane": "15051"
+      },
+      {
+        "nombre": "Belen",
+        "codigoDane": "15087"
+      },
+      {
+        "nombre": "Berbeo",
+        "codigoDane": "15090"
+      },
+      {
+        "nombre": "Beteitiva",
+        "codigoDane": "15092"
+      },
+      {
+        "nombre": "Boavita",
+        "codigoDane": "15097"
+      },
+      {
+        "nombre": "Boyaca",
+        "codigoDane": "15104"
+      },
+      {
+        "nombre": "Brice¥o",
+        "codigoDane": "15106"
+      },
+      {
+        "nombre": "Buenavista",
+        "codigoDane": "15109"
+      },
+      {
+        "nombre": "Busbanza",
+        "codigoDane": "15114"
+      },
+      {
+        "nombre": "Caldas",
+        "codigoDane": "15131"
+      },
+      {
+        "nombre": "Campohermoso",
+        "codigoDane": "15135"
+      },
+      {
+        "nombre": "Cerinza",
+        "codigoDane": "15162"
+      },
+      {
+        "nombre": "Chinavita",
+        "codigoDane": "15172"
+      },
+      {
+        "nombre": "Chiquinquira",
+        "codigoDane": "15176"
+      },
+      {
+        "nombre": "Chiquiza",
+        "codigoDane": "15232"
+      },
+      {
+        "nombre": "Chiscas",
+        "codigoDane": "15180"
+      },
+      {
+        "nombre": "Chita",
+        "codigoDane": "15183"
+      },
+      {
+        "nombre": "Chitaraque",
+        "codigoDane": "15185"
+      },
+      {
+        "nombre": "Chivata",
+        "codigoDane": "15187"
+      },
+      {
+        "nombre": "Chivor",
+        "codigoDane": "15236"
+      },
+      {
+        "nombre": "Cienega",
+        "codigoDane": "15189"
+      },
+      {
+        "nombre": "Combita",
+        "codigoDane": "15204"
+      },
+      {
+        "nombre": "Coper",
+        "codigoDane": "15212"
+      },
+      {
+        "nombre": "Corrales",
+        "codigoDane": "15215"
+      },
+      {
+        "nombre": "Covarachia",
+        "codigoDane": "15218"
+      },
+      {
+        "nombre": "Cubara",
+        "codigoDane": "15223"
+      },
+      {
+        "nombre": "Cucaita",
+        "codigoDane": "15224"
+      },
+      {
+        "nombre": "Cuitiva",
+        "codigoDane": "15226"
+      },
+      {
+        "nombre": "Duitama",
+        "codigoDane": "15238"
+      },
+      {
+        "nombre": "El Cocuy",
+        "codigoDane": "15244"
+      },
+      {
+        "nombre": "El Espino",
+        "codigoDane": "15248"
+      },
+      {
+        "nombre": "Firavitoba",
+        "codigoDane": "15272"
+      },
+      {
+        "nombre": "Floresta",
+        "codigoDane": "15276"
+      },
+      {
+        "nombre": "Gachantiva",
+        "codigoDane": "15293"
+      },
+      {
+        "nombre": "Gameza",
+        "codigoDane": "15296"
+      },
+      {
+        "nombre": "Garagoa",
+        "codigoDane": "15299"
+      },
+      {
+        "nombre": "Guacamayas",
+        "codigoDane": "15317"
+      },
+      {
+        "nombre": "Guateque",
+        "codigoDane": "15322"
+      },
+      {
+        "nombre": "Guayata",
+        "codigoDane": "15325"
+      },
+      {
+        "nombre": "Guican",
+        "codigoDane": "15332"
+      },
+      {
+        "nombre": "Iza",
+        "codigoDane": "15362"
+      },
+      {
+        "nombre": "Jenesano",
+        "codigoDane": "15367"
+      },
+      {
+        "nombre": "Jerico",
+        "codigoDane": "15368"
+      },
+      {
+        "nombre": "La Capilla",
+        "codigoDane": "15380"
+      },
+      {
+        "nombre": "La Uvita",
+        "codigoDane": "15403"
+      },
+      {
+        "nombre": "La Victoria",
+        "codigoDane": "15401"
+      },
+      {
+        "nombre": "Labranzagrande",
+        "codigoDane": "15377"
+      },
+      {
+        "nombre": "Macanal",
+        "codigoDane": "15425"
+      },
+      {
+        "nombre": "Maripi",
+        "codigoDane": "15442"
+      },
+      {
+        "nombre": "Miraflores",
+        "codigoDane": "15455"
+      },
+      {
+        "nombre": "Mongua",
+        "codigoDane": "15464"
+      },
+      {
+        "nombre": "Mongui",
+        "codigoDane": "15466"
+      },
+      {
+        "nombre": "Moniquira",
+        "codigoDane": "15469"
+      },
+      {
+        "nombre": "Motavita",
+        "codigoDane": "15476"
+      },
+      {
+        "nombre": "Muzo",
+        "codigoDane": "15480"
+      },
+      {
+        "nombre": "Nobsa",
+        "codigoDane": "15491"
+      },
+      {
+        "nombre": "Nuevo Colon",
+        "codigoDane": "15494"
+      },
+      {
+        "nombre": "Oicata",
+        "codigoDane": "15500"
+      },
+      {
+        "nombre": "Otanche",
+        "codigoDane": "15507"
+      },
+      {
+        "nombre": "Pachavita",
+        "codigoDane": "15511"
+      },
+      {
+        "nombre": "Paez",
+        "codigoDane": "15514"
+      },
+      {
+        "nombre": "Paipa",
+        "codigoDane": "15516"
+      },
+      {
+        "nombre": "Pajarito",
+        "codigoDane": "15518"
+      },
+      {
+        "nombre": "Panqueba",
+        "codigoDane": "15522"
+      },
+      {
+        "nombre": "Pauna",
+        "codigoDane": "15531"
+      },
+      {
+        "nombre": "Paya",
+        "codigoDane": "15533"
+      },
+      {
+        "nombre": "Paz de Rio",
+        "codigoDane": "15537"
+      },
+      {
+        "nombre": "Pesca",
+        "codigoDane": "15542"
+      },
+      {
+        "nombre": "Pisba",
+        "codigoDane": "15550"
+      },
+      {
+        "nombre": "Puerto Boyaca",
+        "codigoDane": "15572"
+      },
+      {
+        "nombre": "Quipama",
+        "codigoDane": "15580"
+      },
+      {
+        "nombre": "Ramiriqui",
+        "codigoDane": "15599"
+      },
+      {
+        "nombre": "Raquira",
+        "codigoDane": "15600"
+      },
+      {
+        "nombre": "Rondon",
+        "codigoDane": "15621"
+      },
+      {
+        "nombre": "Saboya",
+        "codigoDane": "15632"
+      },
+      {
+        "nombre": "Sachica",
+        "codigoDane": "15638"
+      },
+      {
+        "nombre": "Samaca",
+        "codigoDane": "15646"
+      },
+      {
+        "nombre": "San Eduardo",
+        "codigoDane": "15660"
+      },
+      {
+        "nombre": "San Jose de Pare",
+        "codigoDane": "15664"
+      },
+      {
+        "nombre": "San Luis de Gaceno",
+        "codigoDane": "15667"
+      },
+      {
+        "nombre": "San Mateo",
+        "codigoDane": "15673"
+      },
+      {
+        "nombre": "San Miguel de Sema",
+        "codigoDane": "15676"
+      },
+      {
+        "nombre": "San Pablo de Borbur",
+        "codigoDane": "15681"
+      },
+      {
+        "nombre": "Santa Maria",
+        "codigoDane": "15690"
+      },
+      {
+        "nombre": "Santa Rosa de Viterbo",
+        "codigoDane": "15693"
+      },
+      {
+        "nombre": "Santa Sofia",
+        "codigoDane": "15696"
+      },
+      {
+        "nombre": "Santana",
+        "codigoDane": "15686"
+      },
+      {
+        "nombre": "Sativanorte",
+        "codigoDane": "15720"
+      },
+      {
+        "nombre": "Sativasur",
+        "codigoDane": "15723"
+      },
+      {
+        "nombre": "Siachoque",
+        "codigoDane": "15740"
+      },
+      {
+        "nombre": "Soata",
+        "codigoDane": "15753"
+      },
+      {
+        "nombre": "Socha",
+        "codigoDane": "15757"
+      },
+      {
+        "nombre": "Socota",
+        "codigoDane": "15755"
+      },
+      {
+        "nombre": "Sogamoso",
+        "codigoDane": "15759"
+      },
+      {
+        "nombre": "Somondoco",
+        "codigoDane": "15761"
+      },
+      {
+        "nombre": "Sora",
+        "codigoDane": "15762"
+      },
+      {
+        "nombre": "Soraca",
+        "codigoDane": "15764"
+      },
+      {
+        "nombre": "Sotaquira",
+        "codigoDane": "15763"
+      },
+      {
+        "nombre": "Susacon",
+        "codigoDane": "15774"
+      },
+      {
+        "nombre": "Sutamarchan",
+        "codigoDane": "15776"
+      },
+      {
+        "nombre": "Sutatenza",
+        "codigoDane": "15778"
+      },
+      {
+        "nombre": "Tasco",
+        "codigoDane": "15790"
+      },
+      {
+        "nombre": "Tenza",
+        "codigoDane": "15798"
+      },
+      {
+        "nombre": "Tibana",
+        "codigoDane": "15804"
+      },
+      {
+        "nombre": "Tibasosa",
+        "codigoDane": "15806"
+      },
+      {
+        "nombre": "Tinjaca",
+        "codigoDane": "15808"
+      },
+      {
+        "nombre": "Tipacoque",
+        "codigoDane": "15810"
+      },
+      {
+        "nombre": "Toca",
+        "codigoDane": "15814"
+      },
+      {
+        "nombre": "Togui",
+        "codigoDane": "15816"
+      },
+      {
+        "nombre": "Topaga",
+        "codigoDane": "15820"
+      },
+      {
+        "nombre": "Tota",
+        "codigoDane": "15822"
+      },
+      {
+        "nombre": "Tunja",
+        "codigoDane": "15001"
+      },
+      {
+        "nombre": "Tunungua",
+        "codigoDane": "15832"
+      },
+      {
+        "nombre": "Turmeque",
+        "codigoDane": "15835"
+      },
+      {
+        "nombre": "Tuta",
+        "codigoDane": "15837"
+      },
+      {
+        "nombre": "Tutaza",
+        "codigoDane": "15839"
+      },
+      {
+        "nombre": "Umbita",
+        "codigoDane": "15842"
+      },
+      {
+        "nombre": "Ventaquemada",
+        "codigoDane": "15861"
+      },
+      {
+        "nombre": "Villa de Leyva",
+        "codigoDane": "15407"
+      },
+      {
+        "nombre": "Viracacha",
+        "codigoDane": "15879"
+      },
+      {
+        "nombre": "Zetaquira",
+        "codigoDane": "15897"
+      }
+    ]
+  },
+  {
+    "departamento": "Caldas",
+    "municipios": [
+      {
+        "nombre": "Aguadas",
+        "codigoDane": "17013"
+      },
+      {
+        "nombre": "Anserma",
+        "codigoDane": "17042"
+      },
+      {
+        "nombre": "Aranzazu",
+        "codigoDane": "17050"
+      },
+      {
+        "nombre": "Belalcazar",
+        "codigoDane": "17088"
+      },
+      {
+        "nombre": "Chinchina",
+        "codigoDane": "17174"
+      },
+      {
+        "nombre": "Filadelfia",
+        "codigoDane": "17272"
+      },
+      {
+        "nombre": "La Dorada",
+        "codigoDane": "17380"
+      },
+      {
+        "nombre": "La Merced",
+        "codigoDane": "17388"
+      },
+      {
+        "nombre": "Manizales",
+        "codigoDane": "17001"
+      },
+      {
+        "nombre": "Manzanares",
+        "codigoDane": "17433"
+      },
+      {
+        "nombre": "Marmato",
+        "codigoDane": "17442"
+      },
+      {
+        "nombre": "Marquetalia",
+        "codigoDane": "17444"
+      },
+      {
+        "nombre": "Marulanda",
+        "codigoDane": "17446"
+      },
+      {
+        "nombre": "Neira",
+        "codigoDane": "17486"
+      },
+      {
+        "nombre": "Norcasia",
+        "codigoDane": "17495"
+      },
+      {
+        "nombre": "Pacora",
+        "codigoDane": "17513"
+      },
+      {
+        "nombre": "Palestina",
+        "codigoDane": "17524"
+      },
+      {
+        "nombre": "Pensilvania",
+        "codigoDane": "17541"
+      },
+      {
+        "nombre": "Riosucio",
+        "codigoDane": "17614"
+      },
+      {
+        "nombre": "Risaralda",
+        "codigoDane": "17616"
+      },
+      {
+        "nombre": "Salamina",
+        "codigoDane": "17653"
+      },
+      {
+        "nombre": "Samana",
+        "codigoDane": "17662"
+      },
+      {
+        "nombre": "San Jose",
+        "codigoDane": "17665"
+      },
+      {
+        "nombre": "Supia",
+        "codigoDane": "17777"
+      },
+      {
+        "nombre": "Victoria",
+        "codigoDane": "17867"
+      },
+      {
+        "nombre": "Villamaria",
+        "codigoDane": "17873"
+      },
+      {
+        "nombre": "Viterbo",
+        "codigoDane": "17877"
+      }
+    ]
+  },
+  {
+    "departamento": "Caquetá",
+    "municipios": [
+      {
+        "nombre": "Albania",
+        "codigoDane": "18029"
+      },
+      {
+        "nombre": "Belen de los Andaquies",
+        "codigoDane": "18094"
+      },
+      {
+        "nombre": "Cartagena del Chaira",
+        "codigoDane": "18150"
+      },
+      {
+        "nombre": "Curillo",
+        "codigoDane": "18205"
+      },
+      {
+        "nombre": "El Doncello",
+        "codigoDane": "18247"
+      },
+      {
+        "nombre": "El Paujil",
+        "codigoDane": "18256"
+      },
+      {
+        "nombre": "Florencia",
+        "codigoDane": "18001"
+      },
+      {
+        "nombre": "La Monta¥ita",
+        "codigoDane": "18410"
+      },
+      {
+        "nombre": "Milan",
+        "codigoDane": "18460"
+      },
+      {
+        "nombre": "Morelia",
+        "codigoDane": "18479"
+      },
+      {
+        "nombre": "Puerto Rico",
+        "codigoDane": "18592"
+      },
+      {
+        "nombre": "San Jose del Fragua",
+        "codigoDane": "18610"
+      },
+      {
+        "nombre": "San Vicente del Caguan",
+        "codigoDane": "18753"
+      },
+      {
+        "nombre": "Solano",
+        "codigoDane": "18756"
+      },
+      {
+        "nombre": "Solita",
+        "codigoDane": "18785"
+      },
+      {
+        "nombre": "Valparaiso",
+        "codigoDane": "18860"
+      }
+    ]
+  },
+  {
+    "departamento": "Casanare",
+    "municipios": [
+      {
+        "nombre": "Aguazul",
+        "codigoDane": "85010"
+      },
+      {
+        "nombre": "Chameza",
+        "codigoDane": "85015"
+      },
+      {
+        "nombre": "Hato Corozal",
+        "codigoDane": "85125"
+      },
+      {
+        "nombre": "La Salina",
+        "codigoDane": "85136"
+      },
+      {
+        "nombre": "Mani",
+        "codigoDane": "85139"
+      },
+      {
+        "nombre": "Monterrey",
+        "codigoDane": "85162"
+      },
+      {
+        "nombre": "Nunchia",
+        "codigoDane": "85225"
+      },
+      {
+        "nombre": "Orocue",
+        "codigoDane": "85230"
+      },
+      {
+        "nombre": "Paz de Ariporo",
+        "codigoDane": "85250"
+      },
+      {
+        "nombre": "Pore",
+        "codigoDane": "85263"
+      },
+      {
+        "nombre": "Recetor",
+        "codigoDane": "85279"
+      },
+      {
+        "nombre": "Sabanalarga",
+        "codigoDane": "85300"
+      },
+      {
+        "nombre": "Sacama",
+        "codigoDane": "85315"
+      },
+      {
+        "nombre": "San Luis de Palenque",
+        "codigoDane": "85325"
+      },
+      {
+        "nombre": "Tamara",
+        "codigoDane": "85400"
+      },
+      {
+        "nombre": "Tauramena",
+        "codigoDane": "85410"
+      },
+      {
+        "nombre": "Trinidad",
+        "codigoDane": "85430"
+      },
+      {
+        "nombre": "Villanueva",
+        "codigoDane": "85440"
+      },
+      {
+        "nombre": "Yopal",
+        "codigoDane": "85001"
+      }
+    ]
+  },
+  {
+    "departamento": "Cauca",
+    "municipios": [
+      {
+        "nombre": "Almaguer",
+        "codigoDane": "19022"
+      },
+      {
+        "nombre": "Argelia",
+        "codigoDane": "19050"
+      },
+      {
+        "nombre": "Balboa",
+        "codigoDane": "19075"
+      },
+      {
+        "nombre": "Bolivar",
+        "codigoDane": "19100"
+      },
+      {
+        "nombre": "Buenos Aires",
+        "codigoDane": "19110"
+      },
+      {
+        "nombre": "Cajibio",
+        "codigoDane": "19130"
+      },
+      {
+        "nombre": "Caldono",
+        "codigoDane": "19137"
+      },
+      {
+        "nombre": "Caloto",
+        "codigoDane": "19142"
+      },
+      {
+        "nombre": "Corinto",
+        "codigoDane": "19212"
+      },
+      {
+        "nombre": "El Tambo",
+        "codigoDane": "19256"
+      },
+      {
+        "nombre": "Florencia",
+        "codigoDane": "19290"
+      },
+      {
+        "nombre": "Guapi",
+        "codigoDane": "19318"
+      },
+      {
+        "nombre": "Inza",
+        "codigoDane": "19355"
+      },
+      {
+        "nombre": "Jambalo",
+        "codigoDane": "19364"
+      },
+      {
+        "nombre": "La Sierra",
+        "codigoDane": "19392"
+      },
+      {
+        "nombre": "La Vega",
+        "codigoDane": "19397"
+      },
+      {
+        "nombre": "Lopez",
+        "codigoDane": "19418"
+      },
+      {
+        "nombre": "Mercaderes",
+        "codigoDane": "19450"
+      },
+      {
+        "nombre": "Miranda",
+        "codigoDane": "19455"
+      },
+      {
+        "nombre": "Morales",
+        "codigoDane": "19473"
+      },
+      {
+        "nombre": "Padilla",
+        "codigoDane": "19513"
+      },
+      {
+        "nombre": "Paez",
+        "codigoDane": "19517"
+      },
+      {
+        "nombre": "Patia",
+        "codigoDane": "19532"
+      },
+      {
+        "nombre": "Piamonte",
+        "codigoDane": "19533"
+      },
+      {
+        "nombre": "Piendamo",
+        "codigoDane": "19548"
+      },
+      {
+        "nombre": "Popayán",
+        "codigoDane": "19001"
+      },
+      {
+        "nombre": "Puerto Tejada",
+        "codigoDane": "19573"
+      },
+      {
+        "nombre": "Purace",
+        "codigoDane": "19585"
+      },
+      {
+        "nombre": "Rosas",
+        "codigoDane": "19622"
+      },
+      {
+        "nombre": "San Sebastian",
+        "codigoDane": "19693"
+      },
+      {
+        "nombre": "Santa Rosa",
+        "codigoDane": "19701"
+      },
+      {
+        "nombre": "Santander de Quilichao",
+        "codigoDane": "19698"
+      },
+      {
+        "nombre": "Silvia",
+        "codigoDane": "19743"
+      },
+      {
+        "nombre": "Sotara",
+        "codigoDane": "19760"
+      },
+      {
+        "nombre": "Suarez",
+        "codigoDane": "19780"
+      },
+      {
+        "nombre": "Sucre",
+        "codigoDane": "19785"
+      },
+      {
+        "nombre": "Timbio",
+        "codigoDane": "19807"
+      },
+      {
+        "nombre": "Timbiqui",
+        "codigoDane": "19809"
+      },
+      {
+        "nombre": "Toribio",
+        "codigoDane": "19821"
+      },
+      {
+        "nombre": "Totoro",
+        "codigoDane": "19824"
+      },
+      {
+        "nombre": "Villa Rica",
+        "codigoDane": "19845"
+      }
+    ]
+  },
+  {
+    "departamento": "Cesar",
+    "municipios": [
+      {
+        "nombre": "Aguachica",
+        "codigoDane": "20011"
+      },
+      {
+        "nombre": "Agustin Codazzi",
+        "codigoDane": "20013"
+      },
+      {
+        "nombre": "Astrea",
+        "codigoDane": "20032"
+      },
+      {
+        "nombre": "Becerril",
+        "codigoDane": "20045"
+      },
+      {
+        "nombre": "Bosconia",
+        "codigoDane": "20060"
+      },
+      {
+        "nombre": "Chimichagua",
+        "codigoDane": "20175"
+      },
+      {
+        "nombre": "Chiriguana",
+        "codigoDane": "20178"
+      },
+      {
+        "nombre": "Curumani",
+        "codigoDane": "20228"
+      },
+      {
+        "nombre": "El Copey",
+        "codigoDane": "20238"
+      },
+      {
+        "nombre": "El Paso",
+        "codigoDane": "20250"
+      },
+      {
+        "nombre": "Gamarra",
+        "codigoDane": "20295"
+      },
+      {
+        "nombre": "Gonzalez",
+        "codigoDane": "20310"
+      },
+      {
+        "nombre": "La Gloria",
+        "codigoDane": "20383"
+      },
+      {
+        "nombre": "La Jagua de Ibirico",
+        "codigoDane": "20400"
+      },
+      {
+        "nombre": "La Paz",
+        "codigoDane": "20621"
+      },
+      {
+        "nombre": "Manaure",
+        "codigoDane": "20443"
+      },
+      {
+        "nombre": "Pailitas",
+        "codigoDane": "20517"
+      },
+      {
+        "nombre": "Pelaya",
+        "codigoDane": "20550"
+      },
+      {
+        "nombre": "Pueblo Bello",
+        "codigoDane": "20570"
+      },
+      {
+        "nombre": "Rio de Oro",
+        "codigoDane": "20614"
+      },
+      {
+        "nombre": "San Alberto",
+        "codigoDane": "20710"
+      },
+      {
+        "nombre": "San Diego",
+        "codigoDane": "20750"
+      },
+      {
+        "nombre": "San Martin",
+        "codigoDane": "20770"
+      },
+      {
+        "nombre": "Tamalameque",
+        "codigoDane": "20787"
+      },
+      {
+        "nombre": "Valledupar",
+        "codigoDane": "20001"
+      }
+    ]
+  },
+  {
+    "departamento": "Chocó",
+    "municipios": [
+      {
+        "nombre": "Acandi",
+        "codigoDane": "27006"
+      },
+      {
+        "nombre": "Alto Baudo",
+        "codigoDane": "27025"
+      },
+      {
+        "nombre": "Atrato",
+        "codigoDane": "27050"
+      },
+      {
+        "nombre": "Bagado",
+        "codigoDane": "27073"
+      },
+      {
+        "nombre": "Bahia Solano",
+        "codigoDane": "27075"
+      },
+      {
+        "nombre": "Bajo Baudo",
+        "codigoDane": "27077"
+      },
+      {
+        "nombre": "Belen de Bajira",
+        "codigoDane": "27086"
+      },
+      {
+        "nombre": "Bojaya",
+        "codigoDane": "27099"
+      },
+      {
+        "nombre": "Canton del san Pablo",
+        "codigoDane": "27135"
+      },
+      {
+        "nombre": "Carmen del Darien",
+        "codigoDane": "27150"
+      },
+      {
+        "nombre": "Certegui",
+        "codigoDane": "27160"
+      },
+      {
+        "nombre": "Condoto",
+        "codigoDane": "27205"
+      },
+      {
+        "nombre": "El Carmen de Atrato",
+        "codigoDane": "27245"
+      },
+      {
+        "nombre": "El Litoral del san Juan",
+        "codigoDane": "27250"
+      },
+      {
+        "nombre": "Itsmina",
+        "codigoDane": "27361"
+      },
+      {
+        "nombre": "Jurado",
+        "codigoDane": "27372"
+      },
+      {
+        "nombre": "Lloro",
+        "codigoDane": "27413"
+      },
+      {
+        "nombre": "Medio Atrato",
+        "codigoDane": "27425"
+      },
+      {
+        "nombre": "Medio Baudo",
+        "codigoDane": "27430"
+      },
+      {
+        "nombre": "Medio san Juan",
+        "codigoDane": "27450"
+      },
+      {
+        "nombre": "Novita",
+        "codigoDane": "27491"
+      },
+      {
+        "nombre": "Nuqui",
+        "codigoDane": "27495"
+      },
+      {
+        "nombre": "Quibdó",
+        "codigoDane": "27001"
+      },
+      {
+        "nombre": "Rio Iro",
+        "codigoDane": "27580"
+      },
+      {
+        "nombre": "Rio Quito",
+        "codigoDane": "27600"
+      },
+      {
+        "nombre": "Riosucio",
+        "codigoDane": "27615"
+      },
+      {
+        "nombre": "San Jose del Palmar",
+        "codigoDane": "27660"
+      },
+      {
+        "nombre": "Sipi",
+        "codigoDane": "27745"
+      },
+      {
+        "nombre": "Tado",
+        "codigoDane": "27787"
+      },
+      {
+        "nombre": "Unguia",
+        "codigoDane": "27800"
+      },
+      {
+        "nombre": "Union Panamericana",
+        "codigoDane": "27810"
+      }
+    ]
+  },
+  {
+    "departamento": "Cundinamarca",
+    "municipios": [
+      {
+        "nombre": "Agua de Dios",
+        "codigoDane": "25001"
+      },
+      {
+        "nombre": "Alban",
+        "codigoDane": "25019"
+      },
+      {
+        "nombre": "Anapoima",
+        "codigoDane": "25035"
+      },
+      {
+        "nombre": "Anolaima",
+        "codigoDane": "25040"
+      },
+      {
+        "nombre": "Apulo",
+        "codigoDane": "25599"
+      },
+      {
+        "nombre": "Arbelaez",
+        "codigoDane": "25053"
+      },
+      {
+        "nombre": "Beltran",
+        "codigoDane": "25086"
+      },
+      {
+        "nombre": "Bituima",
+        "codigoDane": "25095"
+      },
+      {
+        "nombre": "Bojaca",
+        "codigoDane": "25099"
+      },
+      {
+        "nombre": "Cabrera",
+        "codigoDane": "25120"
+      },
+      {
+        "nombre": "Cachipay",
+        "codigoDane": "25123"
+      },
+      {
+        "nombre": "Cajica",
+        "codigoDane": "25126"
+      },
+      {
+        "nombre": "Caparrapi",
+        "codigoDane": "25148"
+      },
+      {
+        "nombre": "Caqueza",
+        "codigoDane": "25151"
+      },
+      {
+        "nombre": "Carmen de Carupa",
+        "codigoDane": "25154"
+      },
+      {
+        "nombre": "Chaguani",
+        "codigoDane": "25168"
+      },
+      {
+        "nombre": "Chia",
+        "codigoDane": "25175"
+      },
+      {
+        "nombre": "Chipaque",
+        "codigoDane": "25178"
+      },
+      {
+        "nombre": "Choachi",
+        "codigoDane": "25181"
+      },
+      {
+        "nombre": "Choconta",
+        "codigoDane": "25183"
+      },
+      {
+        "nombre": "Cogua",
+        "codigoDane": "25200"
+      },
+      {
+        "nombre": "Cota",
+        "codigoDane": "25214"
+      },
+      {
+        "nombre": "Cucunuba",
+        "codigoDane": "25224"
+      },
+      {
+        "nombre": "El Colegio",
+        "codigoDane": "25245"
+      },
+      {
+        "nombre": "El Pe¥on",
+        "codigoDane": "25258"
+      },
+      {
+        "nombre": "El Rosal",
+        "codigoDane": "25260"
+      },
+      {
+        "nombre": "Facatativa",
+        "codigoDane": "25269"
+      },
+      {
+        "nombre": "Fomeque",
+        "codigoDane": "25279"
+      },
+      {
+        "nombre": "Fosca",
+        "codigoDane": "25281"
+      },
+      {
+        "nombre": "Funza",
+        "codigoDane": "25286"
+      },
+      {
+        "nombre": "Fuquene",
+        "codigoDane": "25288"
+      },
+      {
+        "nombre": "Fusagasuga",
+        "codigoDane": "25290"
+      },
+      {
+        "nombre": "Gachala",
+        "codigoDane": "25293"
+      },
+      {
+        "nombre": "Gachancipa",
+        "codigoDane": "25295"
+      },
+      {
+        "nombre": "Gacheta",
+        "codigoDane": "25297"
+      },
+      {
+        "nombre": "Gama",
+        "codigoDane": "25299"
+      },
+      {
+        "nombre": "Girardot",
+        "codigoDane": "25307"
+      },
+      {
+        "nombre": "Granada",
+        "codigoDane": "25312"
+      },
+      {
+        "nombre": "Guacheta",
+        "codigoDane": "25317"
+      },
+      {
+        "nombre": "Guaduas",
+        "codigoDane": "25320"
+      },
+      {
+        "nombre": "Guasca",
+        "codigoDane": "25322"
+      },
+      {
+        "nombre": "Guataqui",
+        "codigoDane": "25324"
+      },
+      {
+        "nombre": "Guatavita",
+        "codigoDane": "25326"
+      },
+      {
+        "nombre": "Guayabal de Siquima",
+        "codigoDane": "25328"
+      },
+      {
+        "nombre": "Guayabetal",
+        "codigoDane": "25335"
+      },
+      {
+        "nombre": "Gutierrez",
+        "codigoDane": "25339"
+      },
+      {
+        "nombre": "Jerusalen",
+        "codigoDane": "25368"
+      },
+      {
+        "nombre": "Junin",
+        "codigoDane": "25372"
+      },
+      {
+        "nombre": "La Calera",
+        "codigoDane": "25377"
+      },
+      {
+        "nombre": "La Mesa",
+        "codigoDane": "25386"
+      },
+      {
+        "nombre": "La Palma",
+        "codigoDane": "25394"
+      },
+      {
+        "nombre": "La Pe¥a",
+        "codigoDane": "25398"
+      },
+      {
+        "nombre": "La Vega",
+        "codigoDane": "25402"
+      },
+      {
+        "nombre": "Lenguazaque",
+        "codigoDane": "25407"
+      },
+      {
+        "nombre": "Macheta",
+        "codigoDane": "25426"
+      },
+      {
+        "nombre": "Madrid",
+        "codigoDane": "25430"
+      },
+      {
+        "nombre": "Manta",
+        "codigoDane": "25436"
+      },
+      {
+        "nombre": "Medina",
+        "codigoDane": "25438"
+      },
+      {
+        "nombre": "Mosquera",
+        "codigoDane": "25473"
+      },
+      {
+        "nombre": "Nari¥o",
+        "codigoDane": "25483"
+      },
+      {
+        "nombre": "Nemocon",
+        "codigoDane": "25486"
+      },
+      {
+        "nombre": "Nilo",
+        "codigoDane": "25488"
+      },
+      {
+        "nombre": "Nimaima",
+        "codigoDane": "25489"
+      },
+      {
+        "nombre": "Nocaima",
+        "codigoDane": "25491"
+      },
+      {
+        "nombre": "Pacho",
+        "codigoDane": "25513"
+      },
+      {
+        "nombre": "Paime",
+        "codigoDane": "25518"
+      },
+      {
+        "nombre": "Pandi",
+        "codigoDane": "25524"
+      },
+      {
+        "nombre": "Paratebueno",
+        "codigoDane": "25530"
+      },
+      {
+        "nombre": "Pasca",
+        "codigoDane": "25535"
+      },
+      {
+        "nombre": "Puerto Salgar",
+        "codigoDane": "25572"
+      },
+      {
+        "nombre": "Puli",
+        "codigoDane": "25580"
+      },
+      {
+        "nombre": "Quebradanegra",
+        "codigoDane": "25592"
+      },
+      {
+        "nombre": "Quetame",
+        "codigoDane": "25594"
+      },
+      {
+        "nombre": "Quipile",
+        "codigoDane": "25596"
+      },
+      {
+        "nombre": "Ricaurte",
+        "codigoDane": "25612"
+      },
+      {
+        "nombre": "San Antonio del Tequendama",
+        "codigoDane": "25645"
+      },
+      {
+        "nombre": "San Bernardo",
+        "codigoDane": "25649"
+      },
+      {
+        "nombre": "San Cayetano",
+        "codigoDane": "25653"
+      },
+      {
+        "nombre": "San Francisco",
+        "codigoDane": "25658"
+      },
+      {
+        "nombre": "San Juan de Rio Seco",
+        "codigoDane": "25662"
+      },
+      {
+        "nombre": "Sasaima",
+        "codigoDane": "25718"
+      },
+      {
+        "nombre": "Sesquile",
+        "codigoDane": "25736"
+      },
+      {
+        "nombre": "Sibate",
+        "codigoDane": "25740"
+      },
+      {
+        "nombre": "Silvania",
+        "codigoDane": "25743"
+      },
+      {
+        "nombre": "Simijaca",
+        "codigoDane": "25745"
+      },
+      {
+        "nombre": "Soacha",
+        "codigoDane": "25754"
+      },
+      {
+        "nombre": "Sopo",
+        "codigoDane": "25758"
+      },
+      {
+        "nombre": "Subachoque",
+        "codigoDane": "25769"
+      },
+      {
+        "nombre": "Suesca",
+        "codigoDane": "25772"
+      },
+      {
+        "nombre": "Supata",
+        "codigoDane": "25777"
+      },
+      {
+        "nombre": "Susa",
+        "codigoDane": "25779"
+      },
+      {
+        "nombre": "Sutatausa",
+        "codigoDane": "25781"
+      },
+      {
+        "nombre": "Tabio",
+        "codigoDane": "25785"
+      },
+      {
+        "nombre": "Tausa",
+        "codigoDane": "25793"
+      },
+      {
+        "nombre": "Tena",
+        "codigoDane": "25797"
+      },
+      {
+        "nombre": "Tenjo",
+        "codigoDane": "25799"
+      },
+      {
+        "nombre": "Tibacuy",
+        "codigoDane": "25805"
+      },
+      {
+        "nombre": "Tibirita",
+        "codigoDane": "25807"
+      },
+      {
+        "nombre": "Tocaima",
+        "codigoDane": "25815"
+      },
+      {
+        "nombre": "Tocancipa",
+        "codigoDane": "25817"
+      },
+      {
+        "nombre": "Topaipi",
+        "codigoDane": "25823"
+      },
+      {
+        "nombre": "Ubala",
+        "codigoDane": "25839"
+      },
+      {
+        "nombre": "Ubaque",
+        "codigoDane": "25841"
+      },
+      {
+        "nombre": "Ubate",
+        "codigoDane": "25843"
+      },
+      {
+        "nombre": "Une",
+        "codigoDane": "25845"
+      },
+      {
+        "nombre": "Utica",
+        "codigoDane": "25851"
+      },
+      {
+        "nombre": "Venecia",
+        "codigoDane": "25506"
+      },
+      {
+        "nombre": "Vergara",
+        "codigoDane": "25862"
+      },
+      {
+        "nombre": "Viani",
+        "codigoDane": "25867"
+      },
+      {
+        "nombre": "Villagomez",
+        "codigoDane": "25871"
+      },
+      {
+        "nombre": "Villapinzon",
+        "codigoDane": "25873"
+      },
+      {
+        "nombre": "Villeta",
+        "codigoDane": "25875"
+      },
+      {
+        "nombre": "Viota",
+        "codigoDane": "25878"
+      },
+      {
+        "nombre": "Yacopi",
+        "codigoDane": "25885"
+      },
+      {
+        "nombre": "Zipacon",
+        "codigoDane": "25898"
+      },
+      {
+        "nombre": "Zipaquira",
+        "codigoDane": "25899"
+      }
+    ]
+  },
+  {
+    "departamento": "Córdoba",
+    "municipios": [
+      {
+        "nombre": "Ayapel",
+        "codigoDane": "23068"
+      },
+      {
+        "nombre": "Buenavista",
+        "codigoDane": "23079"
+      },
+      {
+        "nombre": "Canalete",
+        "codigoDane": "23090"
+      },
+      {
+        "nombre": "Cerete",
+        "codigoDane": "23162"
+      },
+      {
+        "nombre": "Chima",
+        "codigoDane": "23168"
+      },
+      {
+        "nombre": "Chinu",
+        "codigoDane": "23182"
+      },
+      {
+        "nombre": "Cienaga de Oro",
+        "codigoDane": "23189"
+      },
+      {
+        "nombre": "Cotorra",
+        "codigoDane": "23300"
+      },
+      {
+        "nombre": "La Apartada",
+        "codigoDane": "23350"
+      },
+      {
+        "nombre": "Lorica",
+        "codigoDane": "23417"
+      },
+      {
+        "nombre": "Los Cordobas",
+        "codigoDane": "23419"
+      },
+      {
+        "nombre": "Momil",
+        "codigoDane": "23464"
+      },
+      {
+        "nombre": "Montelibano",
+        "codigoDane": "23466"
+      },
+      {
+        "nombre": "Montería",
+        "codigoDane": "23001"
+      },
+      {
+        "nombre": "Mo¥itos",
+        "codigoDane": "23500"
+      },
+      {
+        "nombre": "Planeta Rica",
+        "codigoDane": "23555"
+      },
+      {
+        "nombre": "Pueblo Nuevo",
+        "codigoDane": "23570"
+      },
+      {
+        "nombre": "Puerto Escondido",
+        "codigoDane": "23574"
+      },
+      {
+        "nombre": "Puerto Libertador",
+        "codigoDane": "23580"
+      },
+      {
+        "nombre": "Purisima",
+        "codigoDane": "23586"
+      },
+      {
+        "nombre": "Sahagun",
+        "codigoDane": "23660"
+      },
+      {
+        "nombre": "San Andres de Sotavento",
+        "codigoDane": "23670"
+      },
+      {
+        "nombre": "San Antero",
+        "codigoDane": "23672"
+      },
+      {
+        "nombre": "San Bernardo del Viento",
+        "codigoDane": "23675"
+      },
+      {
+        "nombre": "San Carlos",
+        "codigoDane": "23678"
+      },
+      {
+        "nombre": "San Pelayo",
+        "codigoDane": "23686"
+      },
+      {
+        "nombre": "Tierralta",
+        "codigoDane": "23807"
+      },
+      {
+        "nombre": "Valencia",
+        "codigoDane": "23855"
+      }
     ]
   },
   {
     "departamento": "Guainía",
-    "ciudades": [
-      "Inírida", "Barrancominas"
+    "municipios": [
+      {
+        "nombre": "Barranco Minas",
+        "codigoDane": "94343"
+      },
+      {
+        "nombre": "Cacahual",
+        "codigoDane": "94886"
+      },
+      {
+        "nombre": "Inírida",
+        "codigoDane": "94001"
+      },
+      {
+        "nombre": "La Guadalupe",
+        "codigoDane": "94885"
+      },
+      {
+        "nombre": "Mapiripana",
+        "codigoDane": "94663"
+      },
+      {
+        "nombre": "Morichal",
+        "codigoDane": "94888"
+      },
+      {
+        "nombre": "Pana Pana",
+        "codigoDane": "94887"
+      },
+      {
+        "nombre": "Puerto Colombia",
+        "codigoDane": "94884"
+      },
+      {
+        "nombre": "San Felipe",
+        "codigoDane": "94883"
+      }
+    ]
+  },
+  {
+    "departamento": "Guaviare",
+    "municipios": [
+      {
+        "nombre": "Calamar",
+        "codigoDane": "95015"
+      },
+      {
+        "nombre": "El Retorno",
+        "codigoDane": "95025"
+      },
+      {
+        "nombre": "Miraflores",
+        "codigoDane": "95200"
+      },
+      {
+        "nombre": "San José del Guaviare",
+        "codigoDane": "95001"
+      }
+    ]
+  },
+  {
+    "departamento": "Huila",
+    "municipios": [
+      {
+        "nombre": "Acevedo",
+        "codigoDane": "41006"
+      },
+      {
+        "nombre": "Agrado",
+        "codigoDane": "41013"
+      },
+      {
+        "nombre": "Aipe",
+        "codigoDane": "41016"
+      },
+      {
+        "nombre": "Algeciras",
+        "codigoDane": "41020"
+      },
+      {
+        "nombre": "Altamira",
+        "codigoDane": "41026"
+      },
+      {
+        "nombre": "Baraya",
+        "codigoDane": "41078"
+      },
+      {
+        "nombre": "Campoalegre",
+        "codigoDane": "41132"
+      },
+      {
+        "nombre": "Colombia",
+        "codigoDane": "41206"
+      },
+      {
+        "nombre": "Elias",
+        "codigoDane": "41244"
+      },
+      {
+        "nombre": "Garzon",
+        "codigoDane": "41298"
+      },
+      {
+        "nombre": "Gigante",
+        "codigoDane": "41306"
+      },
+      {
+        "nombre": "Guadalupe",
+        "codigoDane": "41319"
+      },
+      {
+        "nombre": "Hobo",
+        "codigoDane": "41349"
+      },
+      {
+        "nombre": "Iquira",
+        "codigoDane": "41357"
+      },
+      {
+        "nombre": "Isnos",
+        "codigoDane": "41359"
+      },
+      {
+        "nombre": "La Argentina",
+        "codigoDane": "41378"
+      },
+      {
+        "nombre": "La Plata",
+        "codigoDane": "41396"
+      },
+      {
+        "nombre": "Nataga",
+        "codigoDane": "41483"
+      },
+      {
+        "nombre": "Neiva",
+        "codigoDane": "41001"
+      },
+      {
+        "nombre": "Oporapa",
+        "codigoDane": "41503"
+      },
+      {
+        "nombre": "Paicol",
+        "codigoDane": "41518"
+      },
+      {
+        "nombre": "Palermo",
+        "codigoDane": "41524"
+      },
+      {
+        "nombre": "Palestina",
+        "codigoDane": "41530"
+      },
+      {
+        "nombre": "Pital",
+        "codigoDane": "41548"
+      },
+      {
+        "nombre": "Pitalito",
+        "codigoDane": "41551"
+      },
+      {
+        "nombre": "Rivera",
+        "codigoDane": "41615"
+      },
+      {
+        "nombre": "Saladoblanco",
+        "codigoDane": "41660"
+      },
+      {
+        "nombre": "San Agustin",
+        "codigoDane": "41668"
+      },
+      {
+        "nombre": "Santa Maria",
+        "codigoDane": "41676"
+      },
+      {
+        "nombre": "Suaza",
+        "codigoDane": "41770"
+      },
+      {
+        "nombre": "Tarqui",
+        "codigoDane": "41791"
+      },
+      {
+        "nombre": "Tello",
+        "codigoDane": "41799"
+      },
+      {
+        "nombre": "Teruel",
+        "codigoDane": "41801"
+      },
+      {
+        "nombre": "Tesalia",
+        "codigoDane": "41797"
+      },
+      {
+        "nombre": "Timana",
+        "codigoDane": "41807"
+      },
+      {
+        "nombre": "Villavieja",
+        "codigoDane": "41872"
+      },
+      {
+        "nombre": "Yaguara",
+        "codigoDane": "41885"
+      }
+    ]
+  },
+  {
+    "departamento": "La Guajira",
+    "municipios": [
+      {
+        "nombre": "Albania",
+        "codigoDane": "44035"
+      },
+      {
+        "nombre": "Barrancas",
+        "codigoDane": "44078"
+      },
+      {
+        "nombre": "Dibulla",
+        "codigoDane": "44090"
+      },
+      {
+        "nombre": "Distraccion",
+        "codigoDane": "44098"
+      },
+      {
+        "nombre": "El Molino",
+        "codigoDane": "44110"
+      },
+      {
+        "nombre": "Fonseca",
+        "codigoDane": "44279"
+      },
+      {
+        "nombre": "Hatonuevo",
+        "codigoDane": "44378"
+      },
+      {
+        "nombre": "La Jagua del Pilar",
+        "codigoDane": "44420"
+      },
+      {
+        "nombre": "Maicao",
+        "codigoDane": "44430"
+      },
+      {
+        "nombre": "Manaure",
+        "codigoDane": "44560"
+      },
+      {
+        "nombre": "Riohacha",
+        "codigoDane": "44001"
+      },
+      {
+        "nombre": "San Juan del Cesar",
+        "codigoDane": "44650"
+      },
+      {
+        "nombre": "Uribia",
+        "codigoDane": "44847"
+      },
+      {
+        "nombre": "Urumita",
+        "codigoDane": "44855"
+      },
+      {
+        "nombre": "Villanueva",
+        "codigoDane": "44874"
+      }
+    ]
+  },
+  {
+    "departamento": "Magdalena",
+    "municipios": [
+      {
+        "nombre": "Algarrobo",
+        "codigoDane": "47030"
+      },
+      {
+        "nombre": "Aracataca",
+        "codigoDane": "47053"
+      },
+      {
+        "nombre": "Ariguaini",
+        "codigoDane": "47058"
+      },
+      {
+        "nombre": "Cerro san Antonio",
+        "codigoDane": "47161"
+      },
+      {
+        "nombre": "Chivolo",
+        "codigoDane": "47170"
+      },
+      {
+        "nombre": "Cienaga",
+        "codigoDane": "47189"
+      },
+      {
+        "nombre": "Concordia",
+        "codigoDane": "47205"
+      },
+      {
+        "nombre": "El Banco",
+        "codigoDane": "47245"
+      },
+      {
+        "nombre": "El Pi¥on",
+        "codigoDane": "47258"
+      },
+      {
+        "nombre": "El Reten",
+        "codigoDane": "47268"
+      },
+      {
+        "nombre": "Fundacion",
+        "codigoDane": "47288"
+      },
+      {
+        "nombre": "Guamal",
+        "codigoDane": "47318"
+      },
+      {
+        "nombre": "Nueva Granada",
+        "codigoDane": "47460"
+      },
+      {
+        "nombre": "Pedraza",
+        "codigoDane": "47541"
+      },
+      {
+        "nombre": "Piji¥o del Carmen",
+        "codigoDane": "47545"
+      },
+      {
+        "nombre": "Pivijay",
+        "codigoDane": "47551"
+      },
+      {
+        "nombre": "Plato",
+        "codigoDane": "47555"
+      },
+      {
+        "nombre": "Puebloviejo",
+        "codigoDane": "47570"
+      },
+      {
+        "nombre": "Remolino",
+        "codigoDane": "47605"
+      },
+      {
+        "nombre": "Sabanas de san Angel",
+        "codigoDane": "47660"
+      },
+      {
+        "nombre": "Salamina",
+        "codigoDane": "47675"
+      },
+      {
+        "nombre": "San Sebastian de Buenavista",
+        "codigoDane": "47692"
+      },
+      {
+        "nombre": "San Zenon",
+        "codigoDane": "47703"
+      },
+      {
+        "nombre": "Santa Ana",
+        "codigoDane": "47707"
+      },
+      {
+        "nombre": "Santa Barbara de Pinto",
+        "codigoDane": "47720"
+      },
+      {
+        "nombre": "Santa Marta",
+        "codigoDane": "47001"
+      },
+      {
+        "nombre": "Sitionuevo",
+        "codigoDane": "47745"
+      },
+      {
+        "nombre": "Tenerife",
+        "codigoDane": "47798"
+      },
+      {
+        "nombre": "Zapayan",
+        "codigoDane": "47960"
+      },
+      {
+        "nombre": "Zona Bananera",
+        "codigoDane": "47980"
+      }
+    ]
+  },
+  {
+    "departamento": "Meta",
+    "municipios": [
+      {
+        "nombre": "Acacias",
+        "codigoDane": "50006"
+      },
+      {
+        "nombre": "Barranca de Upia",
+        "codigoDane": "50110"
+      },
+      {
+        "nombre": "Cabuyaro",
+        "codigoDane": "50124"
+      },
+      {
+        "nombre": "Castilla la Nueva",
+        "codigoDane": "50150"
+      },
+      {
+        "nombre": "Cumaral",
+        "codigoDane": "50226"
+      },
+      {
+        "nombre": "El Calvario",
+        "codigoDane": "50245"
+      },
+      {
+        "nombre": "El Castillo",
+        "codigoDane": "50251"
+      },
+      {
+        "nombre": "El Dorado",
+        "codigoDane": "50270"
+      },
+      {
+        "nombre": "Fuente de Oro",
+        "codigoDane": "50287"
+      },
+      {
+        "nombre": "Granada",
+        "codigoDane": "50313"
+      },
+      {
+        "nombre": "Guamal",
+        "codigoDane": "50318"
+      },
+      {
+        "nombre": "La Macarena",
+        "codigoDane": "50350"
+      },
+      {
+        "nombre": "La Uribe",
+        "codigoDane": "50370"
+      },
+      {
+        "nombre": "Lejanias",
+        "codigoDane": "50400"
+      },
+      {
+        "nombre": "Mapiripan",
+        "codigoDane": "50325"
+      },
+      {
+        "nombre": "Mesetas",
+        "codigoDane": "50330"
+      },
+      {
+        "nombre": "Puerto Concordia",
+        "codigoDane": "50450"
+      },
+      {
+        "nombre": "Puerto Gaitan",
+        "codigoDane": "50568"
+      },
+      {
+        "nombre": "Puerto Lleras",
+        "codigoDane": "50577"
+      },
+      {
+        "nombre": "Puerto Lopez",
+        "codigoDane": "50573"
+      },
+      {
+        "nombre": "Puerto Rico",
+        "codigoDane": "50590"
+      },
+      {
+        "nombre": "Restrepo",
+        "codigoDane": "50606"
+      },
+      {
+        "nombre": "San Carlos de Guaroa",
+        "codigoDane": "50680"
+      },
+      {
+        "nombre": "San Juan de Arama",
+        "codigoDane": "50683"
+      },
+      {
+        "nombre": "San Juanito",
+        "codigoDane": "50686"
+      },
+      {
+        "nombre": "San Luis de Cubarral",
+        "codigoDane": "50223"
+      },
+      {
+        "nombre": "San Martin",
+        "codigoDane": "50689"
+      },
+      {
+        "nombre": "Villavicencio",
+        "codigoDane": "50001"
+      },
+      {
+        "nombre": "Vistahermosa",
+        "codigoDane": "50711"
+      }
+    ]
+  },
+  {
+    "departamento": "Nariño",
+    "municipios": [
+      {
+        "nombre": "Alban",
+        "codigoDane": "52019"
+      },
+      {
+        "nombre": "Aldana",
+        "codigoDane": "52022"
+      },
+      {
+        "nombre": "Ancuya",
+        "codigoDane": "52036"
+      },
+      {
+        "nombre": "Arboleda",
+        "codigoDane": "52051"
+      },
+      {
+        "nombre": "Barbacoas",
+        "codigoDane": "52079"
+      },
+      {
+        "nombre": "Belen",
+        "codigoDane": "52083"
+      },
+      {
+        "nombre": "Buesaco",
+        "codigoDane": "52110"
+      },
+      {
+        "nombre": "Chachagui",
+        "codigoDane": "52240"
+      },
+      {
+        "nombre": "Colon",
+        "codigoDane": "52203"
+      },
+      {
+        "nombre": "Consaca",
+        "codigoDane": "52207"
+      },
+      {
+        "nombre": "Contadero",
+        "codigoDane": "52210"
+      },
+      {
+        "nombre": "Cordoba",
+        "codigoDane": "52215"
+      },
+      {
+        "nombre": "Cuaspud",
+        "codigoDane": "52224"
+      },
+      {
+        "nombre": "Cumbal",
+        "codigoDane": "52227"
+      },
+      {
+        "nombre": "Cumbitara",
+        "codigoDane": "52233"
+      },
+      {
+        "nombre": "El Charco",
+        "codigoDane": "52250"
+      },
+      {
+        "nombre": "El Pe¥ol",
+        "codigoDane": "52254"
+      },
+      {
+        "nombre": "El Rosario",
+        "codigoDane": "52256"
+      },
+      {
+        "nombre": "El Tablon",
+        "codigoDane": "52258"
+      },
+      {
+        "nombre": "El Tambo",
+        "codigoDane": "52260"
+      },
+      {
+        "nombre": "Francisco Pizarro",
+        "codigoDane": "52520"
+      },
+      {
+        "nombre": "Funes",
+        "codigoDane": "52287"
+      },
+      {
+        "nombre": "Guachucal",
+        "codigoDane": "52317"
+      },
+      {
+        "nombre": "Guaitarilla",
+        "codigoDane": "52320"
+      },
+      {
+        "nombre": "Gualmatan",
+        "codigoDane": "52323"
+      },
+      {
+        "nombre": "Iles",
+        "codigoDane": "52352"
+      },
+      {
+        "nombre": "Imues",
+        "codigoDane": "52354"
+      },
+      {
+        "nombre": "Ipiales",
+        "codigoDane": "52356"
+      },
+      {
+        "nombre": "La Cruz",
+        "codigoDane": "52378"
+      },
+      {
+        "nombre": "La Florida",
+        "codigoDane": "52381"
+      },
+      {
+        "nombre": "La Llanada",
+        "codigoDane": "52385"
+      },
+      {
+        "nombre": "La Tola",
+        "codigoDane": "52390"
+      },
+      {
+        "nombre": "La Union",
+        "codigoDane": "52399"
+      },
+      {
+        "nombre": "Leiva",
+        "codigoDane": "52405"
+      },
+      {
+        "nombre": "Linares",
+        "codigoDane": "52411"
+      },
+      {
+        "nombre": "Los Andes",
+        "codigoDane": "52418"
+      },
+      {
+        "nombre": "Magui",
+        "codigoDane": "52427"
+      },
+      {
+        "nombre": "Mallama",
+        "codigoDane": "52435"
+      },
+      {
+        "nombre": "Mosquera",
+        "codigoDane": "52473"
+      },
+      {
+        "nombre": "Nariño",
+        "codigoDane": "52480"
+      },
+      {
+        "nombre": "Olaya Herrera",
+        "codigoDane": "52490"
+      },
+      {
+        "nombre": "Ospina",
+        "codigoDane": "52506"
+      },
+      {
+        "nombre": "Pasto",
+        "codigoDane": "52001"
+      },
+      {
+        "nombre": "Policarpa",
+        "codigoDane": "52540"
+      },
+      {
+        "nombre": "Potosi",
+        "codigoDane": "52560"
+      },
+      {
+        "nombre": "Providencia",
+        "codigoDane": "52565"
+      },
+      {
+        "nombre": "Puerres",
+        "codigoDane": "52573"
+      },
+      {
+        "nombre": "Pupiales",
+        "codigoDane": "52585"
+      },
+      {
+        "nombre": "Ricaurte",
+        "codigoDane": "52612"
+      },
+      {
+        "nombre": "Roberto Payan",
+        "codigoDane": "52621"
+      },
+      {
+        "nombre": "Samaniego",
+        "codigoDane": "52678"
+      },
+      {
+        "nombre": "San Bernardo",
+        "codigoDane": "52685"
+      },
+      {
+        "nombre": "San Lorenzo",
+        "codigoDane": "52687"
+      },
+      {
+        "nombre": "San Pablo",
+        "codigoDane": "52693"
+      },
+      {
+        "nombre": "San Pedro de Cartago",
+        "codigoDane": "52694"
+      },
+      {
+        "nombre": "Sandona",
+        "codigoDane": "52683"
+      },
+      {
+        "nombre": "Santa Barbara",
+        "codigoDane": "52696"
+      },
+      {
+        "nombre": "Santa Cruz",
+        "codigoDane": "52699"
+      },
+      {
+        "nombre": "Sapuyes",
+        "codigoDane": "52720"
+      },
+      {
+        "nombre": "Taminango",
+        "codigoDane": "52786"
+      },
+      {
+        "nombre": "Tangua",
+        "codigoDane": "52788"
+      },
+      {
+        "nombre": "Tumaco",
+        "codigoDane": "52835"
+      },
+      {
+        "nombre": "Tuquerres",
+        "codigoDane": "52838"
+      },
+      {
+        "nombre": "Yacuanquer",
+        "codigoDane": "52885"
+      }
+    ]
+  },
+  {
+    "departamento": "Norte de Santander",
+    "municipios": [
+      {
+        "nombre": "Abrego",
+        "codigoDane": "54003"
+      },
+      {
+        "nombre": "Arboledas",
+        "codigoDane": "54051"
+      },
+      {
+        "nombre": "Bochalema",
+        "codigoDane": "54099"
+      },
+      {
+        "nombre": "Bucarasica",
+        "codigoDane": "54109"
+      },
+      {
+        "nombre": "Cachira",
+        "codigoDane": "54128"
+      },
+      {
+        "nombre": "Cacota",
+        "codigoDane": "54125"
+      },
+      {
+        "nombre": "Chinacota",
+        "codigoDane": "54172"
+      },
+      {
+        "nombre": "Chitaga",
+        "codigoDane": "54174"
+      },
+      {
+        "nombre": "Convencion",
+        "codigoDane": "54206"
+      },
+      {
+        "nombre": "Cucutilla",
+        "codigoDane": "54223"
+      },
+      {
+        "nombre": "Cúcuta",
+        "codigoDane": "54001"
+      },
+      {
+        "nombre": "Durania",
+        "codigoDane": "54239"
+      },
+      {
+        "nombre": "El Carmen",
+        "codigoDane": "54245"
+      },
+      {
+        "nombre": "El Tarra",
+        "codigoDane": "54250"
+      },
+      {
+        "nombre": "El Zulia",
+        "codigoDane": "54261"
+      },
+      {
+        "nombre": "Gramalote",
+        "codigoDane": "54313"
+      },
+      {
+        "nombre": "Hacari",
+        "codigoDane": "54344"
+      },
+      {
+        "nombre": "Herran",
+        "codigoDane": "54347"
+      },
+      {
+        "nombre": "La Esperanza",
+        "codigoDane": "54385"
+      },
+      {
+        "nombre": "La Playa",
+        "codigoDane": "54398"
+      },
+      {
+        "nombre": "Labateca",
+        "codigoDane": "54377"
+      },
+      {
+        "nombre": "Los Patios",
+        "codigoDane": "54405"
+      },
+      {
+        "nombre": "Lourdes",
+        "codigoDane": "54418"
+      },
+      {
+        "nombre": "Mutiscua",
+        "codigoDane": "54480"
+      },
+      {
+        "nombre": "Oca¥a",
+        "codigoDane": "54498"
+      },
+      {
+        "nombre": "Pamplona",
+        "codigoDane": "54518"
+      },
+      {
+        "nombre": "Pamplonita",
+        "codigoDane": "54520"
+      },
+      {
+        "nombre": "Puerto Santander",
+        "codigoDane": "54553"
+      },
+      {
+        "nombre": "Ragonvalia",
+        "codigoDane": "54599"
+      },
+      {
+        "nombre": "Salazar",
+        "codigoDane": "54660"
+      },
+      {
+        "nombre": "San Calixto",
+        "codigoDane": "54670"
+      },
+      {
+        "nombre": "San Cayetano",
+        "codigoDane": "54673"
+      },
+      {
+        "nombre": "Santiago",
+        "codigoDane": "54680"
+      },
+      {
+        "nombre": "Sardinata",
+        "codigoDane": "54720"
+      },
+      {
+        "nombre": "Silos",
+        "codigoDane": "54743"
+      },
+      {
+        "nombre": "Teorama",
+        "codigoDane": "54800"
+      },
+      {
+        "nombre": "Tibu",
+        "codigoDane": "54810"
+      },
+      {
+        "nombre": "Toledo",
+        "codigoDane": "54820"
+      },
+      {
+        "nombre": "Villa Caro",
+        "codigoDane": "54871"
+      },
+      {
+        "nombre": "Villa del Rosario",
+        "codigoDane": "54874"
+      }
+    ]
+  },
+  {
+    "departamento": "Putumayo",
+    "municipios": [
+      {
+        "nombre": "Colon",
+        "codigoDane": "86219"
+      },
+      {
+        "nombre": "Mocoa",
+        "codigoDane": "86001"
+      },
+      {
+        "nombre": "Orito",
+        "codigoDane": "86320"
+      },
+      {
+        "nombre": "Puerto Asis",
+        "codigoDane": "86568"
+      },
+      {
+        "nombre": "Puerto Caicedo",
+        "codigoDane": "86569"
+      },
+      {
+        "nombre": "Puerto Guzman",
+        "codigoDane": "86571"
+      },
+      {
+        "nombre": "Puerto Leguizamo",
+        "codigoDane": "86573"
+      },
+      {
+        "nombre": "San Francisco",
+        "codigoDane": "86755"
+      },
+      {
+        "nombre": "San Miguel",
+        "codigoDane": "86757"
+      },
+      {
+        "nombre": "Santiago",
+        "codigoDane": "86760"
+      },
+      {
+        "nombre": "Sibundoy",
+        "codigoDane": "86749"
+      },
+      {
+        "nombre": "Valle del Guamuez",
+        "codigoDane": "86865"
+      },
+      {
+        "nombre": "Villagarzon",
+        "codigoDane": "86885"
+      }
+    ]
+  },
+  {
+    "departamento": "Quindío",
+    "municipios": [
+      {
+        "nombre": "Armenia",
+        "codigoDane": "63001"
+      },
+      {
+        "nombre": "Buenavista",
+        "codigoDane": "63111"
+      },
+      {
+        "nombre": "Calarca",
+        "codigoDane": "63130"
+      },
+      {
+        "nombre": "Circasia",
+        "codigoDane": "63190"
+      },
+      {
+        "nombre": "Cordoba",
+        "codigoDane": "63212"
+      },
+      {
+        "nombre": "Filandia",
+        "codigoDane": "63272"
+      },
+      {
+        "nombre": "Genova",
+        "codigoDane": "63302"
+      },
+      {
+        "nombre": "La Tebaida",
+        "codigoDane": "63401"
+      },
+      {
+        "nombre": "Montenegro",
+        "codigoDane": "63470"
+      },
+      {
+        "nombre": "Pijao",
+        "codigoDane": "63548"
+      },
+      {
+        "nombre": "Quimbaya",
+        "codigoDane": "63594"
+      },
+      {
+        "nombre": "Salento",
+        "codigoDane": "63690"
+      }
+    ]
+  },
+  {
+    "departamento": "Risaralda",
+    "municipios": [
+      {
+        "nombre": "Apia",
+        "codigoDane": "66045"
+      },
+      {
+        "nombre": "Balboa",
+        "codigoDane": "66075"
+      },
+      {
+        "nombre": "Belen de Umbria",
+        "codigoDane": "66088"
+      },
+      {
+        "nombre": "Dosquebradas",
+        "codigoDane": "66170"
+      },
+      {
+        "nombre": "Guatica",
+        "codigoDane": "66318"
+      },
+      {
+        "nombre": "La Celia",
+        "codigoDane": "66383"
+      },
+      {
+        "nombre": "La Virginia",
+        "codigoDane": "66400"
+      },
+      {
+        "nombre": "Marsella",
+        "codigoDane": "66440"
+      },
+      {
+        "nombre": "Mistrato",
+        "codigoDane": "66456"
+      },
+      {
+        "nombre": "Pereira",
+        "codigoDane": "66001"
+      },
+      {
+        "nombre": "Pueblo Rico",
+        "codigoDane": "66572"
+      },
+      {
+        "nombre": "Quinchia",
+        "codigoDane": "66594"
+      },
+      {
+        "nombre": "Santa Rosa de Cabal",
+        "codigoDane": "66682"
+      },
+      {
+        "nombre": "Santuario",
+        "codigoDane": "66687"
+      }
+    ]
+  },
+  {
+    "departamento": "San Andrés y Providencia",
+    "municipios": [
+      {
+        "nombre": "Providencia",
+        "codigoDane": "88564"
+      },
+      {
+        "nombre": "San Andrés",
+        "codigoDane": "88001"
+      },
+      {
+        "nombre": "Santa Catalina",
+        "codigoDane": "88000"
+      }
+    ]
+  },
+  {
+    "departamento": "Santander",
+    "municipios": [
+      {
+        "nombre": "Aguada",
+        "codigoDane": "68013"
+      },
+      {
+        "nombre": "Albania",
+        "codigoDane": "68020"
+      },
+      {
+        "nombre": "Aratoca",
+        "codigoDane": "68051"
+      },
+      {
+        "nombre": "Barbosa",
+        "codigoDane": "68077"
+      },
+      {
+        "nombre": "Barichara",
+        "codigoDane": "68079"
+      },
+      {
+        "nombre": "Barrancabermeja",
+        "codigoDane": "68081"
+      },
+      {
+        "nombre": "Betulia",
+        "codigoDane": "68092"
+      },
+      {
+        "nombre": "Bolivar",
+        "codigoDane": "68101"
+      },
+      {
+        "nombre": "Bucaramanga",
+        "codigoDane": "68001"
+      },
+      {
+        "nombre": "Cabrera",
+        "codigoDane": "68121"
+      },
+      {
+        "nombre": "California",
+        "codigoDane": "68132"
+      },
+      {
+        "nombre": "Capitanejo",
+        "codigoDane": "68147"
+      },
+      {
+        "nombre": "Carcasi",
+        "codigoDane": "68152"
+      },
+      {
+        "nombre": "Cepita",
+        "codigoDane": "68160"
+      },
+      {
+        "nombre": "Cerrito",
+        "codigoDane": "68162"
+      },
+      {
+        "nombre": "Charala",
+        "codigoDane": "68167"
+      },
+      {
+        "nombre": "Charta",
+        "codigoDane": "68169"
+      },
+      {
+        "nombre": "Chima",
+        "codigoDane": "68176"
+      },
+      {
+        "nombre": "Chipata",
+        "codigoDane": "68179"
+      },
+      {
+        "nombre": "Cimitarra",
+        "codigoDane": "68190"
+      },
+      {
+        "nombre": "Concepcion",
+        "codigoDane": "68207"
+      },
+      {
+        "nombre": "Confines",
+        "codigoDane": "68209"
+      },
+      {
+        "nombre": "Contratacion",
+        "codigoDane": "68211"
+      },
+      {
+        "nombre": "Coromoro",
+        "codigoDane": "68217"
+      },
+      {
+        "nombre": "Curiti",
+        "codigoDane": "68229"
+      },
+      {
+        "nombre": "El Carmen de Chucuri",
+        "codigoDane": "68235"
+      },
+      {
+        "nombre": "El Guacamayo",
+        "codigoDane": "68245"
+      },
+      {
+        "nombre": "El Pe¥on",
+        "codigoDane": "68250"
+      },
+      {
+        "nombre": "El Playon",
+        "codigoDane": "68255"
+      },
+      {
+        "nombre": "Encino",
+        "codigoDane": "68264"
+      },
+      {
+        "nombre": "Enciso",
+        "codigoDane": "68266"
+      },
+      {
+        "nombre": "Florian",
+        "codigoDane": "68271"
+      },
+      {
+        "nombre": "Floridablanca",
+        "codigoDane": "68276"
+      },
+      {
+        "nombre": "Galan",
+        "codigoDane": "68296"
+      },
+      {
+        "nombre": "Gambita",
+        "codigoDane": "68298"
+      },
+      {
+        "nombre": "Giron",
+        "codigoDane": "68307"
+      },
+      {
+        "nombre": "Guaca",
+        "codigoDane": "68318"
+      },
+      {
+        "nombre": "Guadalupe",
+        "codigoDane": "68320"
+      },
+      {
+        "nombre": "Guapota",
+        "codigoDane": "68322"
+      },
+      {
+        "nombre": "Guavata",
+        "codigoDane": "68324"
+      },
+      {
+        "nombre": "Guepsa",
+        "codigoDane": "68327"
+      },
+      {
+        "nombre": "Hato",
+        "codigoDane": "68344"
+      },
+      {
+        "nombre": "Jesus Maria",
+        "codigoDane": "68368"
+      },
+      {
+        "nombre": "Jordan",
+        "codigoDane": "68370"
+      },
+      {
+        "nombre": "La Belleza",
+        "codigoDane": "68377"
+      },
+      {
+        "nombre": "La Paz",
+        "codigoDane": "68397"
+      },
+      {
+        "nombre": "Landazuri",
+        "codigoDane": "68385"
+      },
+      {
+        "nombre": "Lebrija",
+        "codigoDane": "68406"
+      },
+      {
+        "nombre": "Los Santos",
+        "codigoDane": "68418"
+      },
+      {
+        "nombre": "Macaravita",
+        "codigoDane": "68425"
+      },
+      {
+        "nombre": "Malaga",
+        "codigoDane": "68432"
+      },
+      {
+        "nombre": "Matanza",
+        "codigoDane": "68444"
+      },
+      {
+        "nombre": "Mogotes",
+        "codigoDane": "68464"
+      },
+      {
+        "nombre": "Molagavita",
+        "codigoDane": "68468"
+      },
+      {
+        "nombre": "Ocamonte",
+        "codigoDane": "68498"
+      },
+      {
+        "nombre": "Oiba",
+        "codigoDane": "68500"
+      },
+      {
+        "nombre": "Onzaga",
+        "codigoDane": "68502"
+      },
+      {
+        "nombre": "Palmar",
+        "codigoDane": "68522"
+      },
+      {
+        "nombre": "Palmas del Socorro",
+        "codigoDane": "68524"
+      },
+      {
+        "nombre": "Paramo",
+        "codigoDane": "68533"
+      },
+      {
+        "nombre": "Piedecuesta",
+        "codigoDane": "68547"
+      },
+      {
+        "nombre": "Pinchote",
+        "codigoDane": "68549"
+      },
+      {
+        "nombre": "Puente Nacional",
+        "codigoDane": "68572"
+      },
+      {
+        "nombre": "Puerto Parra",
+        "codigoDane": "68573"
+      },
+      {
+        "nombre": "Puerto Wilches",
+        "codigoDane": "68575"
+      },
+      {
+        "nombre": "Rionegro",
+        "codigoDane": "68615"
+      },
+      {
+        "nombre": "Sabana de Torres",
+        "codigoDane": "68655"
+      },
+      {
+        "nombre": "San Andres",
+        "codigoDane": "68669"
+      },
+      {
+        "nombre": "San Benito",
+        "codigoDane": "68673"
+      },
+      {
+        "nombre": "San Gil",
+        "codigoDane": "68679"
+      },
+      {
+        "nombre": "San Joaquin",
+        "codigoDane": "68682"
+      },
+      {
+        "nombre": "San Jose de Miranda",
+        "codigoDane": "68684"
+      },
+      {
+        "nombre": "San Miguel",
+        "codigoDane": "68686"
+      },
+      {
+        "nombre": "San Vicente de Chucuri",
+        "codigoDane": "68689"
+      },
+      {
+        "nombre": "Santa Barbara",
+        "codigoDane": "68705"
+      },
+      {
+        "nombre": "Santa Helena del Opon",
+        "codigoDane": "68720"
+      },
+      {
+        "nombre": "Simacota",
+        "codigoDane": "68745"
+      },
+      {
+        "nombre": "Socorro",
+        "codigoDane": "68755"
+      },
+      {
+        "nombre": "Suaita",
+        "codigoDane": "68770"
+      },
+      {
+        "nombre": "Sucre",
+        "codigoDane": "68773"
+      },
+      {
+        "nombre": "Surata",
+        "codigoDane": "68780"
+      },
+      {
+        "nombre": "Tona",
+        "codigoDane": "68820"
+      },
+      {
+        "nombre": "Valle de san Jose",
+        "codigoDane": "68855"
+      },
+      {
+        "nombre": "Velez",
+        "codigoDane": "68861"
+      },
+      {
+        "nombre": "Vetas",
+        "codigoDane": "68867"
+      },
+      {
+        "nombre": "Villanueva",
+        "codigoDane": "68872"
+      },
+      {
+        "nombre": "Zapatoca",
+        "codigoDane": "68895"
+      }
+    ]
+  },
+  {
+    "departamento": "Sucre",
+    "municipios": [
+      {
+        "nombre": "Buenavista",
+        "codigoDane": "70110"
+      },
+      {
+        "nombre": "Caimito",
+        "codigoDane": "70124"
+      },
+      {
+        "nombre": "Chalan",
+        "codigoDane": "70230"
+      },
+      {
+        "nombre": "Coloso",
+        "codigoDane": "70204"
+      },
+      {
+        "nombre": "Corozal",
+        "codigoDane": "70215"
+      },
+      {
+        "nombre": "Coveñas",
+        "codigoDane": "70221"
+      },
+      {
+        "nombre": "El Roble",
+        "codigoDane": "70233"
+      },
+      {
+        "nombre": "Galeras",
+        "codigoDane": "70235"
+      },
+      {
+        "nombre": "Guaranda",
+        "codigoDane": "70265"
+      },
+      {
+        "nombre": "La Union",
+        "codigoDane": "70400"
+      },
+      {
+        "nombre": "Los Palmitos",
+        "codigoDane": "70418"
+      },
+      {
+        "nombre": "Majagual",
+        "codigoDane": "70429"
+      },
+      {
+        "nombre": "Morroa",
+        "codigoDane": "70473"
+      },
+      {
+        "nombre": "Ovejas",
+        "codigoDane": "70508"
+      },
+      {
+        "nombre": "Palmito",
+        "codigoDane": "70523"
+      },
+      {
+        "nombre": "Sampues",
+        "codigoDane": "70670"
+      },
+      {
+        "nombre": "San Benito Abad",
+        "codigoDane": "70678"
+      },
+      {
+        "nombre": "San Juan de Betulia",
+        "codigoDane": "70702"
+      },
+      {
+        "nombre": "San Marcos",
+        "codigoDane": "70708"
+      },
+      {
+        "nombre": "San Onofre",
+        "codigoDane": "70713"
+      },
+      {
+        "nombre": "San Pedro",
+        "codigoDane": "70717"
+      },
+      {
+        "nombre": "Since",
+        "codigoDane": "70742"
+      },
+      {
+        "nombre": "Sincelejo",
+        "codigoDane": "70001"
+      },
+      {
+        "nombre": "Sucre",
+        "codigoDane": "70771"
+      },
+      {
+        "nombre": "Tolu",
+        "codigoDane": "70820"
+      },
+      {
+        "nombre": "Toluviejo",
+        "codigoDane": "70823"
+      }
+    ]
+  },
+  {
+    "departamento": "Tolima",
+    "municipios": [
+      {
+        "nombre": "Alpujarra",
+        "codigoDane": "73024"
+      },
+      {
+        "nombre": "Alvarado",
+        "codigoDane": "73026"
+      },
+      {
+        "nombre": "Ambalema",
+        "codigoDane": "73030"
+      },
+      {
+        "nombre": "Anzoategui",
+        "codigoDane": "73043"
+      },
+      {
+        "nombre": "Armero",
+        "codigoDane": "73055"
+      },
+      {
+        "nombre": "Ataco",
+        "codigoDane": "73067"
+      },
+      {
+        "nombre": "Cajamarca",
+        "codigoDane": "73124"
+      },
+      {
+        "nombre": "Carmen de Apicala",
+        "codigoDane": "73148"
+      },
+      {
+        "nombre": "Casabianca",
+        "codigoDane": "73152"
+      },
+      {
+        "nombre": "Chaparral",
+        "codigoDane": "73168"
+      },
+      {
+        "nombre": "Coello",
+        "codigoDane": "73200"
+      },
+      {
+        "nombre": "Coyaima",
+        "codigoDane": "73217"
+      },
+      {
+        "nombre": "Cunday",
+        "codigoDane": "73226"
+      },
+      {
+        "nombre": "Dolores",
+        "codigoDane": "73236"
+      },
+      {
+        "nombre": "Espinal",
+        "codigoDane": "73268"
+      },
+      {
+        "nombre": "Falan",
+        "codigoDane": "73270"
+      },
+      {
+        "nombre": "Flandes",
+        "codigoDane": "73275"
+      },
+      {
+        "nombre": "Fresno",
+        "codigoDane": "73283"
+      },
+      {
+        "nombre": "Guamo",
+        "codigoDane": "73319"
+      },
+      {
+        "nombre": "Herveo",
+        "codigoDane": "73347"
+      },
+      {
+        "nombre": "Honda",
+        "codigoDane": "73349"
+      },
+      {
+        "nombre": "Ibagué",
+        "codigoDane": "73001"
+      },
+      {
+        "nombre": "Icononzo",
+        "codigoDane": "73352"
+      },
+      {
+        "nombre": "Lerida",
+        "codigoDane": "73408"
+      },
+      {
+        "nombre": "Libano",
+        "codigoDane": "73411"
+      },
+      {
+        "nombre": "Mariquita",
+        "codigoDane": "73443"
+      },
+      {
+        "nombre": "Melgar",
+        "codigoDane": "73449"
+      },
+      {
+        "nombre": "Murillo",
+        "codigoDane": "73461"
+      },
+      {
+        "nombre": "Natagaima",
+        "codigoDane": "73483"
+      },
+      {
+        "nombre": "Ortega",
+        "codigoDane": "73504"
+      },
+      {
+        "nombre": "Palocabildo",
+        "codigoDane": "73520"
+      },
+      {
+        "nombre": "Piedras",
+        "codigoDane": "73547"
+      },
+      {
+        "nombre": "Planadas",
+        "codigoDane": "73555"
+      },
+      {
+        "nombre": "Prado",
+        "codigoDane": "73563"
+      },
+      {
+        "nombre": "Purificacion",
+        "codigoDane": "73585"
+      },
+      {
+        "nombre": "Rioblanco",
+        "codigoDane": "73616"
+      },
+      {
+        "nombre": "Roncesvalles",
+        "codigoDane": "73622"
+      },
+      {
+        "nombre": "Rovira",
+        "codigoDane": "73624"
+      },
+      {
+        "nombre": "Salda¥a",
+        "codigoDane": "73671"
+      },
+      {
+        "nombre": "San Antonio",
+        "codigoDane": "73675"
+      },
+      {
+        "nombre": "San Luis",
+        "codigoDane": "73678"
+      },
+      {
+        "nombre": "Santa Isabel",
+        "codigoDane": "73686"
+      },
+      {
+        "nombre": "Suarez",
+        "codigoDane": "73770"
+      },
+      {
+        "nombre": "Valle de san Juan",
+        "codigoDane": "73854"
+      },
+      {
+        "nombre": "Venadillo",
+        "codigoDane": "73861"
+      },
+      {
+        "nombre": "Villahermosa",
+        "codigoDane": "73870"
+      },
+      {
+        "nombre": "Villarrica",
+        "codigoDane": "73873"
+      }
+    ]
+  },
+  {
+    "departamento": "Valle del Cauca",
+    "municipios": [
+      {
+        "nombre": "Alcala",
+        "codigoDane": "76020"
+      },
+      {
+        "nombre": "Andalucia",
+        "codigoDane": "76036"
+      },
+      {
+        "nombre": "Ansermanuevo",
+        "codigoDane": "76041"
+      },
+      {
+        "nombre": "Argelia",
+        "codigoDane": "76054"
+      },
+      {
+        "nombre": "Bolivar",
+        "codigoDane": "76100"
+      },
+      {
+        "nombre": "Buenaventura",
+        "codigoDane": "76109"
+      },
+      {
+        "nombre": "Buga",
+        "codigoDane": "76111"
+      },
+      {
+        "nombre": "Bugalagrande",
+        "codigoDane": "76113"
+      },
+      {
+        "nombre": "Caicedonia",
+        "codigoDane": "76122"
+      },
+      {
+        "nombre": "Cali",
+        "codigoDane": "76001"
+      },
+      {
+        "nombre": "Candelaria",
+        "codigoDane": "76130"
+      },
+      {
+        "nombre": "Cartago",
+        "codigoDane": "76147"
+      },
+      {
+        "nombre": "Dagua",
+        "codigoDane": "76233"
+      },
+      {
+        "nombre": "Darien",
+        "codigoDane": "76126"
+      },
+      {
+        "nombre": "El Aguila",
+        "codigoDane": "76243"
+      },
+      {
+        "nombre": "El Cairo",
+        "codigoDane": "76246"
+      },
+      {
+        "nombre": "El Cerrito",
+        "codigoDane": "76248"
+      },
+      {
+        "nombre": "El Dovio",
+        "codigoDane": "76250"
+      },
+      {
+        "nombre": "Florida",
+        "codigoDane": "76275"
+      },
+      {
+        "nombre": "Ginebra",
+        "codigoDane": "76306"
+      },
+      {
+        "nombre": "Guacari",
+        "codigoDane": "76318"
+      },
+      {
+        "nombre": "Jamundi",
+        "codigoDane": "76364"
+      },
+      {
+        "nombre": "La Cumbre",
+        "codigoDane": "76377"
+      },
+      {
+        "nombre": "La Union",
+        "codigoDane": "76400"
+      },
+      {
+        "nombre": "La Victoria",
+        "codigoDane": "76403"
+      },
+      {
+        "nombre": "Obando",
+        "codigoDane": "76497"
+      },
+      {
+        "nombre": "Palmira",
+        "codigoDane": "76520"
+      },
+      {
+        "nombre": "Pradera",
+        "codigoDane": "76563"
+      },
+      {
+        "nombre": "Restrepo",
+        "codigoDane": "76606"
+      },
+      {
+        "nombre": "Riofrio",
+        "codigoDane": "76616"
+      },
+      {
+        "nombre": "Roldanillo",
+        "codigoDane": "76622"
+      },
+      {
+        "nombre": "San Pedro",
+        "codigoDane": "76670"
+      },
+      {
+        "nombre": "Sevilla",
+        "codigoDane": "76736"
+      },
+      {
+        "nombre": "Toro",
+        "codigoDane": "76823"
+      },
+      {
+        "nombre": "Trujillo",
+        "codigoDane": "76828"
+      },
+      {
+        "nombre": "Tulua",
+        "codigoDane": "76834"
+      },
+      {
+        "nombre": "Ulloa",
+        "codigoDane": "76845"
+      },
+      {
+        "nombre": "Versalles",
+        "codigoDane": "76863"
+      },
+      {
+        "nombre": "Vijes",
+        "codigoDane": "76869"
+      },
+      {
+        "nombre": "Yotoco",
+        "codigoDane": "76890"
+      },
+      {
+        "nombre": "Yumbo",
+        "codigoDane": "76892"
+      },
+      {
+        "nombre": "Zarzal",
+        "codigoDane": "76895"
+      }
     ]
   },
   {
     "departamento": "Vaupés",
-    "ciudades": [
-      "Mitú", "Carurú", "Taraira"
+    "municipios": [
+      {
+        "nombre": "Caruru",
+        "codigoDane": "97161"
+      },
+      {
+        "nombre": "Mitú",
+        "codigoDane": "97001"
+      },
+      {
+        "nombre": "Pacoa",
+        "codigoDane": "97511"
+      },
+      {
+        "nombre": "Papunaua",
+        "codigoDane": "97777"
+      },
+      {
+        "nombre": "Taraira",
+        "codigoDane": "97666"
+      },
+      {
+        "nombre": "Yavarate",
+        "codigoDane": "97889"
+      }
     ]
   },
   {
     "departamento": "Vichada",
-    "ciudades": [
-      "Puerto Carreño", "Santa Rosalía", "Cumaribo", "La Primavera"
+    "municipios": [
+      {
+        "nombre": "Cumaribo",
+        "codigoDane": "99773"
+      },
+      {
+        "nombre": "La Primavera",
+        "codigoDane": "99524"
+      },
+      {
+        "nombre": "Puerto Carreño",
+        "codigoDane": "99001"
+      },
+      {
+        "nombre": "Santa Rosalia",
+        "codigoDane": "99624"
+      }
     ]
   }
 ]
