@@ -129,7 +129,7 @@ export default function GaleriaClientes({ medios }: Props) {
 
       <button
         type="button"
-        onClick={() => ctaClick('galeria-clientes')}
+        onClick={() => ctaClick('galeria-clientes', 'pack-1')}
         class="mt-5 w-full h-14 bg-[var(--color-naranja)] hover:bg-[var(--color-naranja-hover)] active:translate-y-0.5 text-[var(--color-tinta)] font-bold text-xl rounded-[10px] uppercase font-['Barlow_Condensed'] tracking-wider shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
       >
         <span>Quiero el mío — pagas al recibir</span>

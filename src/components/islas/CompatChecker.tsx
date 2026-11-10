@@ -110,7 +110,7 @@ export default function CompatChecker() {
                 </div>
                 <button
                   type="button"
-                  onClick={() => ctaClick('compat')}
+                  onClick={() => ctaClick('compat', 'pack-1')}
                   class="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-[var(--color-naranja)] text-[var(--color-tinta)] font-bold text-sm uppercase font-['Barlow_Condensed'] tracking-wide shrink-0 hover:bg-[var(--color-naranja-hover)] cursor-pointer"
                 >
                   Ir al pedido
