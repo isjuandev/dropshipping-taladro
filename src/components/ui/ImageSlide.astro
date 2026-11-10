@@ -15,7 +15,7 @@ interface Props {
   chips?: string[];
   posicionTexto?: 'arriba' | 'abajo';
   textoEnImagen?: boolean; // la imagen ya trae su texto: no se superpone nada
-  cta?: { texto: string; origen: string };
+  cta?: { texto: string; origen: string; packId?: string };
   garantia?: string | false;
   eager?: boolean; // solo el hero (LCP)
   h1?: boolean;
@@ -104,5 +104,5 @@ const degradado = `linear-gradient(to ${arriba ? 'bottom' : 'top'}, ${acero75} 0
     <slot />
   </div>
 
-  {cta && <BotonCta texto={cta.texto} origen={cta.origen} garantia={garantia} />}
+  {cta && <BotonCta texto={cta.texto} origen={cta.origen} garantia={garantia} packId={cta.packId} />}
 </section>

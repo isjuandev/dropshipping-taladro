@@ -6,7 +6,7 @@ import paso2Apoya from '../../assets/img/paso-2-apoya.webp';
 import paso3Corta from '../../assets/img/paso-3-corta.webp';
 
 interface Props {
-  cta?: { texto: string; origen: string };
+  cta?: { texto: string; origen: string; packId?: string };
 }
 
 const { cta } = Astro.props;
@@ -49,5 +49,5 @@ const pasos = [
       ))}
     </ol>
   </div>
-  {cta && <BotonCta texto={cta.texto} origen={cta.origen} />}
+  {cta && <BotonCta texto={cta.texto} origen={cta.origen} packId={cta.packId} />}
 </section>
