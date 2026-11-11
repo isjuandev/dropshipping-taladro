@@ -17,7 +17,7 @@ if (fs.existsSync(envPath)) {
 }
 
 const apiUrl = process.env.PUBLIC_NEXOBITE_API_URL || 'https://api.nexobite.com/api/v1/public/dropshipping/viralyshop/leads';
-const productId = process.env.PUBLIC_NEXOBITE_PRODUCT_ID || '98745';
+const productId = process.env.PUBLIC_NEXOBITE_PRODUCT_ID || '2307840';
 const campaignSlug = process.env.PUBLIC_NEXOBITE_CAMPAIGN_SLUG || 'viralyshop';
 
 // Generar pedidoId con fecha de Bogotá UTC-5

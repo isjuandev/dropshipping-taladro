@@ -8,7 +8,7 @@ const envSchema = z.object({
   PUBLIC_NEXOBITE_PRODUCT_ID: z
     .string()
     .min(1, 'PUBLIC_NEXOBITE_PRODUCT_ID no puede estar vacío')
-    .default('98745'),
+    .default('2307840'),
   PUBLIC_NEXOBITE_CAMPAIGN_SLUG: z
     .string()
     .min(1, 'PUBLIC_NEXOBITE_CAMPAIGN_SLUG no puede estar vacío')

@@ -44,7 +44,7 @@ export const configTienda = {
     endpoint:
       import.meta.env.PUBLIC_NEXOBITE_API_URL ||
       'https://api.nexobite.com/api/v1/public/dropshipping/viralyshop/leads',
-    productId: import.meta.env.PUBLIC_NEXOBITE_PRODUCT_ID || '98745',
+    productId: import.meta.env.PUBLIC_NEXOBITE_PRODUCT_ID || '2307840',
     campaignSlug: import.meta.env.PUBLIC_NEXOBITE_CAMPAIGN_SLUG || 'viralyshop',
     horarioConfirmacion: 'lunes a sábado, 8 a. m. a 6 p. m.',
     tiempoConfirmacion: 'en menos de 2 horas hábiles',

@@ -40,10 +40,16 @@ cp .env.example .env
 Configura las credenciales de tu campaña en NexoBite:
 
 ```env
-PUBLIC_NEXOBITE_API_URL=https://api.nexobite.com/api/v1/public/dropshipping/campana-hexacut-pro/leads
-PUBLIC_NEXOBITE_PRODUCT_ID=98745
-PUBLIC_NEXOBITE_CAMPAIGN_SLUG=campana-hexacut-pro
+PUBLIC_NEXOBITE_API_URL=https://api.nexobite.com/api/v1/public/dropshipping/viralyshop/leads
+PUBLIC_NEXOBITE_PRODUCT_ID=2307840
+PUBLIC_NEXOBITE_CAMPAIGN_SLUG=viralyshop
 ```
+
+> **Nota:** `PUBLIC_NEXOBITE_PRODUCT_ID` es la columna **ID Dropi** del producto en NexoBite
+> (no un id interno de NexoBite). `PUBLIC_NEXOBITE_CAMPAIGN_SLUG` es el slug de la **campaña**, que
+> no tiene por qué coincidir con el slug de la tienda de la URL del endpoint (en esta tienda ambos
+> son `viralyshop`). Si el slug no coincide con una campaña activa, la API responde
+> `422 La campaña no existe o está inactiva` y el pedido no entra.
 
 > **Importante:** La compilación (`pnpm build`) valida estas variables en `src/lib/env.ts` mediante Zod. Si falta alguna variable obligatoria, el build se detendrá con un mensaje claro de error.
 
